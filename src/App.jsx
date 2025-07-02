@@ -4,6 +4,7 @@ import Homepage from "./pages/homepage";
 import About from "./pages/about";
 import Works from "./pages/works";
 import { ModeContext } from "./context/mode";
+import Contact from "./pages/contact";
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
         <Route path="/" element={<Homepage />} />
         <Route path="/about" element={<About/>}/>
         <Route path="/work" element={<Works/>}/>
+        <Route path="/contact" element={<Contact/>}/>
       </Routes>
     </Router>
     </ModeContext>

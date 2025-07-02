@@ -1,25 +1,71 @@
-import { React, useContext, useState } from "react";
+import { React, useContext, useEffect, useRef, useState } from "react";
 import Navbar from "../components/navbar";
 import Project from "../components/project";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import {
+  IoIosArrowBack,
+  IoIosArrowForward,
+  IoLogoJavascript,
+} from "react-icons/io";
 import { Link } from "react-router-dom";
 import Footer from "../components/footer";
-import ModeProvider, { ModeContext } from "../context/mode";
+import ModeProvider from "../context/mode";
+import gsap from "gsap";
 import "./all.css";
+import { SplitText } from "gsap/SplitText";
+import { useGSAP } from "@gsap/react";
+import {
+  FaBootstrap,
+  FaChartLine,
+  FaCss3,
+  FaHtml5,
+  FaNodeJs,
+  FaPython,
+  FaReact,
+} from "react-icons/fa";
+import { SiJquery, SiNextdotjs } from "react-icons/si";
+import { TbBrandThreejs } from "react-icons/tb";
 
 export default function Homepage() {
   //   const [mode, setMode] = useState("light");
-  const { mode, setMode } = useContext(ModeProvider);
+  const { mode } = useContext(ModeProvider);
+  const headerText = useRef();
+  const { copied, setCopied } = useState(false);
+  gsap.registerPlugin(SplitText);
+  const copyEmail = () => {
+    navigator.clipboard.writeText("anoruokachi2@gmail.com");
+  };
+  useGSAP(() => {
+    const split = new SplitText(headerText.current, {
+      type: "chars",
+      position: "relative",
+    });
+
+    gsap.from(split.chars, {
+      y: 100,
+      opacity: 0,
+      stagger: 0.05,
+      duration: 1,
+      ease: "power4.out",
+    });
+  }, []); // Empty deps array = run once on mount
+  useEffect(() => {
+    let copiedTimeout = setTimeout(() => setCopied(false), 2000);
+    return clearTimeout(copiedTimeout);
+  }, [copied]);
   return (
     <div
       className={
         mode === "light" ? " bg-white text-black" : " bg-black text-white"
       }
     >
-      <section className="w-full lg:h-screen lg:pb-0 pb-5">
+      <section className="w-full lg:h-screen lg:pb-0 pb-5 z-10">
         <Navbar />
         <div className="flex flex-col">
-          <h1 className="text-center text-[17vw] h-fit">Fullstack Dev</h1>
+          <div className="overflow-hidden w-fit h-fit">
+            <h1 className="text-center text-[17vw] h-fit" ref={headerText}>
+              Fullstack Dev
+            </h1>
+          </div>
           <div
             className={
               mode == "light"
@@ -66,10 +112,23 @@ export default function Homepage() {
           </div>
         </div>
         <div className="lg:px-5 px-2 flex justify-between w-full lg:mt-12 mt-5">
-          <p className="hidden lg:inline-block">
+          <p className="hidden lg:inline-block ">
             Let’s Talk
             <br />
-            <p className="">anoruokachi2@gmail.com</p>
+            <div
+              className={copied ? "flex justify-center items-center" : "hidden"}
+            >
+              <p>copied!!</p>
+            </div>
+            <p
+              onClick={() => {
+                copyEmail();
+                return setCopied((prev) => (prev = true));
+              }}
+              className="cursor-pointer"
+            >
+              anoruokachi2@gmail.com
+            </p>
           </p>
           <p className="lg:w-[30%]">
             Hi there, I am Benjamin, a seasoned Fullstack developer crafting
@@ -77,6 +136,7 @@ export default function Homepage() {
           </p>
         </div>
       </section>
+
       <section className=" lg:px-10 px-[17px]">
         <div className="flex w-full justify-between" id="projects">
           <div>
@@ -110,8 +170,6 @@ export default function Homepage() {
                     fill-rule="evenodd"
                     clip-rule="evenodd"
                     d="M12.6657 5.97278C12.3537 5.6855 11.9914 5.33831 11.6103 4.94627C10.5057 3.8102 9.20094 2.255 8.53846 0.665L9.46154 0.2804C10.0491 1.6905 11.2443 3.13526 12.3272 4.24919C12.8634 4.8007 13.3617 5.26069 13.7257 5.58253C13.9076 5.74332 14.0555 5.86929 14.1574 5.95459C14.2083 5.99723 14.2477 6.02968 14.2741 6.05122L14.3036 6.07523L14.3106 6.08091L14.3122 6.08215L14.8004 6.47273L14.3124 6.8631L14.3106 6.86455L14.3036 6.87024L14.2741 6.89425C14.2477 6.91578 14.2083 6.94823 14.1574 6.99088C14.0555 7.07617 13.9076 7.20214 13.7257 7.36293C13.3617 7.68477 12.8634 8.14476 12.3272 8.69627C11.2443 9.8102 10.0491 11.255 9.46154 12.665L8.53846 12.2804C9.20094 10.6905 10.5057 9.13526 11.6103 7.99919C11.9914 7.60719 12.3537 7.26004 12.6656 6.97278L-2.48817e-07 6.97278L-2.92528e-07 5.97278L12.6657 5.97278Z"
-                    // fill="white"
-                    // stroke="white"
                   />
                 </svg>
               </span>
@@ -119,18 +177,40 @@ export default function Homepage() {
           </Link>
         </div>
 
-        {/* projects */}
-
         <div className="w-full flex justify-center items-center flex-wrap pt-10 gap-12 pb-10 ">
           <Project
             image={
-              "https://res.cloudinary.com/ba-foods/image/upload/v1708720593/Screen_Shot_2023-05-27_at_2.38.39_PM_aigoez.png"
+              "https://res.cloudinary.com/ba-foods/image/upload/v1708872646/Screenshot_2024-02-24_at_5.31.23_pm_swr1uh.png"
             }
-            name={"Game Landing page"}
-            link={"https://aquamarine-yeot-b02665.netlify.app"}
+            name={"SpencerZill"}
+            link={"https://spencerzill.com"}
             mode={mode}
           />
           <Project
+            image={
+              "https://res.cloudinary.com/ba-foods/image/upload/v1750273699/gjrduondyy4bnohl1v2c.png"
+            }
+            name={"Bridge"}
+            link={"https://bridge-testnet.netlify.app/"}
+            mode={mode}
+          />
+          <Project
+            image={
+              "https://res.cloudinary.com/ba-foods/image/upload/v1750978441/qbcf7nbj4zgtaxihziba.png"
+            }
+            name={"Raven Bank"}
+            link={"https://getravenbank.com/"}
+            mode={mode}
+          />
+          <Project
+            image={
+              "https://res.cloudinary.com/ba-foods/image/upload/v1750978448/rgwka5jnhpc5cgj8v8sg.png"
+            }
+            name={"Roqqu"}
+            link={"https://getravenbank.com/"}
+            mode={mode}
+          />
+          {/* <Project
             image={
               "https://res.cloudinary.com/ba-foods/image/upload/v1708720585/Screen_Shot_2023-05-25_at_8.26.12_AM_copy_ivmaeg.png"
             }
@@ -145,15 +225,7 @@ export default function Homepage() {
             name={"NFT market place"}
             link={"https://aesthetic-cocada-e52e92.netlify.app"}
             mode={mode}
-          />
-          <Project
-            image={
-              "https://res.cloudinary.com/ba-foods/image/upload/v1708777337/Screenshot_2024-02-24_at_12.21.21_pm_cu5aog.png"
-            }
-            name={"Product landing page"}
-            link={"https://snazzy-peony-8fa3a3.netlify.app/"}
-            mode={mode}
-          />
+          /> */}
         </div>
       </section>
       <section className="lg:px-10 lg:py-60 w-full px-4 relative pt-60 lg:h-screen lg:pb-80">
@@ -171,12 +243,12 @@ export default function Homepage() {
                 : "text-black lg:text-[8.8rem] text-[4.4rem] text-center -translate-x-16  text-nowrap moving-text flex gap-32 justify-between"
             }
           >
-            <li className="list-none">my Stack </li>
-            <li className="list-none">my Stack </li>
-            <li className="list-none">my Stack </li>
-            <li className="list-none">my Stack </li>
-            <li className="list-none">my Stack </li>
-            <li className="list-none">my Stack </li>
+            <li className="list-none">My Stack </li>
+            <li className="list-none">My Stack </li>
+            <li className="list-none">My Stack </li>
+            <li className="list-none">My Stack </li>
+            <li className="list-none">My Stack </li>
+            <li className="list-none">My Stack </li>
           </ul>
         </div>
 
@@ -191,20 +263,56 @@ export default function Homepage() {
                 <li className="border-solid border-x-4 px-4 text-xl mb-4 border-black ">
                   LANGUAGES
                 </li>
-                <li className="border-solid border-y-2 py-2 text-xl mb-4 border-black flex gap-3">
-                  <img src="./assets/html.svg" className="w-[10%]" alt="" />
+                <li
+                  className={
+                    mode === "light"
+                      ? "border-solid border-b-2 pb-2 text-xl mb-4 border-black flex gap-3"
+                      : "border-solid border-b-2 pb-2 text-xl mb-4 border-white flex gap-3"
+                  }
+                >
+                  <FaHtml5
+                    size={45}
+                    color={mode === "light" ? "black" : "white"}
+                  />
                   HTML
                 </li>
-                <li className="border-solid border-b-2 pb-2 text-xl mb-4 border-black flex gap-3">
-                  <img src="./assets/css.svg" className="w-[10%]" alt="" />
+                <li
+                  className={
+                    mode === "light"
+                      ? "border-solid border-b-2 pb-2 text-xl mb-4 border-black flex gap-3"
+                      : "border-solid border-b-2 pb-2 text-xl mb-4 border-white flex gap-3"
+                  }
+                >
+                  <FaCss3
+                    size={45}
+                    color={mode === "light" ? "black" : "white"}
+                  />
                   CSS
                 </li>
-                <li className="border-solid border-b-2 pb-2 text-xl mb-4 border-black flex gap-3">
-                  <img src="./assets/js.svg" className="w-[10%]" alt="" />
+                <li
+                  className={
+                    mode === "light"
+                      ? "border-solid border-b-2 pb-2 text-xl mb-4 border-black flex gap-3"
+                      : "border-solid border-b-2 pb-2 text-xl mb-4 border-white flex gap-3"
+                  }
+                >
+                  <IoLogoJavascript
+                    size={45}
+                    color={mode === "light" ? "black" : "white"}
+                  />
                   Javascript
                 </li>
-                <li className="text-xl flex gap-3">
-                  <img src="./assets/python.svg" className="w-[10%]" alt="" />
+                <li
+                  className={
+                    mode === "light"
+                      ? "border-solid border-b-2 pb-2 text-xl mb-4 border-black flex gap-3"
+                      : "border-solid border-b-2 pb-2 text-xl mb-4 border-white flex gap-3"
+                  }
+                >
+                  <FaPython
+                    size={45}
+                    color={mode === "light" ? "black" : "white"}
+                  />
                   Python
                 </li>
               </ul>
@@ -212,46 +320,110 @@ export default function Homepage() {
                 <li className="border-solid border-x-4 px-4 text-xl mb-4 border-black flex gap-3">
                   LIBRARIES
                 </li>
-                <li className="border-solid border-y-2 py-2 text-xl mb-4 border-black flex gap-3">
-                  <img src="./assets/python.svg" className="w-[10%]" alt="" />
-                  AOS
-                </li>
-                <li className="border-solid border-b-2 pb-2 text-xl mb-4 border-black flex gap-3">
-                  <img src="./assets/nodejs.svg" className="w-[10%]" alt="" />
+                <li
+                  className={
+                    mode === "light"
+                      ? "border-solid border-b-2 pb-2 text-xl mb-4 border-black flex gap-3"
+                      : "border-solid border-b-2 pb-2 text-xl mb-4 border-white flex gap-3"
+                  }
+                >
+                  <FaNodeJs
+                    size={45}
+                    color={mode === "light" ? "black" : "white"}
+                  />
                   NodeJS
                 </li>
-                <li className="border-solid border-b-2 pb-2 text-xl mb-4 border-black flex gap-3">
-                  <img src="./assets/jquery.svg" className="w-[10%]" alt="" />
+                <li
+                  className={
+                    mode === "light"
+                      ? "border-solid border-b-2 pb-2 text-xl mb-4 border-black flex gap-3"
+                      : "border-solid border-b-2 pb-2 text-xl mb-4 border-white flex gap-3"
+                  }
+                >
+                  <SiJquery
+                    size={45}
+                    color={mode === "light" ? "black" : "white"}
+                  />
                   Jquery
                 </li>
-                <li className="border-solid border-b-2 pb-2 text-xl mb-4 border-black flex gap-3">
-                  <img src="./assets/r3f.svg" className="w-[10%]" alt="" />
+                <li
+                  className={
+                    mode === "light"
+                      ? "border-solid border-b-2 pb-2 text-xl mb-4 border-black flex gap-3"
+                      : "border-solid border-b-2 pb-2 text-xl mb-4 border-white flex gap-3"
+                  }
+                >
+                  <TbBrandThreejs
+                    size={45}
+                    color={mode === "light" ? "black" : "white"}
+                  />
                   R3F
                 </li>
-                <li className="border-solid border-b-2 pb-2 text-xl mb-4 border-black flex gap-3">
+                <li
+                  className={
+                    mode === "light"
+                      ? "border-solid border-b-2 pb-2 text-xl mb-4 border-black flex gap-3"
+                      : "border-solid border-b-2 pb-2 text-xl mb-4 border-white flex gap-3"
+                  }
+                >
                   <img src="./assets/gsap.svg" className="w-[10%]" alt="" />
                   GSAP
                 </li>
-                <li className="text-xl flex gap-3">D3JS</li>
+                <li
+                  className={
+                    mode === "light"
+                      ? "border-solid border-b-2 pb-2 text-xl mb-4 border-black flex gap-3"
+                      : "border-solid border-b-2 pb-2 text-xl mb-4 border-white flex gap-3"
+                  }
+                >
+                  <FaChartLine
+                    size={45}
+                    color={mode === "light" ? "black" : "white"}
+                  />
+                  D3JS
+                </li>
               </ul>
               <ul className="lg:inline-block hidden">
                 <li className="border-solid border-x-4 px-4 text-xl mb-4 border-black ">
                   FRAMEWORK
                 </li>
-                <li className="border-solid border-y-2 py-2 text-xl mb-4 border-black flex gap-3">
-                  <img
-                    src="./assets/bootstrap.svg"
-                    className="w-[10%]"
-                    alt=""
+                <li
+                  className={
+                    mode === "light"
+                      ? "border-solid border-b-2 pb-2 text-xl mb-4 border-black flex gap-3"
+                      : "border-solid border-b-2 pb-2 text-xl mb-4 border-white flex gap-3"
+                  }
+                >
+                  <FaBootstrap
+                    size={45}
+                    color={mode === "light" ? "black" : "white"}
                   />
                   Bootstrap
                 </li>
-                <li className="border-solid border-b-2 pb-2 text-xl mb-4 border-black flex gap-3">
-                  <img src="./assets/react.svg" className="w-[10%]" alt="" />
+                <li
+                  className={
+                    mode === "light"
+                      ? "border-solid border-b-2 pb-2 text-xl mb-4 border-black flex gap-3"
+                      : "border-solid border-b-2 pb-2 text-xl mb-4 border-white flex gap-3"
+                  }
+                >
+                  <FaReact
+                    size={45}
+                    color={mode === "light" ? "black" : "white"}
+                  />
                   React.JS
                 </li>
-                <li className="text-xl flex gap-3">
-                  <img src="./assets/next.svg" className="w-[10%]" alt="" />
+                <li
+                  className={
+                    mode === "light"
+                      ? "border-solid border-b-2 pb-2 text-xl mb-4 border-black flex gap-3"
+                      : "border-solid border-b-2 pb-2 text-xl mb-4 border-white flex gap-3"
+                  }
+                >
+                  <SiNextdotjs
+                    size={45}
+                    color={mode === "light" ? "black" : "white"}
+                  />
                   Next.JS
                 </li>
               </ul>

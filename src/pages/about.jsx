@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import ModeProvider from "../context/mode";
+import Canv from "../components/cloud";
 
 export default function About() {
   const { mode } = useContext(ModeProvider);
@@ -22,9 +23,7 @@ export default function About() {
             />
           </div>
           <div className="flex justify-start flex-col items-start flex-wrap w-full">
-            <h2 className="lg:mb-10 mb-5 lg:text-[2.9rem]">
-              Benjamin Anoruo
-            </h2>
+            <h2 className="lg:mb-10 mb-5 lg:text-[2.9rem]">Benjamin Anoruo</h2>
             <p className="lg:w-[40.6em] w-[90%] ">
               Hi, I am a full-stack developer, I offer expert website management
               and building services. From front-end design to back-end
@@ -83,10 +82,12 @@ export default function About() {
         </div>
       </section>
       <section className="lg:px-[116px] lg:pt-50 pt-16 pl-9 ">
-     
         <h1 className="font-bold text-3xl lg:mb-12 mb-3">My Interests</h1>
-        <div className="flex gap-28 flex-wrap ">
-          <div className="lg:w-[25em] lg:h-[25em] bg-red-400"></div>
+        <div className="flex justify-between gap-12">
+          <div className="w-[50%] h-[50vh]">
+            <Canv />
+          </div>
+
           <p className="lg:w-[40.6em] w-[90%]">
             This word cloud represents some of my interests and hobbies. Being
             particularly passionate about new technologies, I try to learn more
@@ -124,7 +125,8 @@ export default function About() {
         <div className="self-end mb-20">
           <div className="lg:mb-8 w-fit">
             <h3 className="flex justify-start gap-3 items-center font-bold text-4xl w-fit">
-              02        <hr
+              02{" "}
+              <hr
                 className={
                   mode === "light"
                     ? "w-7 border-solid border-black border-2"
@@ -132,19 +134,20 @@ export default function About() {
                 }
               />
             </h3>
-            <p className="text-2xl font-bold">Comprehensive Skill Set:</p>
+            <p className="text-2xl font-bold">Problem-Solving Mindset:</p>
             <br />
           </div>
           <p className="lg:w-[37.4em]">
-            As a full stack developer, I bring expertise across both frontend
-            and backend technologies, ensuring seamless integration and holistic
-            development solutions.
+            I excel at analyzing complex requirements and translating them into
+            efficient, scalable systems. I proactively identify challenges and
+            craft robust solutions.
           </p>
         </div>
         <div className="mb-20">
           <div className="lg:mb-8 w-fit">
             <h3 className="flex justify-start gap-3 items-center font-bold text-4xl w-fit">
-              03        <hr
+              03{" "}
+              <hr
                 className={
                   mode === "light"
                     ? "w-7 border-solid border-black border-2"
@@ -152,19 +155,20 @@ export default function About() {
                 }
               />
             </h3>
-            <p className="text-2xl font-bold">Comprehensive Skill Set:</p>
+            <p className="text-2xl font-bold">Focus on User Experience:</p>
             <br />
           </div>
           <p className="lg:w-[37.4em]">
-            As a full stack developer, I bring expertise across both frontend
-            and backend technologies, ensuring seamless integration and holistic
-            development solutions.
+            Beyond writing clean code, I prioritize intuitive interfaces and
+            smooth interactions, delivering products that users love to engage
+            with.
           </p>
         </div>
         <div className="self-end ">
           <div className="lg:mb-8 w-fit">
             <h3 className="flex justify-start gap-3 items-center font-bold text-4xl w-fit">
-              04        <hr
+              04{" "}
+              <hr
                 className={
                   mode === "light"
                     ? "w-7 border-solid border-black border-2"
@@ -172,13 +176,15 @@ export default function About() {
                 }
               />
             </h3>
-            <p className="text-2xl font-bold">Comprehensive Skill Set:</p>
+            <p className="text-2xl font-bold">
+              Commitment to Quality & Collaboration:
+            </p>
             <br />
           </div>
           <p className="lg:w-[37.4em]">
-            As a full stack developer, I bring expertise across both frontend
-            and backend technologies, ensuring seamless integration and holistic
-            development solutions.
+            I value clear communication and thrive in team environments. I’m
+            dedicated to writing maintainable code, following best practices,
+            and always pushing for the highest standards.
           </p>
         </div>
       </section>
