@@ -1,8 +1,14 @@
 import React, { useContext } from "react";
 import ModeProvider from "../context/mode";
+import { useNavigate } from "react-router-dom";
 
 export default function Footer() {
   const { mode } = useContext(ModeProvider);
+  let navigate = useNavigate();
+  let openEmail = () => {
+    window.location.href =
+      "mailto:user@example.com?subject=Subject&body=message%20goes%20here";
+  };
   return (
     <footer className="py-32">
       <h1
@@ -18,6 +24,7 @@ export default function Footer() {
             ? "flex justify-center items-center lg:p-8 m-auto bg-black rounded-full text-white gap-4 p-4 "
             : "flex justify-center items-center lg:p-8 m-auto bg-white rounded-full text-black gap-4 p-4 "
         }
+        onClick={() => navigate("/contact")}
       >
         Contact Me
         <span

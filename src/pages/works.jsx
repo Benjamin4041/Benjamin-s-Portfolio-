@@ -14,14 +14,13 @@ export default function Works() {
     >
       <section className=" lg:px-10  px-[17px] ">
         <Navbar />
-        <div className="flex w-full justify-between mt-10">
-          <div>
+        <div className="flex w-full justify-between mt-32">
+          <div className="flex flex-col items-center w-full">
             <h3 className="text-[3rem] text-center">Projects</h3>
             <p className=" mt-6">
-              As a seasoned Fullstack developer, I'm dedicated to building
-              contemporary, user-friendly web designs and cutting-edge digital
-              solutions. Let me help you construct the brand of your dreams by
-              creating dynamic and engaging online experiences.
+              Explore some of the works I've built — from slick frontend UIs,
+              powerful backend APIs, to fullstack apps connected with real-time
+              databases.
             </p>
           </div>
         </div>
@@ -33,6 +32,38 @@ export default function Works() {
           id="projects"
         >
           <Project
+            image={
+              "https://res.cloudinary.com/ba-foods/image/upload/v1708872646/Screenshot_2024-02-24_at_5.31.23_pm_swr1uh.png"
+            }
+            name={"SpencerZill"}
+            link={"https://spencerzill.com"}
+            mode={mode}
+          />
+          <Project
+            image={
+              "https://res.cloudinary.com/ba-foods/image/upload/v1750273699/gjrduondyy4bnohl1v2c.png"
+            }
+            name={"Bridge"}
+            link={"https://bridge-testnet.netlify.app/"}
+            mode={mode}
+          />
+          <Project
+            image={
+              "https://res.cloudinary.com/ba-foods/image/upload/v1750978441/qbcf7nbj4zgtaxihziba.png"
+            }
+            name={"Raven Bank"}
+            link={"https://getravenbank.com/"}
+            mode={mode}
+          />
+          <Project
+            image={
+              "https://res.cloudinary.com/ba-foods/image/upload/v1750978448/rgwka5jnhpc5cgj8v8sg.png"
+            }
+            name={"Roqqu"}
+            link={"https://getravenbank.com/"}
+            mode={mode}
+          />
+          {/* <Project
             image={
               "https://res.cloudinary.com/ba-foods/image/upload/v1708720593/Screen_Shot_2023-05-27_at_2.38.39_PM_aigoez.png"
             }
@@ -63,15 +94,7 @@ export default function Works() {
             name={"Product landing page"}
             link={"https://snazzy-peony-8fa3a3.netlify.app/"}
             mode={mode}
-          />
-          <Project
-            image={
-              "https://res.cloudinary.com/ba-foods/image/upload/v1708872646/Screenshot_2024-02-24_at_5.31.23_pm_swr1uh.png"
-            }
-            name={"SpencerZill"}
-            link={"https://spencerzill.com"}
-            mode={mode}
-          />
+          /> */}
         </div>
         <Footer />
       </section>
