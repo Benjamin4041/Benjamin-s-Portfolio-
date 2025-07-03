@@ -36,63 +36,74 @@ export default function Contact() {
     <div
       className={
         mode === "light"
-          ? " bg-white text-black h-screen overflow-hidden"
-          : " bg-black text-white h-screen overflow-hidden"
+          ? " bg-white text-black h-screen lg:overflow-hidden"
+          : " bg-black text-white h-screen lg:overflow-hidden"
       }
     >
       <Navbar />
-      <div className="flex justify-center items-center h-full px-28 ">
-        <div className="w-[50%]">
-          <a href="https://github.com/Benjamin4041" target="_blank">
-            <div className="border-4 h-fit flex items-center justify-between w-[80%] xl:mb-8 cursor-pointer p-7 py-3 ">
-              <div className="w-fit p-5 bg-black rounded">
+      <div className="flex lg:justify-center lg:items-center h-full lg:px-28 gap-20 lg:flex-row flex-col  ">
+        <div className="w-[50%] lg:flex-col flex">
+          <a href="https://github.com/Benjamin4041" target="_blank" className="w-[80%]">
+            <div className="lg:border-4 h-fit flex items-center justify-between w-[100%] xl:mb-8 cursor-pointer p-7 py-3 ">
+              <div className="w-fit p-5 bg-black rounded lg:block hidden">
                 <FaGithub size={50} color="white" />
               </div>
-              <span>
+              <div className="w-fit p-5 bg-black rounded lg:hidden">
+                <FaGithub size={25} color="white" />
+              </div>
+              <span className='lg:block hidden'>
                 <p> GitHub</p>
                 <p> Explore my code & projects</p>
               </span>
-              <IoIosArrowForward size={25} />
+              <IoIosArrowForward size={25} className="hidden lg:block" />
             </div>
           </a>
           <a
             href="https://www.linkedin.com/in/anoruo-benjamin-aa9b36245"
-            target="_blank"
+            target="_blank" className="w-[80%]"
           >
-            <div className="border-4 h-fit flex items-center justify-between w-[80%] xl:mb-8 cursor-pointer p-7 py-3 ">
-              <div className="w-fit p-5 bg-black rounded">
+            <div className="lg:border-4 h-fit flex items-center justify-between w-[100%] xl:mb-8 cursor-pointer p-7 py-3 ">
+              <div className="w-fit p-5 bg-black rounded lg:block hidden" >
                 <FaLinkedin size={50} color="white" />
               </div>
-              <span>
+              <div className="w-fit p-5 bg-black rounded lg:hidden">
+                <FaLinkedin size={25} color="white" />
+              </div>
+              <span className='lg:block hidden'>
                 <p>LinedIn</p>
                 <p>Let’s connect professionally</p>
               </span>
-              <IoIosArrowForward size={25} />
+              <IoIosArrowForward size={25} className="hidden lg:block" />
             </div>
           </a>
-          <a href="https://www.instagram.com/benjamin_fx_2/" target="_blank">
-            <div className="border-4 h-fit flex items-center justify-between w-[80%] xl:mb-8 cursor-pointer p-7 py-3 ">
-              <div className="w-fit p-5 bg-black rounded">
+          <a href="https://www.instagram.com/benjamin_fx_2/" target="_blank" className="w-[80%]">
+            <div className="lg:border-4 h-fit flex items-center justify-between w-[100%] xl:mb-8 cursor-pointer p-7 py-3 ">
+              <div className="w-fit p-5 bg-black rounded  lg:block hidden"> 
                 <FaInstagram size={50} color="white" />
               </div>
-              <span>
+              <div className="w-fit p-5 bg-black rounded lg:hidden">
+                <FaInstagram size={25} color="white" />
+              </div>
+              <span className='lg:block hidden'>
                 <p> Instagram</p>
                 <p>My visual journal & life updates</p>
               </span>
-              <IoIosArrowForward size={25} />
+              <IoIosArrowForward size={25} className="hidden lg:block" />
             </div>
           </a>
-          <a href="https://x.com/AnoruoBenjamin" target="_blank">
-            <div className="border-4 h-fit flex items-center justify-between w-[80%] xl:mb-8 cursor-pointer p-7 py-3 ">
-              <div className="w-fit p-5 bg-black rounded">
+          <a href="https://x.com/AnoruoBenjamin" target="_blank" className="w-[80%]">
+            <div className="lg:border-4 h-fit flex items-center justify-between w-[100%] xl:mb-8 cursor-pointer p-7 py-3 ">
+              <div className="w-fit p-5 bg-black rounded  lg:block hidden">
                 <FaTwitter size={50} color="white" />
               </div>
-              <span>
-                {" "}
+              <div className="w-fit p-5 bg-black rounded lg:hidden">
+                <FaTwitter size={25} color="white" />
+              </div>
+              <span className='lg:block hidden'>
                 <p> Twitter</p>
                 <p>Random thoughts & dev tweets</p>
               </span>
-              <IoIosArrowForward size={25} />
+              <IoIosArrowForward size={25} className="hidden lg:block" />
             </div>
           </a>
         </div>
