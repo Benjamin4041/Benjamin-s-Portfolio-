@@ -255,8 +255,8 @@ export default function Homepage() {
         <div className="flex justify-center items-center gap-2 lg:pt-10">
 
           <div className="overflow-hidden">
-            <div className="flex gap-14 lg:gap-52 pt-10 lg:-translate-x-0 lg:flex-row flex-col w-full">
-              <ul className="w-[50%]">
+            <div className="flex gap-14 justify-center items-center lg:gap-52 pt-10 lg:-translate-x-0 lg:flex-row flex-col w-full">
+              <ul className="lg:w-[50%] w-full">
                 <li className="border-solid border-x-4 px-4 text-xl mb-4 border-black ">
                   LANGUAGES
                 </li>
@@ -313,7 +313,7 @@ export default function Homepage() {
                   Python
                 </li>
               </ul>
-              <ul className="w-[50%]">
+              <ul className="lg:w-[50%] w-full">
                 <li className="border-solid border-x-4 px-4 text-xl mb-4 border-black flex gap-3">
                   LIBRARIES
                 </li>
@@ -380,7 +380,7 @@ export default function Homepage() {
                   D3JS
                 </li>
               </ul>
-              <ul className="w-[50%]">
+              <ul className="lg:w-[50%] w-full">
                 <li className="border-solid border-x-4 px-4 text-xl mb-4 border-black ">
                   FRAMEWORK
                 </li>
