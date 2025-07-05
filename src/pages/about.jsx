@@ -83,8 +83,8 @@ export default function About() {
       </section>
       <section className="lg:px-[116px] lg:pt-50 pt-16 pl-9 ">
         <h1 className="font-bold text-3xl lg:mb-12 mb-3">My Interests</h1>
-        <div className="flex justify-between gap-12">
-          <div className="w-[50%] h-[50vh]">
+        <div className="flex justify-between gap-12 lg:flex-nowrap flex-wrap">
+          <div className="lg:w-[50%] w-[90%] h-[50vh]">
             <Canv />
           </div>
 

@@ -15,7 +15,7 @@ export default function Contact() {
 
   const sendEmail = (e) => {
     e.preventDefault();
-    if(email===""||name===""||message===""){
+    if (email === "" || name === "" || message === "") {
       return;
     }
     emailjs
@@ -36,22 +36,26 @@ export default function Contact() {
     <div
       className={
         mode === "light"
-          ? " bg-white text-black h-screen lg:overflow-hidden"
-          : " bg-black text-white h-screen lg:overflow-hidden"
+          ? " bg-white text-black h-screen overflow-hidden"
+          : " bg-black text-white h-screen overflow-hidden"
       }
     >
       <Navbar />
-      <div className="flex lg:justify-center lg:items-center h-full lg:px-28 gap-20 lg:flex-row flex-col  ">
-        <div className="w-[50%] lg:flex-col flex">
-          <a href="https://github.com/Benjamin4041" target="_blank" className="w-[80%]">
-            <div className="lg:border-4 h-fit flex items-center justify-between w-[100%] xl:mb-8 cursor-pointer p-7 py-3 ">
+      <div className="flex lg:justify-center lg:items-center relative h-[100%] lg:px-28 lg:gap-20 lg:flex-row flex-col lg:pt-5 ">
+        <div className="lg:w-[50%] w-full lg:flex-col flex lg:gap-0 lg:justify-end lg:items-start justify-center items-center gap-9">
+          <a
+            href="https://github.com/Benjamin4041"
+            target="_blank"
+            className="lg:w-[80%]"
+          >
+            <div className="lg:border-4 h-fit flex items-center justify-between w-[100%] xl:mb-8 cursor-pointer lg:px-7 2xl:py-7 lg:py-1  py-3 ">
               <div className="w-fit p-5 bg-black rounded lg:block hidden">
                 <FaGithub size={50} color="white" />
               </div>
               <div className="w-fit p-5 bg-black rounded lg:hidden">
                 <FaGithub size={25} color="white" />
               </div>
-              <span className='lg:block hidden'>
+              <span className="lg:block hidden">
                 <p> GitHub</p>
                 <p> Explore my code & projects</p>
               </span>
@@ -60,46 +64,55 @@ export default function Contact() {
           </a>
           <a
             href="https://www.linkedin.com/in/anoruo-benjamin-aa9b36245"
-            target="_blank" className="w-[80%]"
+            target="_blank"
+            className="lg:w-[80%]"
           >
-            <div className="lg:border-4 h-fit flex items-center justify-between w-[100%] xl:mb-8 cursor-pointer p-7 py-3 ">
-              <div className="w-fit p-5 bg-black rounded lg:block hidden" >
+            <div className="lg:border-4 h-fit flex items-center justify-between w-[100%] xl:mb-8 cursor-pointer lg:px-7 2xl:py-7 lg:py-1  py-3 ">
+              <div className="w-fit p-5 bg-black rounded lg:block hidden">
                 <FaLinkedin size={50} color="white" />
               </div>
               <div className="w-fit p-5 bg-black rounded lg:hidden">
                 <FaLinkedin size={25} color="white" />
               </div>
-              <span className='lg:block hidden'>
+              <span className="lg:block hidden">
                 <p>LinedIn</p>
                 <p>Let’s connect professionally</p>
               </span>
               <IoIosArrowForward size={25} className="hidden lg:block" />
             </div>
           </a>
-          <a href="https://www.instagram.com/benjamin_fx_2/" target="_blank" className="w-[80%]">
-            <div className="lg:border-4 h-fit flex items-center justify-between w-[100%] xl:mb-8 cursor-pointer p-7 py-3 ">
-              <div className="w-fit p-5 bg-black rounded  lg:block hidden"> 
+          <a
+            href="https://www.instagram.com/benjamin_fx_2/"
+            target="_blank"
+            className="lg:w-[80%]"
+          >
+            <div className="lg:border-4 h-fit flex items-center justify-between w-[100%] xl:mb-8 cursor-pointer lg:px-7 2xl:py-7 lg:py-1  py-3 ">
+              <div className="w-fit p-5 bg-black rounded  lg:block hidden">
                 <FaInstagram size={50} color="white" />
               </div>
               <div className="w-fit p-5 bg-black rounded lg:hidden">
                 <FaInstagram size={25} color="white" />
               </div>
-              <span className='lg:block hidden'>
+              <span className="lg:block hidden">
                 <p> Instagram</p>
                 <p>My visual journal & life updates</p>
               </span>
               <IoIosArrowForward size={25} className="hidden lg:block" />
             </div>
           </a>
-          <a href="https://x.com/AnoruoBenjamin" target="_blank" className="w-[80%]">
-            <div className="lg:border-4 h-fit flex items-center justify-between w-[100%] xl:mb-8 cursor-pointer p-7 py-3 ">
+          <a
+            href="https://x.com/AnoruoBenjamin"
+            target="_blank"
+            className="lg:w-[80%]"
+          >
+            <div className="lg:border-4 h-fit flex items-center justify-between w-[100%] xl:mb-8 cursor-pointer lg:px-7 2xl:py-7 lg:py-1  py-3 ">
               <div className="w-fit p-5 bg-black rounded  lg:block hidden">
                 <FaTwitter size={50} color="white" />
               </div>
               <div className="w-fit p-5 bg-black rounded lg:hidden">
                 <FaTwitter size={25} color="white" />
               </div>
-              <span className='lg:block hidden'>
+              <span className="lg:block hidden">
                 <p> Twitter</p>
                 <p>Random thoughts & dev tweets</p>
               </span>
@@ -107,7 +120,7 @@ export default function Contact() {
             </div>
           </a>
         </div>
-        <div className="border-2 rounded xl:w-[50%]  xl:p-10">
+        <div className="border-2 rounded xl:w-[50%] w-[90%] m-auto p-4 xl:p-10">
           <form action="" ref={form}>
             <p className="font-bold text-2xl">Send Me a Message</p>
             <div className="xl:mb-5">
@@ -143,7 +156,7 @@ export default function Contact() {
             <div>
               <label htmlFor="">Message</label>
               <br />
-              {/* <a type="text"  /> */}
+
               <textarea
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
@@ -154,10 +167,12 @@ export default function Contact() {
                     : "w-full xl:mt-5 bg-gray-900 text-white rounded h-50 p-4"
                 }
                 rows={3}
-                
               ></textarea>
             </div>
-            <button className="w-fit rounded mt-5 flex justify-center items-center bg-white text-black font-medium text-xl p-3" onClick={sendEmail}>
+            <button
+              className="w-fit rounded mt-5 flex justify-center items-center bg-white text-black font-medium text-xl p-3"
+              onClick={sendEmail}
+            >
               Send
             </button>
           </form>

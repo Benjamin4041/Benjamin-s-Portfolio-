@@ -253,13 +253,10 @@ export default function Homepage() {
         </div>
 
         <div className="flex justify-center items-center gap-2 lg:pt-10">
-          <IoIosArrowBack
-            size={50}
-            className="cursor-pointer inline-block lg:hidden"
-          />
+
           <div className="overflow-hidden">
-            <div className="flex gap-32  lg:gap-52 pt-10 lg:-translate-x-0  w-full">
-              <ul className="lg:w-fit w-full">
+            <div className="flex gap-14 lg:gap-52 pt-10 lg:-translate-x-0 lg:flex-row flex-col w-full">
+              <ul className="w-[50%]">
                 <li className="border-solid border-x-4 px-4 text-xl mb-4 border-black ">
                   LANGUAGES
                 </li>
@@ -316,7 +313,7 @@ export default function Homepage() {
                   Python
                 </li>
               </ul>
-              <ul className="lg:inline-block hidden">
+              <ul className="w-[50%]">
                 <li className="border-solid border-x-4 px-4 text-xl mb-4 border-black flex gap-3">
                   LIBRARIES
                 </li>
@@ -383,7 +380,7 @@ export default function Homepage() {
                   D3JS
                 </li>
               </ul>
-              <ul className="lg:inline-block hidden">
+              <ul className="w-[50%]">
                 <li className="border-solid border-x-4 px-4 text-xl mb-4 border-black ">
                   FRAMEWORK
                 </li>
@@ -429,10 +426,7 @@ export default function Homepage() {
               </ul>
             </div>
           </div>
-          <IoIosArrowForward
-            size={50}
-            className="cursor-pointer inline-block lg:hidden"
-          />
+ 
         </div>
       </section>
       <section className="lg:pt-20 pt-10 lg:px-10 px-5">
