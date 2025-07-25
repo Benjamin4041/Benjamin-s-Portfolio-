@@ -180,34 +180,34 @@ export default function Homepage() {
         <div className="w-full flex justify-center items-center flex-wrap pt-10 gap-12 pb-10 ">
           <Project
             image={
-              "https://res.cloudinary.com/ba-foods/image/upload/v1708872646/Screenshot_2024-02-24_at_5.31.23_pm_swr1uh.png"
-            }
-            name={"SpencerZill"}
-            link={"https://spencerzill.com"}
-            mode={mode}
-          />
-          <Project
-            image={
-              "https://res.cloudinary.com/ba-foods/image/upload/v1750273699/gjrduondyy4bnohl1v2c.png"
-            }
-            name={"Bridge"}
-            link={"https://bridge-testnet.netlify.app/"}
-            mode={mode}
-          />
-          <Project
-            image={
-              "https://res.cloudinary.com/ba-foods/image/upload/v1750978441/qbcf7nbj4zgtaxihziba.png"
-            }
-            name={"Raven Bank"}
-            link={"https://getravenbank.com/"}
-            mode={mode}
-          />
-          <Project
-            image={
               "https://res.cloudinary.com/ba-foods/image/upload/v1750978448/rgwka5jnhpc5cgj8v8sg.png"
             }
             name={"Roqqu"}
             link={"https://getravenbank.com/"}
+            mode={mode}
+          />
+              <Project
+                image={
+                  "https://res.cloudinary.com/ba-foods/image/upload/v1750273699/gjrduondyy4bnohl1v2c.png"
+                }
+                name={"Bridge"}
+                link={"https://bridge-testnet.netlify.app/"}
+                mode={mode}
+              />
+              <Project
+                image={
+                  "https://res.cloudinary.com/ba-foods/image/upload/v1750978441/qbcf7nbj4zgtaxihziba.png"
+                }
+                name={"Raven Bank"}
+                link={"https://getravenbank.com/"}
+                mode={mode}
+              />
+          <Project
+            image={
+              "https://res.cloudinary.com/ba-foods/image/upload/v1708872646/Screenshot_2024-02-24_at_5.31.23_pm_swr1uh.png"
+            }
+            name={"SpencerZill"}
+            link={"https://spencerzill.com"}
             mode={mode}
           />
           {/* <Project
