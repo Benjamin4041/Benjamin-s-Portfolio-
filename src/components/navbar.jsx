@@ -2,17 +2,27 @@ import React, { useContext, useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { MdOutlineWbSunny } from "react-icons/md";
 import { FaMoon } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import ModeProvider from "../context/mode";
 
 export default function Navbar() {
   const [toggleMenu, setToggleMenu] = useState(false);
   const { mode, setMode } = useContext(ModeProvider);
+  const location = useLocation();
+
+  // Helper to map path to menu
+  const getSelectedMenu = () => {
+    if (location.pathname === "/") return "home";
+    if (location.pathname === "/work") return "projects";
+    if (location.pathname === "/about") return "about";
+    if (location.pathname === "/contact") return "contact";
+    return "";
+  };
+  const selectedMenu = getSelectedMenu();
 
   const menu = () => {
     setToggleMenu((prev) => !prev);
   };
-
 
   const toggoleMode = () => {
     setMode((prev) => (prev === "light" ? "dark" : "light"));
@@ -31,7 +41,11 @@ export default function Navbar() {
         }
       >
         <RxHamburgerMenu
-          className={toggleMenu?"lg:hidden md:hidden self-start lg:mb-0 mb-48":"lg:hidden md:hidden self-start"}
+          className={
+            toggleMenu
+              ? "lg:hidden md:hidden self-start lg:mb-0 mb-48"
+              : "lg:hidden md:hidden self-start"
+          }
           onClick={menu}
         />
         <Link to={"/"}>
@@ -40,8 +54,12 @@ export default function Navbar() {
               toggleMenu
                 ? "inline-block self-center mb-10 "
                 : mode === "light"
-                ? "lg:inline-block hidden cursor-pointer hover:text-black hover:bg-white  hover:p-2 py-2 px-2  hover:rounded-full "
-                : "lg:inline-block hidden cursor-pointer hover:text-white hover:bg-black hover:p-1 p-1 hover:rounded-full "
+                ? "home" === selectedMenu
+                  ? "lg:inline-block hidden cursor-pointer text-black bg-white  hover:p-2 py-2 px-2  rounded-full "
+                  : "lg:inline-block hidden cursor-pointer hover:text-black hover:bg-white  hover:p-2 py-2 px-2  hover:rounded-full "
+                : "home" === selectedMenu
+                ? "lg:inline-block hidden cursor-pointer text-white bg-black p-2 py-2 px-2   rounded-full "
+                : "lg:inline-block hidden cursor-pointer hover:text-white hover:bg-black hover:p-2 py-2 px-2  hover:rounded-full "
             }
           >
             Home
@@ -53,8 +71,12 @@ export default function Navbar() {
               toggleMenu
                 ? "inline-block self-center mb-10 cursor-pointer"
                 : mode === "light"
-                ? "lg:inline-block hidden cursor-pointer hover:text-black hover:bg-white  hover:p-2 py-2 px-2  hover:rounded-full "
-                : "lg:inline-block hidden cursor-pointer hover:text-white hover:bg-black hover:p-1 p-1 hover:rounded-full "
+                ? selectedMenu === "projects"
+                  ? "lg:inline-block hidden cursor-pointer text-black bg-white  text-blackbg-white  p-2 py-2 px-2  rounded-full "
+                  : "lg:inline-block hidden cursor-pointer hover:text-black hover:bg-white  hover:p-2 py-2 px-2  hover:rounded-full "
+                : selectedMenu === "projects"
+                ? "lg:inline-block hidden cursor-pointer text-white bg-black p-2 py-2 px-2  rounded-full "
+                : "lg:inline-block hidden cursor-pointer hover:text-white hover:bg-black hover:p-2 py-2 px-2  hover:rounded-full "
             }
           >
             Projects
@@ -66,27 +88,34 @@ export default function Navbar() {
               toggleMenu
                 ? "inline-block self-center mb-10 cursor-pointer"
                 : mode === "light"
-                ? "lg:inline-block hidden cursor-pointer hover:text-black hover:bg-white  hover:p-2 py-2 px-2  hover:rounded-full "
-                : "lg:inline-block hidden cursor-pointer hover:text-white hover:bg-black hover:p-1 p-1 hover:rounded-full "
+                ? selectedMenu === "about"
+                  ? "lg:inline-block hidden cursor-pointer text-black bg-white  text-blackbg-white  p-2 py-2 px-2  rounded-full "
+                  : "lg:inline-block hidden cursor-pointer hover:text-black hover:bg-white  hover:p-2 py-2 px-2  hover:rounded-full "
+                : selectedMenu === "about"
+                ? "lg:inline-block hidden cursor-pointer text-white bg-black  p-2 py-2 px-2  rounded-full "
+                : "lg:inline-block hidden cursor-pointer hover:text-white hover:bg-black hover:p-2 py-2 px-2  hover:rounded-full "
             }
           >
             About
           </p>
         </Link>
-  <Link to={'/contact'}>
-        <p
-          className={
-            toggleMenu
-              ? "inline-block self-center mb-10 cursor-pointer"
-              : mode === "light"
-              ? "lg:inline-block hidden cursor-pointer hover:text-black hover:bg-white  hover:p-2 py-2 px-2  hover:rounded-full "
-              : "lg:inline-block hidden cursor-pointer hover:text-white hover:bg-black hover:p-1 p-1 hover:rounded-full "
-          }
-        
-        >
-          Contact
-        </p>
-  </Link>
+        <Link to={"/contact"}>
+          <p
+            className={
+              toggleMenu
+                ? "inline-block self-center mb-10 cursor-pointer"
+                : mode === "light"
+                ? selectedMenu === "contact"
+                  ? "lg:inline-block hidden cursor-pointer text-black bg-white  text-blackbg-white  p-2 py-2 px-2  rounded-full "
+                  : "lg:inline-block hidden cursor-pointer hover:text-black hover:bg-white  hover:p-2 py-2 px-2  hover:rounded-full "
+                : selectedMenu === "contact"
+                ? "lg:inline-block hidden cursor-pointer text-white bg-black  p-2 py-2 px-2  rounded-full "
+                : "lg:inline-block hidden cursor-pointer hover:text-white hover:bg-black hover:p-2 py-2 px-2  hover:rounded-full "
+            }
+          >
+            Contact
+          </p>
+        </Link>
         {mode === "light" ? (
           <FaMoon
             className="self-center cursor-pointer lg:inline-block hidden"
@@ -98,14 +127,22 @@ export default function Navbar() {
             onClick={toggoleMode}
           />
         )}
-            {mode === "light" ? (
+        {mode === "light" ? (
           <FaMoon
-            className={toggleMenu?"self-center cursor-pointer lg:hidden inline-block":"self-center cursor-pointer hidden "}
+            className={
+              toggleMenu
+                ? "self-center cursor-pointer lg:hidden inline-block"
+                : "self-center cursor-pointer hidden "
+            }
             onClick={toggoleMode}
           />
         ) : (
           <MdOutlineWbSunny
-            className={toggleMenu?"self-center cursor-pointer lg:hidden inline-block":"self-center cursor-pointer hidden "}
+            className={
+              toggleMenu
+                ? "self-center cursor-pointer lg:hidden inline-block"
+                : "self-center cursor-pointer hidden "
+            }
             onClick={toggoleMode}
           />
         )}

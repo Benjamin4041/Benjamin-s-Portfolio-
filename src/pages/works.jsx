@@ -33,10 +33,10 @@ export default function Works() {
         >
           <Project
             image={
-              "https://res.cloudinary.com/ba-foods/image/upload/v1708872646/Screenshot_2024-02-24_at_5.31.23_pm_swr1uh.png"
+              "https://res.cloudinary.com/ba-foods/image/upload/v1750978448/rgwka5jnhpc5cgj8v8sg.png"
             }
-            name={"SpencerZill"}
-            link={"https://spencerzill.com"}
+            name={"Roqqu"}
+            link={"https://getravenbank.com/"}
             mode={mode}
           />
           <Project
@@ -57,10 +57,10 @@ export default function Works() {
           />
           <Project
             image={
-              "https://res.cloudinary.com/ba-foods/image/upload/v1750978448/rgwka5jnhpc5cgj8v8sg.png"
+              "https://res.cloudinary.com/ba-foods/image/upload/v1708872646/Screenshot_2024-02-24_at_5.31.23_pm_swr1uh.png"
             }
-            name={"Roqqu"}
-            link={"https://getravenbank.com/"}
+            name={"SpencerZill"}
+            link={"https://spencerzill.com"}
             mode={mode}
           />
           {/* <Project
