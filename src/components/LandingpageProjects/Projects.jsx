@@ -95,6 +95,7 @@ export default function Projects() {
           }
           projectName={"Bridge"}
           imageRef={images}
+          videoSrc={'https://res.cloudinary.com/ba-foods/video/upload/v1756424876/Raven_3d_Patterns_intro_twwnyv.mp4'}
         />
         <Project
           imageSrc={
@@ -102,7 +103,7 @@ export default function Projects() {
           }
           projectName={"Raven Bank"}
           imageRef={images}
-          videoSrc={'/assets/videos/Raven 3d Patterns intro.mp4'}
+          videoSrc={'https://res.cloudinary.com/ba-foods/video/upload/v1756424876/Raven_3d_Patterns_intro_twwnyv.mp4'}
         />
         <Project
           imageSrc={
@@ -110,7 +111,7 @@ export default function Projects() {
           }
           projectName={"Roqqu"}
           imageRef={images}
-          videoSrc={'/assets/videos/last scene.mp4'}
+          videoSrc={'https://res.cloudinary.com/ba-foods/video/upload/v1756424877/last_scene_mw8jyc.mp4'}
         />
         <Project
           imageSrc={
@@ -118,7 +119,7 @@ export default function Projects() {
           }
           projectName={"SpencerZill"}
           imageRef={images}
-           videoSrc={'/assets/videos/SpencerZill.mp4'}
+           videoSrc={'https://res.cloudinary.com/ba-foods/video/upload/v1756424887/SpencerZill_k41w3v.mov'}
         />
       </div>
     </div>
