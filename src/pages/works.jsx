@@ -1,27 +1,33 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 import Project from "../components/project";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
-import ModeProvider from "../context/mode";
+import { ModeContext } from "../context/mode";
+import ScrollToTop from "../hooks/scrolltotop";
 
 export default function Works() {
-  const { mode } = useContext(ModeProvider);
+  const { mode } = useContext(ModeContext);
+
   return (
     <div
       className={
         mode === "light" ? " bg-white text-black" : " bg-black text-white"
       }
     >
-      <section className=" lg:px-10  px-[17px] ">
+      <ScrollToTop />
+      <section
+        className=" lg:px-10  px-[17px]  mb-[100vh] pb-24"
+        ref={mainSection}
+      >
         <Navbar />
         <div className="flex w-full justify-between mt-32">
           <div className="flex flex-col items-center w-full">
             <h3 className="text-[3rem] text-center">Projects</h3>
-            <p className=" mt-6">
+            <AnimatedCopy className=" mt-6">
               Explore some of the works I've built — from slick frontend UIs,
               powerful backend APIs, to fullstack apps connected with real-time
               databases.
-            </p>
+            </AnimatedCopy>
           </div>
         </div>
 
@@ -31,15 +37,15 @@ export default function Works() {
           className="w-full flex justify-center items-center flex-wrap pt-10 gap-12 lg:pb-10"
           id="projects"
         >
-          <Project
+          <AnimatedCopyroject
             image={
-              "https://res.cloudinary.com/ba-foods/image/upload/v1750978448/rgwka5jnhpc5cgj8v8sg.png"
+              "https://res.cloudinary.com/ba-foods/image/upload/v1753693942/screenshot-20250728100552_cueeuo.png"
             }
-            name={"Roqqu"}
+            name={"Raven Bank"}
             link={"https://getravenbank.com/"}
             mode={mode}
           />
-          <Project
+          <AnimatedCopyroject
             image={
               "https://res.cloudinary.com/ba-foods/image/upload/v1750273699/gjrduondyy4bnohl1v2c.png"
             }
@@ -47,15 +53,15 @@ export default function Works() {
             link={"https://bridge-testnet.netlify.app/"}
             mode={mode}
           />
-          <Project
+          <AnimatedCopyroject
             image={
-              "https://res.cloudinary.com/ba-foods/image/upload/v1750978441/qbcf7nbj4zgtaxihziba.png"
+              "https://res.cloudinary.com/ba-foods/image/upload/v1753694123/screenshot-20250728100526_dk1e6w.png"
             }
-            name={"Raven Bank"}
-            link={"https://getravenbank.com/"}
+            name={"Roqqu"}
+            link={"https://roqqu.com/"}
             mode={mode}
           />
-          <Project
+          <AnimatedCopyroject
             image={
               "https://res.cloudinary.com/ba-foods/image/upload/v1708872646/Screenshot_2024-02-24_at_5.31.23_pm_swr1uh.png"
             }
@@ -63,7 +69,7 @@ export default function Works() {
             link={"https://spencerzill.com"}
             mode={mode}
           />
-          {/* <Project
+          {/* <AnimatedCopyroject
             image={
               "https://res.cloudinary.com/ba-foods/image/upload/v1708720593/Screen_Shot_2023-05-27_at_2.38.39_PM_aigoez.png"
             }
@@ -71,7 +77,7 @@ export default function Works() {
             link={"https://aquamarine-yeot-b02665.netlify.app"}
             mode={mode}
           />
-          <Project
+          <AnimatedCopyroject
             image={
               "https://res.cloudinary.com/ba-foods/image/upload/v1708720585/Screen_Shot_2023-05-25_at_8.26.12_AM_copy_ivmaeg.png"
             }
@@ -79,7 +85,7 @@ export default function Works() {
             link={"https://timely-druid-89bd42.netlify.app"}
             mode={mode}
           />
-          <Project
+          <AnimatedCopyroject
             image={
               "https://res.cloudinary.com/ba-foods/image/upload/v1708720583/nftPic_dlh1dw.png"
             }
@@ -87,7 +93,7 @@ export default function Works() {
             link={"https://aesthetic-cocada-e52e92.netlify.app"}
             mode={mode}
           />
-          <Project
+          <AnimatedCopyroject
             image={
               "https://res.cloudinary.com/ba-foods/image/upload/v1708777337/Screenshot_2024-02-24_at_12.21.21_pm_cu5aog.png"
             }
@@ -96,8 +102,8 @@ export default function Works() {
             mode={mode}
           /> */}
         </div>
-        <Footer />
       </section>
+      <Footer />
     </div>
   );
 }

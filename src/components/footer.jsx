@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import ModeProvider from "../context/mode";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import AnimatedCopy from "./AnimatedCopy/AnimatedCopy";
 
 export default function Footer() {
   const { mode } = useContext(ModeProvider);
@@ -10,59 +11,96 @@ export default function Footer() {
       "mailto:user@example.com?subject=Subject&body=message%20goes%20here";
   };
   return (
-    <footer className="py-32">
-      <h1
-        className={
-          "not-italic font-normal text-center lg:text-9xl lg:mb-9 text-5xl mb-4"
-        }
-      >
-        Let's Talk
-      </h1>
-      <button
-        className={
-          mode === "light"
-            ? "flex justify-center items-center lg:p-8 m-auto bg-black rounded-full text-white gap-4 p-4 "
-            : "flex justify-center items-center lg:p-8 m-auto bg-white rounded-full text-black gap-4 p-4 "
-        }
-        onClick={() => navigate("/contact")}
-      >
-        Contact Me
-        <span
-          className={
-            mode === "light"
-              ? "stroke-white fill-white"
-              : "stroke-black fill-black"
-          }
-        >
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 20 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g clip-path="url(#clip0_535_429)">
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M13.2799 5.9747C12.8561 5.99218 12.3545 6.00286 11.8078 5.99513C10.2234 5.97287 8.20108 5.79579 6.60833 5.13993L6.9891 4.21526C8.40165 4.79688 10.2684 4.97335 11.8218 4.99529C12.5909 5.00612 13.2685 4.97903 13.7535 4.94922C13.9958 4.93429 14.1895 4.91878 14.3218 4.90704C14.388 4.9012 14.4388 4.89629 14.4727 4.89285L14.5105 4.88897L14.5195 4.88804L14.5215 4.88778L15.1429 4.81876L15.0738 5.43986L15.0736 5.44215L15.0727 5.45113L15.0688 5.48896C15.0653 5.52286 15.0604 5.57366 15.0546 5.63981C15.0429 5.77218 15.0273 5.96583 15.0124 6.20815C14.9826 6.69311 14.9555 7.37073 14.9663 8.13985C14.9883 9.69325 15.1648 11.56 15.7464 12.9725L14.8217 13.3533C14.1659 11.7606 13.9888 9.73826 13.9665 8.15387C13.9588 7.6072 13.9695 7.10555 13.9869 6.68188L5.031 15.6378L4.3239 14.9307L13.2799 5.9747Z"
-                // fill="white"
-                // stroke="white"
-              />
-            </g>
-            <defs>
-              <clipPath id="clip0_535_429">
-                <rect
-                  width="13"
-                  height="15"
-                  fill="white"
-                  transform="translate(9.29289 19.8997) rotate(-135)"
-                />
-              </clipPath>
-            </defs>
-          </svg>
-        </span>
-      </button>
+    <footer
+      className={
+        mode === "light"
+          ? "bg-black fixed bottom-0 w-full -z-10 text-white pt-20 lg:px-20 px-5 lg:rounded-t-[5rem] rounded-t-[1.5rem]  pb-14 mt-28 h-[97vh] flex flex-col justify-between"
+          : "bg-white fixed bottom-0 w-full -z-10 text-black pt-20 lg:px-20 px-5 lg:rounded-t-[5rem] rounded-t-[1.5rem] pb-14 mt-28 h-[97vh] flex flex-col justify-between"
+      }
+    >
+      <div className="flex lg:justify-between items-start justify-start lg:flex-row flex-col">
+        <div>
+          <h3 className="lg:text-3xl lg:w-[55%] w-[65%] text-[23px]">
+            See how I can help you, get in touch today.
+          </h3>
+        </div>
+        <div className="flex lg:gap-44 gap-24 lg:mt-0 mt-14 justify-items-end pr-36">
+          <ul>
+            <li className="mb-5 text-nowrap">{"{ Content }"}</li>
+
+            <Link to={"/"}>
+              <div className="mb-5 group"></div>{" "}
+              <div className="mb-5 group">
+                <li className=" lg:text-[15px] text-[13px]">Home</li>
+                <hr className="border-1 w-0 transition-all ease-in-out duration-1000  group-hover:w-full rounded-3xl" />
+              </div>
+            </Link>
+            <Link to={"/works"}>
+              <div className="mb-5 group">
+                {" "}
+                <li className=" lg:text-[15px] text-[13px]">Works</li>
+                <hr className="border-1 w-0 transition-all ease-in-out duration-1000  group-hover:w-full rounded-3xl" />
+              </div>
+            </Link>
+            <Link to={"/about"}>
+              <div className="mb-5 group">
+                {" "}
+                <li className=" lg:text-[15px] text-[13px]">About</li>
+                <hr className="border-1 w-0 transition-all ease-in-out duration-1000  group-hover:w-full rounded-3xl" />
+              </div>
+            </Link>
+            <Link to={"/contact"}>
+              <div className="mb-5 group">
+                <li className=" lg:text-[15px] text-[13px]">Contact</li>
+                <hr className="border-1 w-0 transition-all ease-in-out duration-1000  group-hover:w-full rounded-3xl" />
+              </div>{" "}
+            </Link>
+          </ul>
+          <ul>
+            <div></div>
+            <li className="mb-5 text-nowrap">{"{ Connect }"}</li>
+            <div className="group mb-5">
+              {" "}
+              <a href="">
+                <li className=" lg:text-[15px] text-[13px]">LinkedIn</li>
+                <hr className="border-1 w-0 transition-all ease-in-out duration-1000  group-hover:w-full rounded-3xl" />
+              </a>
+            </div>
+            <div className="group mb-5">
+              <a href="">
+                <li className=" lg:text-[15px] text-[13px]">Instagram</li>
+                <hr className="border-1 w-0 transition-all ease-in-out duration-1000  group-hover:w-full rounded-3xl" />
+              </a>
+            </div>
+            <div className="group mb-5">
+              <a href="">
+                <li className=" lg:text-[15px] text-[13px]">Facebook</li>
+                <hr className="border-1 w-0 transition-all ease-in-out duration-1000  group-hover:w-full rounded-3xl" />
+              </a>
+            </div>
+            <div className="group mb-5">
+              <a href="">
+                <li className=" lg:text-[15px] text-[13px]">X</li>
+                <hr className="border-1 w-0 transition-all ease-in-out duration-1000  group-hover:w-full rounded-3xl" />
+              </a>
+            </div>
+          </ul>
+        </div>
+      </div>
+      <div className="w-full">
+        <h1 className="lg:text-9xl text-center text-5xl">Benjamin .A Dev</h1>
+        <div className="flex w-full justify-between mt-9">
+          <span className="flex gap-10 lg:text-[12px] text-[10px]">
+            {" "}
+            <AnimatedCopy>© Revenant 2025</AnimatedCopy>
+            <AnimatedCopy>T&C's</AnimatedCopy>
+            <AnimatedCopy>Privacy</AnimatedCopy>
+          </span>
+          <AnimatedCopy className="lg:text-[12px] text-[10px]">
+            Site by Form
+          </AnimatedCopy>
+        </div>
+      </div>
     </footer>
   );
 }

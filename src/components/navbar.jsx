@@ -4,9 +4,11 @@ import { MdOutlineWbSunny } from "react-icons/md";
 import { FaMoon } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 import ModeProvider from "../context/mode";
+import NavbarOptions from "./NavbarOptions";
+import MobileNavToggoleContext, { MobileNavToggole } from "../context/MobileNavToggole";
 
-export default function Navbar() {
-  const [toggleMenu, setToggleMenu] = useState(false);
+export default function Navbar({style}) {
+  const { toggleMenu, setToggleMenu } = useContext(MobileNavToggoleContext);
   const { mode, setMode } = useContext(ModeProvider);
   const location = useLocation();
 
@@ -28,16 +30,16 @@ export default function Navbar() {
     setMode((prev) => (prev === "light" ? "dark" : "light"));
   };
   return (
-    <div className="flex justify-end pt-3 lg:pt-0">
+    <div className={`flex justify-end pt-3 lg:pt-0 ${style}`}>
       <nav
         className={
           toggleMenu
             ? mode === "light"
-              ? "w-screen lg:h-screen mt-0 h-Dscreen float-right flex text-white bg-black justify-start items-center p-5 flex-col lg:absolute top-0  fixed z-20"
-              : "w-screen lg:h-screen mt-0 h-Dscreen float-right flex text-black bg-white justify-start items-center  p-5 flex-col lg:absolute top-0 fixed z-20"
+              ? `w-screen  lg:w-fit lg:m-auto lg:gap-9 lg:absolute lg:px-9 lg:top-7 lg:rounded-full lg:mt-5 lg:h-fit mt-0 h-Dscreen float-right flex text-white bg-black lg:justify-center justify-start items-center py-5 px-36 lg:flex-row flex-col top-0 fixed z-20`
+              : `w-screen lg:w-fit lg:h-fit mt-0 h-Dscreen float-right flex text-black bg-white justify-start items-center  py-5 px-36 lg:flex-row flex-col lg:absolute top-0 fixed z-20`
             : mode === "light"
-            ? "lg:m-auto lg:w-[27.9em] lg:relative lg:top-7 w-fit rounded-full flex bg-black lg:mt-5 text-white justify-between p-5 "
-            : "lg:m-auto lg:w-[27.9em] lg:relative lg:top-7 w-fit rounded-full flex bg-white lg:mt-5 text-black justify-between p-5"
+            ? `lg:m-auto lg:w-fit lg:relative lg:top-7 w-fit rounded-full flex bg-black lg:mt-5 text-white justify-between py-5 gap-9 lg:px-9 px-5`
+            : `lg:m-auto lg:w-fit lg:relative lg:top-7 w-fit rounded-full flex bg-white lg:mt-5 text-black justify-between py-5 gap-9 lg:px-9`
         }
       >
         <RxHamburgerMenu
@@ -47,75 +49,14 @@ export default function Navbar() {
               : "lg:hidden md:hidden self-start"
           }
           onClick={menu}
+          size={25}
         />
-        <Link to={"/"}>
-          <p
-            className={
-              toggleMenu
-                ? "inline-block self-center mb-10 "
-                : mode === "light"
-                ? "home" === selectedMenu
-                  ? "lg:inline-block hidden cursor-pointer text-black bg-white  hover:p-2 py-2 px-2  rounded-full "
-                  : "lg:inline-block hidden cursor-pointer hover:text-black hover:bg-white  hover:p-2 py-2 px-2  hover:rounded-full "
-                : "home" === selectedMenu
-                ? "lg:inline-block hidden cursor-pointer text-white bg-black p-2 py-2 px-2   rounded-full "
-                : "lg:inline-block hidden cursor-pointer hover:text-white hover:bg-black hover:p-2 py-2 px-2  hover:rounded-full "
-            }
-          >
-            Home
-          </p>
-        </Link>
-        <Link to="/work">
-          <p
-            className={
-              toggleMenu
-                ? "inline-block self-center mb-10 cursor-pointer"
-                : mode === "light"
-                ? selectedMenu === "projects"
-                  ? "lg:inline-block hidden cursor-pointer text-black bg-white  text-blackbg-white  p-2 py-2 px-2  rounded-full "
-                  : "lg:inline-block hidden cursor-pointer hover:text-black hover:bg-white  hover:p-2 py-2 px-2  hover:rounded-full "
-                : selectedMenu === "projects"
-                ? "lg:inline-block hidden cursor-pointer text-white bg-black p-2 py-2 px-2  rounded-full "
-                : "lg:inline-block hidden cursor-pointer hover:text-white hover:bg-black hover:p-2 py-2 px-2  hover:rounded-full "
-            }
-          >
-            Projects
-          </p>
-        </Link>
-        <Link to={"/about"}>
-          <p
-            className={
-              toggleMenu
-                ? "inline-block self-center mb-10 cursor-pointer"
-                : mode === "light"
-                ? selectedMenu === "about"
-                  ? "lg:inline-block hidden cursor-pointer text-black bg-white  text-blackbg-white  p-2 py-2 px-2  rounded-full "
-                  : "lg:inline-block hidden cursor-pointer hover:text-black hover:bg-white  hover:p-2 py-2 px-2  hover:rounded-full "
-                : selectedMenu === "about"
-                ? "lg:inline-block hidden cursor-pointer text-white bg-black  p-2 py-2 px-2  rounded-full "
-                : "lg:inline-block hidden cursor-pointer hover:text-white hover:bg-black hover:p-2 py-2 px-2  hover:rounded-full "
-            }
-          >
-            About
-          </p>
-        </Link>
-        <Link to={"/contact"}>
-          <p
-            className={
-              toggleMenu
-                ? "inline-block self-center mb-10 cursor-pointer"
-                : mode === "light"
-                ? selectedMenu === "contact"
-                  ? "lg:inline-block hidden cursor-pointer text-black bg-white  text-blackbg-white  p-2 py-2 px-2  rounded-full "
-                  : "lg:inline-block hidden cursor-pointer hover:text-black hover:bg-white  hover:p-2 py-2 px-2  hover:rounded-full "
-                : selectedMenu === "contact"
-                ? "lg:inline-block hidden cursor-pointer text-white bg-black  p-2 py-2 px-2  rounded-full "
-                : "lg:inline-block hidden cursor-pointer hover:text-white hover:bg-black hover:p-2 py-2 px-2  hover:rounded-full "
-            }
-          >
-            Contact
-          </p>
-        </Link>
+
+        <NavbarOptions content={"Home"} to={"/"} />
+        <NavbarOptions content={"Works"} to={"/works"} />
+        <NavbarOptions content={"About"} to={"/about"} />
+        <NavbarOptions content={"Contact"} to={"/contact"} />
+
         {mode === "light" ? (
           <FaMoon
             className="self-center cursor-pointer lg:inline-block hidden"
@@ -127,7 +68,7 @@ export default function Navbar() {
             onClick={toggoleMode}
           />
         )}
-        {mode === "light" ? (
+        {/* {mode === "light" ? (
           <FaMoon
             className={
               toggleMenu
@@ -145,7 +86,7 @@ export default function Navbar() {
             }
             onClick={toggoleMode}
           />
-        )}
+        )} */}
       </nav>
     </div>
   );

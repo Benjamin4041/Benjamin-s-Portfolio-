@@ -24,6 +24,9 @@ import {
 } from "react-icons/fa";
 import { SiJquery, SiNextdotjs } from "react-icons/si";
 import { TbBrandThreejs } from "react-icons/tb";
+import Projects from "../components/LandingpageProjects/Projects";
+import ScrollToTop from "../hooks/scrolltotop";
+import AnimatedCopy from "../components/AnimatedCopy/AnimatedCopy";
 
 export default function Homepage() {
   //   const [mode, setMode] = useState("light");
@@ -58,7 +61,8 @@ export default function Homepage() {
         mode === "light" ? " bg-white text-black" : " bg-black text-white"
       }
     >
-      <section className="w-full lg:h-screen lg:pb-0 pb-5 z-10">
+      <ScrollToTop />
+      <section className="w-full lg:h- lg:pb-0 pb-5 z-10">
         <Navbar />
         <div className="flex flex-col">
           <div className="overflow-hidden w-fit h-fit">
@@ -73,7 +77,7 @@ export default function Homepage() {
                 : "flex justify-center items-center gap-4  bg-[#141414] w-fit p-4 rounded-full self-end mr-5"
             }
           >
-            <p>SCROLL DOWN</p>
+            <AnimatedCopy>SCROLL DOWN</AnimatedCopy>
             <span
               className={
                 mode === "light"
@@ -112,15 +116,15 @@ export default function Homepage() {
           </div>
         </div>
         <div className="lg:px-5 px-2 flex justify-between w-full lg:mt-12 mt-5">
-          <p className="hidden lg:inline-block ">
+          <AnimatedCopy className="hidden lg:inline-block ">
             Let’s Talk
             <br />
             <div
               className={copied ? "flex justify-center items-center" : "hidden"}
             >
-              <p>copied!!</p>
+              <AnimatedCopy>copied!!</AnimatedCopy>
             </div>
-            <p
+            <AnimatedCopy
               onClick={() => {
                 copyEmail();
                 return setCopied((prev) => (prev = true));
@@ -128,29 +132,29 @@ export default function Homepage() {
               className="cursor-pointer"
             >
               anoruokachi2@gmail.com
-            </p>
-          </p>
-          <p className="lg:w-[30%]">
+            </AnimatedCopy>
+          </AnimatedCopy>
+          <AnimatedCopy className="lg:w-[30%]">
             Hi there, I am Benjamin, a seasoned Fullstack developer crafting
             robust web apps, intuitive UIs, and scalable solutions.
-          </p>
+          </AnimatedCopy>
         </div>
       </section>
 
-      <section className=" lg:px-10 px-[17px]">
+      <section className=" lg:px-10 px-[17px] pt-20">
         <div className="flex w-full justify-between" id="projects">
           <div>
             <h3 className="w-fit text-[3rem]">Projects</h3>
-            <p className="lg:w-[392px] mt-6">
+            <AnimatedCopy className="lg:w-[392px] mt-6">
               As a seasoned Fullstack developer, I'm dedicated to building
               contemporary, user-friendly web designs and cutting-edge digital
               solutions. Let me help you construct the brand of your dreams by
               creating dynamic and engaging online experiences.
-            </p>
+            </AnimatedCopy>
           </div>
 
-          <Link to={"/work"}>
-            <p className="flex justify-center items-center gap-3 cursor-pointer lg:self-end translate-y-9 lg:translate-y-0">
+          <Link to={"/works"}>
+            <AnimatedCopy className="flex justify-center items-center gap-3 cursor-pointer lg:self-end translate-y-9 lg:translate-y-0">
               more{" "}
               <span
                 className={
@@ -166,43 +170,43 @@ export default function Homepage() {
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <path
+               <path
                     fill-rule="evenodd"
                     clip-rule="evenodd"
                     d="M12.6657 5.97278C12.3537 5.6855 11.9914 5.33831 11.6103 4.94627C10.5057 3.8102 9.20094 2.255 8.53846 0.665L9.46154 0.2804C10.0491 1.6905 11.2443 3.13526 12.3272 4.24919C12.8634 4.8007 13.3617 5.26069 13.7257 5.58253C13.9076 5.74332 14.0555 5.86929 14.1574 5.95459C14.2083 5.99723 14.2477 6.02968 14.2741 6.05122L14.3036 6.07523L14.3106 6.08091L14.3122 6.08215L14.8004 6.47273L14.3124 6.8631L14.3106 6.86455L14.3036 6.87024L14.2741 6.89425C14.2477 6.91578 14.2083 6.94823 14.1574 6.99088C14.0555 7.07617 13.9076 7.20214 13.7257 7.36293C13.3617 7.68477 12.8634 8.14476 12.3272 8.69627C11.2443 9.8102 10.0491 11.255 9.46154 12.665L8.53846 12.2804C9.20094 10.6905 10.5057 9.13526 11.6103 7.99919C11.9914 7.60719 12.3537 7.26004 12.6656 6.97278L-2.48817e-07 6.97278L-2.92528e-07 5.97278L12.6657 5.97278Z"
                   />
                 </svg>
               </span>
-            </p>
+            </AnimatedCopy>
           </Link>
         </div>
 
-        <div className="w-full flex justify-center items-center flex-wrap pt-10 gap-12 pb-10 ">
-          <Project
+        {/* <div className="w-full flex justify-center items-center flex-wrap pt-10 gap-12 pb-10 ">
+          <AnimatedCopyroject
             image={
-              "https://res.cloudinary.com/ba-foods/image/upload/v1750978448/rgwka5jnhpc5cgj8v8sg.png"
+              "https://res.cloudinary.com/ba-foods/image/upload/v1753693942/screenshot-20250728100552_cueeuo.png"
             }
-            name={"Roqqu"}
+            name={"Raven Bank"}
             link={"https://getravenbank.com/"}
             mode={mode}
           />
-              <Project
-                image={
-                  "https://res.cloudinary.com/ba-foods/image/upload/v1750273699/gjrduondyy4bnohl1v2c.png"
-                }
-                name={"Bridge"}
-                link={"https://bridge-testnet.netlify.app/"}
-                mode={mode}
-              />
-              <Project
-                image={
-                  "https://res.cloudinary.com/ba-foods/image/upload/v1750978441/qbcf7nbj4zgtaxihziba.png"
-                }
-                name={"Raven Bank"}
-                link={"https://getravenbank.com/"}
-                mode={mode}
-              />
-          <Project
+          <AnimatedCopyroject
+            image={
+              "https://res.cloudinary.com/ba-foods/image/upload/v1750273699/gjrduondyy4bnohl1v2c.png"
+            }
+            name={"Bridge"}
+            link={"https://bridge-testnet.netlify.app/"}
+            mode={mode}
+          />
+          <AnimatedCopyroject
+            image={
+              "https://res.cloudinary.com/ba-foods/image/upload/v1753694123/screenshot-20250728100526_dk1e6w.png"
+            }
+            name={"Roqqu"}
+            link={"https://roqqu.com/"}
+            mode={mode}
+          />
+          <AnimatedCopyroject
             image={
               "https://res.cloudinary.com/ba-foods/image/upload/v1708872646/Screenshot_2024-02-24_at_5.31.23_pm_swr1uh.png"
             }
@@ -210,25 +214,12 @@ export default function Homepage() {
             link={"https://spencerzill.com"}
             mode={mode}
           />
-          {/* <Project
-            image={
-              "https://res.cloudinary.com/ba-foods/image/upload/v1708720585/Screen_Shot_2023-05-25_at_8.26.12_AM_copy_ivmaeg.png"
-            }
-            name={" E-commerce store"}
-            link={"https://timely-druid-89bd42.netlify.app"}
-            mode={mode}
-          />
-          <Project
-            image={
-              "https://res.cloudinary.com/ba-foods/image/upload/v1708720583/nftPic_dlh1dw.png"
-            }
-            name={"NFT market place"}
-            link={"https://aesthetic-cocada-e52e92.netlify.app"}
-            mode={mode}
-          /> */}
-        </div>
+  
+        </div> */}
+
+        <Projects />
       </section>
-      <section className="lg:px-10 lg:py-60 w-full px-4 relative pt-60 lg:h-screen lg:pb-80">
+      <section className="lg:px-10 lg:pt-60 w-full px-4 relative pt-60 lg:h-fit lg:pb-56 ">
         <div
           className={
             mode == "light"
@@ -239,8 +230,8 @@ export default function Homepage() {
           <ul
             className={
               mode == "light"
-                ? "text-white lg:text-[8.8rem] text-[4.4rem] text-center -translate-x-16 text-nowrap moving-text flex gap-32 justify-between"
-                : "text-black lg:text-[8.8rem] text-[4.4rem] text-center -translate-x-16  text-nowrap moving-text flex gap-32 justify-between"
+                ? "text-white lg:text-[8.8rem] text-[4.4rem] text-center -translate-x-16 text-nowrap flex gap-32 justify-between"
+                : "text-black lg:text-[8.8rem] text-[4.4rem] text-center -translate-x-16  text-nowrap  flex gap-32 justify-between"
             }
           >
             <li className="list-none">My Stack </li>
@@ -252,10 +243,9 @@ export default function Homepage() {
           </ul>
         </div>
 
-        <div className="flex justify-center items-center gap-2 lg:pt-10">
-
+        <div className="flex justify-center items-center gap-2 lg:pt-36">
           <div className="overflow-hidden">
-            <div className="flex gap-14 justify-center items-center lg:gap-52 pt-10 lg:-translate-x-0 lg:flex-row flex-col w-full">
+            <div className="flex justify-between w-full gap-12 lg:flex-row flex-col">
               <ul className="lg:w-[50%] w-full">
                 <li className="border-solid border-x-4 px-4 text-xl mb-4 border-black ">
                   LANGUAGES
@@ -426,31 +416,30 @@ export default function Homepage() {
               </ul>
             </div>
           </div>
- 
         </div>
       </section>
-      <section className="lg:pt-20 pt-10 lg:px-10 px-5">
+      <section className="lg:pt-10 pt-10 lg:px-10 px-5 mb-[100vh] lg:pb-56 pb-20 ">
         <h2 className="lg:mb-20 lg:h-16 lg:not-italic lg:font-normal lg:text-6xl  pt-2 w-32 not-italic font-normal text-2xl mb-10">
           Testimonials
         </h2>
         <div className="flex lg:flex-row flex-col">
-          <p className="mb-7 not-italic font-normal lg:text-5xl text-sm leading-6 lg:w-[70%]  ">
+          <AnimatedCopy className="mb-7 not-italic font-normal lg:text-5xl text-sm leading-6 lg:w-[70%]  ">
             “Benjamin's prowess as a developer is unparalleled. His ability to
             translate abstract ideas into exceptional digital solutions is
             remarkable. Over the years, I've seen him craft everything from
             intricate web applications to seamless user experiences with finesse
             and professionalism.”
-          </p>
-          <p className="lg:self-end  not-italic font-normal lg:text-xl text-sm">
+          </AnimatedCopy>
+          <AnimatedCopy className="lg:self-end  not-italic font-normal lg:text-xl text-sm">
             Bryan
             <br />
             <span className="block pt-2">Product Designer</span>
-          </p>
+          </AnimatedCopy>
         </div>
 
         {/* footer */}
-        <Footer mode={mode} />
       </section>
+      <Footer mode={mode} />
     </div>
   );
 }

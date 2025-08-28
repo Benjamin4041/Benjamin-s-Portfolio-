@@ -4,6 +4,9 @@ import ModeProvider from "../context/mode";
 import { FaGithub, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { IoIosArrowForward } from "react-icons/io";
 import emailjs from "@emailjs/browser";
+import Footer from "../components/footer";
+import ScrollToTop from "../hooks/scrolltotop";
+import AnimatedCopy from "../components/AnimatedCopy/AnimatedCopy";
 
 export default function Contact() {
   const [email, setEmail] = useState("");
@@ -36,13 +39,14 @@ export default function Contact() {
     <div
       className={
         mode === "light"
-          ? " bg-white text-black h-screen overflow-hidden"
-          : " bg-black text-white h-screen overflow-hidden"
+          ? " bg-white text-black h-fit "
+          : " bg-black text-white h-fit "
       }
     >
+      <ScrollToTop />
       <Navbar />
-      <div className="flex lg:justify-center lg:items-center relative h-[100%] lg:px-28 lg:gap-20 lg:flex-row flex-col lg:pt-5 ">
-        <div className="lg:w-[50%] w-full lg:flex-col flex lg:gap-0 lg:justify-end lg:items-start justify-center items-center gap-9">
+      <div className="flex lg:justify-center lg:items-center relative h-[90vh] lg:px-28 lg:gap-20 lg:flex-row flex-col lg:pt-5 mt-24 mb-[100vh] ">
+        <div className="lg:w-[50%] w-full lg:flex-col flex lg:gap-2 lg:justify-start lg:items-start justify-between items-center gap-9 lg:h-[80%]">
           <a
             href="https://github.com/Benjamin4041"
             target="_blank"
@@ -56,8 +60,8 @@ export default function Contact() {
                 <FaGithub size={25} color="white" />
               </div>
               <span className="lg:block hidden">
-                <p> GitHub</p>
-                <p> Explore my code & projects</p>
+                <AnimatedCopy> GitHub</AnimatedCopy>
+                <AnimatedCopy> Explore my code & projects</AnimatedCopy>
               </span>
               <IoIosArrowForward size={25} className="hidden lg:block" />
             </div>
@@ -75,8 +79,8 @@ export default function Contact() {
                 <FaLinkedin size={25} color="white" />
               </div>
               <span className="lg:block hidden">
-                <p>LinedIn</p>
-                <p>Let’s connect professionally</p>
+                <AnimatedCopy>LinedIn</AnimatedCopy>
+                <AnimatedCopy>Let’s connect professionally</AnimatedCopy>
               </span>
               <IoIosArrowForward size={25} className="hidden lg:block" />
             </div>
@@ -94,8 +98,8 @@ export default function Contact() {
                 <FaInstagram size={25} color="white" />
               </div>
               <span className="lg:block hidden">
-                <p> Instagram</p>
-                <p>My visual journal & life updates</p>
+                <AnimatedCopy> Instagram</AnimatedCopy>
+                <AnimatedCopy>My visual journal & life updates</AnimatedCopy>
               </span>
               <IoIosArrowForward size={25} className="hidden lg:block" />
             </div>
@@ -105,7 +109,7 @@ export default function Contact() {
             target="_blank"
             className="lg:w-[80%]"
           >
-            <div className="lg:border-4 h-fit flex items-center justify-between w-[100%] xl:mb-8 cursor-pointer lg:px-7 2xl:py-7 lg:py-1  py-3 ">
+            <div className="lg:border-4 h-fit flex items-center justify-between w-[100%]  cursor-pointer lg:px-7 2xl:py-7 lg:py-1  py-3 ">
               <div className="w-fit p-5 bg-black rounded  lg:block hidden">
                 <FaTwitter size={50} color="white" />
               </div>
@@ -113,8 +117,8 @@ export default function Contact() {
                 <FaTwitter size={25} color="white" />
               </div>
               <span className="lg:block hidden">
-                <p> Twitter</p>
-                <p>Random thoughts & dev tweets</p>
+                <AnimatedCopy> Twitter</AnimatedCopy>
+                <AnimatedCopy>Random thoughts & dev tweets</AnimatedCopy>
               </span>
               <IoIosArrowForward size={25} className="hidden lg:block" />
             </div>
@@ -122,7 +126,9 @@ export default function Contact() {
         </div>
         <div className="border-2 rounded xl:w-[50%] w-[90%] m-auto p-4 xl:p-10">
           <form action="" ref={form}>
-            <p className="font-bold text-2xl">Send Me a Message</p>
+            <AnimatedCopy className="font-bold text-2xl">
+              Send Me a Message
+            </AnimatedCopy>
             <div className="xl:mb-5">
               <label htmlFor="">Name</label>
               <br />
@@ -178,6 +184,7 @@ export default function Contact() {
           </form>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
