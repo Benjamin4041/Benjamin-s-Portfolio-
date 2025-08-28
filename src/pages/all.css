@@ -8,5 +8,18 @@
 }
 
 .moving-text {
-    animation: moveText 10s ease-in-out infinite alternate; /* Adjust the duration as needed */
-  }
+  animation: moveText 10s ease-in-out infinite alternate; /* Adjust the duration as needed */
+}
+
+.inversion-lens {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+.inversion-lens img {
+  display: none;
+}
+
