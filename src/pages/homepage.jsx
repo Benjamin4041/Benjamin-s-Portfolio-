@@ -66,7 +66,7 @@ export default function Homepage() {
         <Navbar />
         <div className="flex flex-col">
           <div className="overflow-hidden w-fit h-fit">
-            <h1 className="text-center text-[17vw] h-fit" ref={headerText}>
+            <h1 className="text-center text-[17vw] h-fit text-nowrap" ref={headerText}>
               Fullstack Dev
             </h1>
           </div>
@@ -119,29 +119,31 @@ export default function Homepage() {
           <AnimatedCopy className="hidden lg:inline-block ">
             Let’s Talk
             <br />
-            <div
-              className={copied ? "flex justify-center items-center" : "hidden"}
+            {/* <div
+              className={
+                copied == true ? "flex justify-center items-center" : "hidden"
+              }
             >
-              <AnimatedCopy>copied!!</AnimatedCopy>
-            </div>
-            <AnimatedCopy
+              <p>copied!!</p>
+            </div> */}
+            <p
               onClick={() => {
                 copyEmail();
-                return setCopied((prev) => (prev = true));
+                // return setCopied((prev) => (prev = true));
               }}
               className="cursor-pointer"
             >
               anoruokachi2@gmail.com
-            </AnimatedCopy>
+            </p>
           </AnimatedCopy>
-          <AnimatedCopy className="lg:w-[30%]">
+          <AnimatedCopy className="lg:w-[30%] 2xl:w-[10%]" tag="p">
             Hi there, I am Benjamin, a seasoned Fullstack developer crafting
             robust web apps, intuitive UIs, and scalable solutions.
           </AnimatedCopy>
         </div>
       </section>
 
-      <section className=" lg:px-10 px-[17px] pt-20">
+      <section className=" lg:px-10 px-[17px] pt-20 pb-4">
         <div className="flex w-full justify-between" id="projects">
           <div>
             <h3 className="w-fit text-[3rem]">Projects</h3>
@@ -170,7 +172,7 @@ export default function Homepage() {
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-               <path
+                  <path
                     fill-rule="evenodd"
                     clip-rule="evenodd"
                     d="M12.6657 5.97278C12.3537 5.6855 11.9914 5.33831 11.6103 4.94627C10.5057 3.8102 9.20094 2.255 8.53846 0.665L9.46154 0.2804C10.0491 1.6905 11.2443 3.13526 12.3272 4.24919C12.8634 4.8007 13.3617 5.26069 13.7257 5.58253C13.9076 5.74332 14.0555 5.86929 14.1574 5.95459C14.2083 5.99723 14.2477 6.02968 14.2741 6.05122L14.3036 6.07523L14.3106 6.08091L14.3122 6.08215L14.8004 6.47273L14.3124 6.8631L14.3106 6.86455L14.3036 6.87024L14.2741 6.89425C14.2477 6.91578 14.2083 6.94823 14.1574 6.99088C14.0555 7.07617 13.9076 7.20214 13.7257 7.36293C13.3617 7.68477 12.8634 8.14476 12.3272 8.69627C11.2443 9.8102 10.0491 11.255 9.46154 12.665L8.53846 12.2804C9.20094 10.6905 10.5057 9.13526 11.6103 7.99919C11.9914 7.60719 12.3537 7.26004 12.6656 6.97278L-2.48817e-07 6.97278L-2.92528e-07 5.97278L12.6657 5.97278Z"
@@ -180,69 +182,10 @@ export default function Homepage() {
             </AnimatedCopy>
           </Link>
         </div>
-
-        {/* <div className="w-full flex justify-center items-center flex-wrap pt-10 gap-12 pb-10 ">
-          <AnimatedCopyroject
-            image={
-              "https://res.cloudinary.com/ba-foods/image/upload/v1753693942/screenshot-20250728100552_cueeuo.png"
-            }
-            name={"Raven Bank"}
-            link={"https://getravenbank.com/"}
-            mode={mode}
-          />
-          <AnimatedCopyroject
-            image={
-              "https://res.cloudinary.com/ba-foods/image/upload/v1750273699/gjrduondyy4bnohl1v2c.png"
-            }
-            name={"Bridge"}
-            link={"https://bridge-testnet.netlify.app/"}
-            mode={mode}
-          />
-          <AnimatedCopyroject
-            image={
-              "https://res.cloudinary.com/ba-foods/image/upload/v1753694123/screenshot-20250728100526_dk1e6w.png"
-            }
-            name={"Roqqu"}
-            link={"https://roqqu.com/"}
-            mode={mode}
-          />
-          <AnimatedCopyroject
-            image={
-              "https://res.cloudinary.com/ba-foods/image/upload/v1708872646/Screenshot_2024-02-24_at_5.31.23_pm_swr1uh.png"
-            }
-            name={"SpencerZill"}
-            link={"https://spencerzill.com"}
-            mode={mode}
-          />
-  
-        </div> */}
-
         <Projects />
       </section>
-      <section className="lg:px-10 lg:pt-60 w-full px-4 relative pt-60 lg:h-fit lg:pb-56 ">
-        <div
-          className={
-            mode == "light"
-              ? "bg-black w-full py-3 absolute top-0 left-0 overflow-hidden "
-              : "bg-white w-full py-3 absolute top-0 left-0 overflow-hidden "
-          }
-        >
-          <ul
-            className={
-              mode == "light"
-                ? "text-white lg:text-[8.8rem] text-[4.4rem] text-center -translate-x-16 text-nowrap flex gap-32 justify-between"
-                : "text-black lg:text-[8.8rem] text-[4.4rem] text-center -translate-x-16  text-nowrap  flex gap-32 justify-between"
-            }
-          >
-            <li className="list-none">My Stack </li>
-            <li className="list-none">My Stack </li>
-            <li className="list-none">My Stack </li>
-            <li className="list-none">My Stack </li>
-            <li className="list-none">My Stack </li>
-            <li className="list-none">My Stack </li>
-          </ul>
-        </div>
-
+      <section className="lg:px-10 lg:pt-10 w-full px-4 relative pt-10 lg:h-fit lg:pb-56 ">
+        <AnimatedCopy className="text-center text-5xl font-semibold" tag="h1">My Tech Stack</AnimatedCopy>
         <div className="flex justify-center items-center gap-2 lg:pt-36">
           <div className="overflow-hidden">
             <div className="flex justify-between w-full gap-12 lg:flex-row flex-col">
