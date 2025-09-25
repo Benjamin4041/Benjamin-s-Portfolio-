@@ -92,7 +92,7 @@ export default function Footer() {
         <div className="flex w-full justify-between mt-9">
           <span className="flex gap-10 lg:text-[12px] text-[10px]">
             {" "}
-            <AnimatedCopy>© Revenant 2025</AnimatedCopy>
+            <AnimatedCopy>© 2025</AnimatedCopy>
             <AnimatedCopy>T&C's</AnimatedCopy>
             <AnimatedCopy>Privacy</AnimatedCopy>
           </span>

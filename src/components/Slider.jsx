@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, forwardRef, useImperativeHandle } from "react";
 import gsap from "gsap";
 import styles from "./globals.module.css";
 import { videos } from "./videos";
@@ -42,7 +42,7 @@ const Card = ({ video }) => (
   </div>
 );
 
-const Slider = () => {
+const Slider = forwardRef(({ interactive = true }, ref) => {
   const sliderRef = useRef(null);
   const [isAnimating, setIsAnimating] = useState(false);
 
@@ -51,10 +51,11 @@ const Slider = () => {
   // }, []);
 
   useEffect(() => {
+    if (!interactive) return; // skip auto init when controlled by scroll
     if (sliderRef.current) {
       initializeCards();
     }
-  }, [sliderRef]);
+  }, [sliderRef, interactive]);
 
   const initializeCards = () => {
     const cards = Array.from(
@@ -70,6 +71,7 @@ const Slider = () => {
   };
 
   const handleClick = () => {
+    if (!interactive) return;
     if (isAnimating) return;
     setIsAnimating(true);
 
@@ -93,6 +95,15 @@ const Slider = () => {
     });
   };
 
+  useImperativeHandle(ref, () => ({
+    getCards: () => {
+      const root = sliderRef.current;
+      if (!root) return [];
+      return Array.from(root.querySelectorAll(`.${styles.card}`));
+    },
+    getRoot: () => sliderRef.current,
+  }));
+
   return (
     <div className={styles.container} onClick={handleClick}>
       <div className={styles.slider} ref={sliderRef}>
@@ -102,6 +113,6 @@ const Slider = () => {
       </div>
     </div>
   );
-};
+});
 
 export default Slider;

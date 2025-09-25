@@ -19,15 +19,15 @@ export default function Project({
       ref={cardRef}
       onClick={() => redirect(projectName)}
     >
-      <div className="absolute top-[1em] left-[1em] p-[0.5em] rounded-[0.5em] bg-black text-white z-[1]">
-        <AnimatedCopy className="uppercase text-[12px] font-semibold ">
+      <div className="absolute top-[1em] left-[1em] p-[0.5em] rounded-[0.5em] bg-black  text-white z-[1]">
+        <AnimatedCopy className="uppercase text-[12px] font-semibold text-nowrap">
           {projectName}
         </AnimatedCopy>
       </div>
       <img
         src={imageSrc}
         alt=""
-        className="w-full h-full lg:object-cover object-contain group-hover:hidden"
+        className="w-full h-full lg:object-cover object-contain group-hover:hidden "
         ref={imageRef}
       />
       <video
