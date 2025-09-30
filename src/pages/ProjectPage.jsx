@@ -102,7 +102,7 @@ export default function ProjectPage({ details }) {
       </section>
       <section className=" px-[2em] lg:px-[94.3px] mb-[100vh] pb-24 mt-[5em]">
         {details.imageUrls.map((images) => (
-          <img src={images} alt="" className="mb-20 lg:mb-44" />
+          <img src={images} alt="" className="mb-20 lg:mb-44 w-[50%] m-auto" />
         ))}
         {/* <img
           src="https://agustinburgos.com/images/mystery-minds_3.webp"

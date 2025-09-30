@@ -16,24 +16,34 @@ export default function About() {
     >
       <ScrollToTop />
       <Navbar />
-      <section className="lg:px-36 px-16 lg:my-9 mb-9 flex flex-col">
-        <div className="w-full lg:h-screen overflow-hidden object-fill rounded-3xl">
+      {/* <section className="lg:px-36 px-16 lg:my-9 mb-9 flex flex-col">
+        <div className="w-full lg:w-[min(680px,90vw)] lg:h-[80vh] overflow-hidden aspect-[4/5] m-auto rounded-3xl">
           <Mypicture />
         </div>
         <h2 className="lg:text-9xl lg:-translate-y-20  -translate-y-5 text-4xl self-end h-fit w-fit capitalize">
           BENJAMIN
         </h2>
-      </section>
-      <section className="lg:px-36 px-16 mb-5">
-        <AnimatedCopy className="lg:w-[40.6em] w-full ">
-          Hi, I am a full-stack developer, I offer expert website management and
-          building services. From front-end design to back-end development, I
-          create customized websites and web apps to suit your needs. With my
-          comprehensive approach, your site will be optimized for performance
-          and seamlessly maintained. Trust me to handle the technical aspects
-          while you focus on growing your business. Let's create an engaging
-          online presence that drives success together.
-        </AnimatedCopy>
+      </section> */}
+      <section className="lg:px-36 px-16 mb-5 lg:my-9">
+        <div className="flex flex-col-rev 2xl:gap-10 gap-5 lg:flex-row justify-center items-end w-full">
+          <AnimatedCopy className="lg:w-[40.6em] w-full lg:-translate-y-48 ">
+            Hi, I am a full-stack developer, I offer expert website management
+            and building services. From front-end design to back-end
+            development, I create customized websites and web apps to suit your
+            needs. With my comprehensive approach, your site will be optimized
+            for performance and seamlessly maintained. Trust me to handle the
+            technical aspects while you focus on growing your business. Let's
+            create an engaging online presence that drives success together.
+          </AnimatedCopy>
+          <div className=" lg:my-9 mb-9 flex flex-col">
+            <div className="w-full lg:h-[80vh] overflow-hidden aspect-[4/5] m-auto rounded-3xl">
+              <Mypicture />
+            </div>
+            <h2 className="lg:text-9xl lg:-translate-y-20  -translate-y-5 text-4xl self-end h-fit w-fit capitalize bg-[linear-gradient(141deg,#ffffff_0%,#94959f_50%,#4d4b4b_100%)] bg-clip-text text-transparent">
+              BENJAMIN
+            </h2>
+          </div>
+        </div>
         <div className="flex flex-col">
           <h3 className="font-bold my-5"> / SERVICES</h3>
           <h2 className="font-semibold mb-8 lg:text-5xl text-2xl lg:w-[40%] w-[60%]">

@@ -82,7 +82,7 @@ export default function Projects() {
 
   return (
     <div
-      className="flex justify-center items-center h-screen sticky-cards"
+      className="flex justify-center items-center h-screen sticky-cards w-full"
       ref={projectSection}
     >
       <div
