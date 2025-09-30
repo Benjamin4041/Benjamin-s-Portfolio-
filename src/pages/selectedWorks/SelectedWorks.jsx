@@ -12,7 +12,7 @@ export default function SelectedWorks() {
         mode === "light" ? " bg-white text-black" : " bg-black text-white"
       }
     >
-      <section className="relative min-h-screen overflow-hidden mb-[100vh]">
+      <section className="relative min-h-[200vh] overflow-hidden mb-[100vh] ">
         <Navbar style={"z-30 -translate-y-[2em]"} />
         <SliderTestVersion />
       </section>

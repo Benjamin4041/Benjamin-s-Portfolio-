@@ -61,25 +61,25 @@ export default function Footer() {
             <li className="mb-5 text-nowrap">{"{ Connect }"}</li>
             <div className="group mb-5">
               {" "}
-              <a href="">
+              <a href="https://www.linkedin.com/in/benjamin-anoruo-aa9b36245/" target='_blank'>
                 <li className=" lg:text-[15px] text-[13px]">LinkedIn</li>
                 <hr className="border-1 w-0 transition-all ease-in-out duration-1000  group-hover:w-full rounded-3xl" />
               </a>
             </div>
             <div className="group mb-5">
-              <a href="">
+              <a href="https://www.instagram.com/official_ba_dev?igsh=MW44M3RqNnR0NDZjdA%3D%3D&utm_source=qr" target='_blank'>
                 <li className=" lg:text-[15px] text-[13px]">Instagram</li>
                 <hr className="border-1 w-0 transition-all ease-in-out duration-1000  group-hover:w-full rounded-3xl" />
               </a>
             </div>
             <div className="group mb-5">
-              <a href="">
+              <a href="" target='_blank'>
                 <li className=" lg:text-[15px] text-[13px]">Facebook</li>
                 <hr className="border-1 w-0 transition-all ease-in-out duration-1000  group-hover:w-full rounded-3xl" />
               </a>
             </div>
             <div className="group mb-5">
-              <a href="">
+              <a href="https://x.com/AnoruoBenjamin" target='_blank'>
                 <li className=" lg:text-[15px] text-[13px]">X</li>
                 <hr className="border-1 w-0 transition-all ease-in-out duration-1000  group-hover:w-full rounded-3xl" />
               </a>

@@ -73,16 +73,16 @@ export default function Homepage() {
           <div
             className={
               mode == "light"
-                ? "flex justify-center items-center gap-4 bg-[#F9F9F9] w-fit p-4 rounded-full self-end mr-5"
-                : "flex justify-center items-center gap-4  bg-[#141414] w-fit p-4 rounded-full self-end mr-5"
+                ? "flex justify-center items-center gap-4 bg-[#F9F9F9] hover:bg-[#141414] hover:text-[#F9F9F9] w-fit p-4 rounded-full self-end mr-5 cursor-pointer"
+                : "flex justify-center items-center gap-4  bg-[#141414] w-fit p-4 rounded-full self-end mr-5 cursor-pointer hover:bg-[#F9F9F9] hover:text-[#141414] "
             }
           >
-            <AnimatedCopy>SCROLL DOWN</AnimatedCopy>
+            <AnimatedCopy>Download CV</AnimatedCopy>
             <span
               className={
                 mode === "light"
-                  ? "fill-black stroke-black"
-                  : "fill-white stroke-white"
+                  ? "fill-black stroke-black hover:fill-white"
+                  : "fill-white stroke-white hover:fill-black"
               }
             >
               <svg
@@ -143,7 +143,7 @@ export default function Homepage() {
         </div>
       </section>
 
-      <section className=" lg:px-10 px-[17px] pt-20 pb-4">
+      <section className="w-full lg:px-10 px-[17px] pt-20 pb-4">
         <div className="flex w-full justify-between" id="projects">
           <div>
             <h3 className="w-fit text-[3rem]">Projects</h3>

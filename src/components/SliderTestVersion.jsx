@@ -2,14 +2,15 @@ import React, { useRef, forwardRef, useImperativeHandle } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styles from "./globals.module.css";
-import { videos } from "./videos";
 import { useGSAP } from "@gsap/react";
+import { videos } from './videos';
+import { useNavigate } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
 // Card subcomponent
-const Card = ({ video }) => (
-  <div className={styles.card}>
+const Card = ({ video,onClick }) => (
+  <div className={styles.card} onClick={onClick}>
     <div className={styles["card-info"]}>
       <div className={styles["card-item"]}>
         <p>{video.date}</p>
@@ -53,7 +54,8 @@ const SliderTestVersion = forwardRef(({ interactive = false }, ref) => {
   const displayIndexRef = useRef(0);
   const desiredIndexRef = useRef(0);
   const totalCardsRef = useRef(0);
-
+  const navigate =useNavigate()
+  
   const normalizeIndex = (value) => {
     const total = totalCardsRef.current;
     if (total <= 0) return 0;
@@ -67,7 +69,7 @@ const SliderTestVersion = forwardRef(({ interactive = false }, ref) => {
     const cards = Array.from(slider.querySelectorAll(`.${styles.card}`));
     gsap.set(cards, {
       y: (i) => `${i * 20}%`,
-      z: (i) => 15 * i,
+      z: (i) => 12 * i,
     });
     totalCardsRef.current = cards.length;
     displayIndexRef.current = 0;
@@ -195,12 +197,12 @@ const SliderTestVersion = forwardRef(({ interactive = false }, ref) => {
     });
   };
 
-  const handleClick = () => {
-    if (!interactive) return;
-    const total = totalCardsRef.current;
-    if (total <= 1) return;
-    desiredIndexRef.current = normalizeIndex(displayIndexRef.current + 1);
-    playNextStep();
+  const handleClick = (location) => {
+    if(location.includes(' ')){
+      location = location.split(' ').join('')
+       navigate(`/project/:${location}`)
+    }
+    navigate(`/project/:${location}`)
   };
 
   useImperativeHandle(ref, () => ({
@@ -267,10 +269,10 @@ const SliderTestVersion = forwardRef(({ interactive = false }, ref) => {
   );
 
   return (
-    <div className={styles.container} ref={containerRef} onClick={handleClick}>
+    <div className={styles.container} ref={containerRef}>
       <div className={styles.slider} ref={sliderRef}>
         {videos.map((video, index) => (
-          <Card video={video} key={video.id ?? `${video.title}-${index}`} />
+          <Card video={video} key={video.id ?? `${video.title}-${index}`} onClick={()=>handleClick(video.title)}/>
         ))}
       </div>
     </div>
