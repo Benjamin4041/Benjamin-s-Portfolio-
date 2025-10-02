@@ -77,7 +77,7 @@ export default function Homepage() {
                 : "flex justify-center items-center gap-4  bg-[#141414] w-fit p-4 rounded-full self-end mr-5 cursor-pointer hover:bg-[#F9F9F9] hover:text-[#141414] "
             }
           >
-            <AnimatedCopy>Download CV</AnimatedCopy>
+            <AnimatedCopy>Download Cv</AnimatedCopy>
             <span
               className={
                 mode === "light"
