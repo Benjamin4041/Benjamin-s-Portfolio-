@@ -36,12 +36,7 @@ const Card = ({ video,onClick }) => (
         loop
         muted
       />
-      <div
-        className="bg-white text-black rounded-full p-5 w-fit absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] cursor-pointer"
-        onClick={() => alert("hmm")}
-      >
-        <p>click</p>
-      </div>
+ 
     </div>
   </div>
 );
@@ -269,7 +264,7 @@ const SliderTestVersion = forwardRef(({ interactive = false }, ref) => {
   );
 
   return (
-    <div className={styles.container} ref={containerRef}>
+    <div className={styles.container + ' mb-10'} ref={containerRef}>
       <div className={styles.slider} ref={sliderRef}>
         {videos.map((video, index) => (
           <Card video={video} key={video.id ?? `${video.title}-${index}`} onClick={()=>handleClick(video.title)}/>
