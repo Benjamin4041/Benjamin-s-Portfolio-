@@ -62,11 +62,11 @@ export default function Homepage() {
       }
     >
       <ScrollToTop />
-      <section className="w-full lg:h- lg:pb-0 pb-5 z-10">
+      <section className="w-full lg:h- lg:pb-0 pb-5 z-10 overflow-x-hidden">
         <Navbar />
         <div className="flex flex-col">
           <div className="overflow-hidden w-fit h-fit">
-            <h1 className="text-center text-[17vw] h-fit text-nowrap" ref={headerText}>
+            <h1 className="text-center text-[16vw] h-fit text-nowrap font-relieve" ref={headerText}>
               Fullstack Dev
             </h1>
           </div>
