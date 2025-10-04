@@ -7,6 +7,7 @@ module.exports = {
         'Dscreen': '100dvh'
       }, fontFamily: {
         relieve: ["MyFont", "sans-serif"],
+        Gestura: ['Gestura Display TRIAL', "sans-serif"]
       },
     },
   },

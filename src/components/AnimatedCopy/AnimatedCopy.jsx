@@ -115,7 +115,7 @@ const AnimatedCopy = ({
   return (
     <Tag
       ref={copyRef}
-      className={`animated-copy ${className}`}
+      className={`animated-copy ${className} font-Gestura`}
       data-copy-id={copyId}
     >
       {children}

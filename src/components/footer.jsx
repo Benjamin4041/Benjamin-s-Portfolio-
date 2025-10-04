@@ -88,7 +88,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="w-full">
-        <h1 className="lg:text-9xl text-center text-5xl">Benjamin .A Dev</h1>
+        <h1 className="lg:text-9xl text-center text-5xl font-Gestura">Benjamin .A Dev</h1>
         <div className="flex w-full justify-between mt-9">
           <span className="flex gap-10 lg:text-[12px] text-[10px]">
             {" "}
