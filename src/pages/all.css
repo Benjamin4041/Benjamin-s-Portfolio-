@@ -8,7 +8,7 @@
 }
 
 .moving-text {
-  animation: moveText 10s ease-in-out infinite alternate; /* Adjust the duration as needed */
+  animation: moveText 60s ease-in-out infinite ; /* Adjust the duration as needed */
 }
 
 .inversion-lens {
