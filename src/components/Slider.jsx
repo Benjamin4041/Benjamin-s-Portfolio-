@@ -9,13 +9,13 @@ const Card = ({ video }) => (
   <div className={styles.card}>
     <div className={styles["card-info"]}>
       <div className={styles["card-item"]}>
-        <p>{video.date}</p>
+        <p className="font-Gestura">{video.date}</p>
       </div>
       <div className={styles["card-item"]}>
-        <p>{video.title}</p>
+        <p className="font-Gestura">{video.title}</p>
       </div>
       <div className={styles["card-item"]}>
-        <p>{video.category}</p>
+        <p className="font-Gestura">{video.category}</p>
       </div>
     </div>
     <div className={styles["video-player"]}>
@@ -36,7 +36,7 @@ const Card = ({ video }) => (
         className="bg-white text-black rounded-full p-5 w-fit absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] cursor-pointer"
         onClick={() => alert("hmm")}
       >
-        <p>click</p>
+        <p className="font-Gestura">click</p>
       </div>
     </div>
   </div>

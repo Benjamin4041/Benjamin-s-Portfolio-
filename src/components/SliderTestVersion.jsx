@@ -13,13 +13,13 @@ const Card = ({ video,onClick }) => (
   <div className={styles.card} onClick={onClick}>
     <div className={styles["card-info"]}>
       <div className={styles["card-item"]}>
-        <p>{video.date}</p>
+        <p className="font-Gestura">{video.date}</p>
       </div>
       <div className={styles["card-item"]}>
-        <p>{video.title}</p>
+        <p className="font-Gestura">{video.title}</p>
       </div>
       <div className={styles["card-item"]}>
-        <p>{video.category}</p>
+        <p className="font-Gestura">{video.category}</p>
       </div>
     </div>
     <div className={styles["video-player"]}>

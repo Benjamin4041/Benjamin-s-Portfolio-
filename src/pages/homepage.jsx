@@ -66,7 +66,7 @@ export default function Homepage() {
         <Navbar />
         <div className="flex flex-col">
           <div className="overflow-hidden w-fit h-fit">
-            <h1 className="text-center text-[16vw] h-fit text-nowrap font-relieve" ref={headerText}>
+            <h1 className="text-center text-[16vw] h-fit text-nowrap font-Gestura" ref={headerText}>
               Fullstack Dev
             </h1>
           </div>
@@ -124,19 +124,19 @@ export default function Homepage() {
                 copied == true ? "flex justify-center items-center" : "hidden"
               }
             >
-              <p>copied!!</p>
+              <p className="font-Gestura">copied!!</p>
             </div> */}
             <p
               onClick={() => {
                 copyEmail();
                 // return setCopied((prev) => (prev = true));
               }}
-              className="cursor-pointer"
+              className="cursor-pointer font-Gestura"
             >
               anoruokachi2@gmail.com
             </p>
           </AnimatedCopy>
-          <AnimatedCopy className="lg:w-[30%] 2xl:w-[10%]" tag="p">
+          <AnimatedCopy className="lg:w-[30%] 2xl:w-[10%] font-Gestura" tag="p">
             Hi there, I am Benjamin, a seasoned Fullstack developer crafting
             robust web apps, intuitive UIs, and scalable solutions.
           </AnimatedCopy>
@@ -185,7 +185,7 @@ export default function Homepage() {
         <Projects />
       </section>
       <section className="lg:px-10 lg:pt-10 w-full px-4 relative pt-10 lg:h-fit lg:pb-56 ">
-        <AnimatedCopy className="text-center text-5xl font-semibold" tag="h1">My Tech Stack</AnimatedCopy>
+        <AnimatedCopy className="text-center text-5xl font-semibold font-Gestura" tag="h1">My Tech Stack</AnimatedCopy>
         <div className="flex justify-center items-center gap-2 lg:pt-36">
           <div className="overflow-hidden">
             <div className="flex justify-between w-full gap-12 lg:flex-row flex-col">

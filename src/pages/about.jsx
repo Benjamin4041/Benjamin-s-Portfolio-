@@ -39,7 +39,7 @@ export default function About() {
             <div className="w-full lg:h-[80vh] overflow-hidden aspect-[4/5] m-auto rounded-3xl">
               <Mypicture />
             </div>
-            <h2 className="lg:text-9xl lg:-translate-y-20  -translate-y-5 text-4xl self-end h-fit w-fit capitalize bg-[linear-gradient(141deg,#ffffff_0%,#94959f_50%,#4d4b4b_100%)] bg-clip-text text-transparent">
+            <h2 className="lg:text-9xl lg:-translate-y-20 font-Gestura -translate-y-5 text-4xl self-end h-fit w-fit capitalize bg-[linear-gradient(141deg,#ffffff_0%,#94959f_50%,#4d4b4b_100%)] bg-clip-text text-transparent">
               BENJAMIN
             </h2>
           </div>

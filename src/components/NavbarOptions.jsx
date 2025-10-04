@@ -29,11 +29,11 @@ export default function NavbarOptions({ to, content }) {
         className={
           mode === "light"
             ? content.toLowerCase() === selectedMenu
-              ? "lg:inline-block cursor-pointer text-black bg-white  hover:p-2 hover:px-6 py-2 rounded-full  w-[6.3em] text-center transition-all ease-out"
-              : "lg:inline-block  cursor-pointer hover:text-black hover:bg-white hover:p-2 hover:px-6 py-2  w-[6.3em] text-center hover:rounded-full transition-all ease-out"
+              ? "lg:inline-block cursor-pointer text-black bg-white  hover:p-2 hover:px-6 py-2 rounded-full  w-[6.3em] text-center transition-all ease-out font-Gestura"
+              : "lg:inline-block  cursor-pointer hover:text-black hover:bg-white hover:p-2 hover:px-6 py-2  w-[6.3em] text-center hover:rounded-full transition-all ease-out font-Gestura"
             : content.toLowerCase() === selectedMenu
-            ? "lg:inline-block  cursor-pointer text-white bg-black p-2 py-2 px-6 rounded-full transition-all ease-out"
-            : "lg:inline-block  cursor-pointer hover:text-white hover:bg-black hover:p-2 hover:px-6 py-2 px-6  hover:rounded-full transition-all ease-out"
+            ? "lg:inline-block  cursor-pointer text-white bg-black p-2 py-2 px-6 rounded-full transition-all ease-out font-Gestura"
+            : "lg:inline-block  cursor-pointer hover:text-white hover:bg-black hover:p-2 hover:px-6 py-2 px-6  hover:rounded-full transition-all ease-out font-Gestura"
         }
       >
         {content}
