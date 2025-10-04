@@ -27,12 +27,46 @@ import { TbBrandThreejs } from "react-icons/tb";
 import Projects from "../components/LandingpageProjects/Projects";
 import ScrollToTop from "../hooks/scrolltotop";
 import AnimatedCopy from "../components/AnimatedCopy/AnimatedCopy";
+import Review from "../components/Review";
 
 export default function Homepage() {
   //   const [mode, setMode] = useState("light");
   const { mode } = useContext(ModeProvider);
   const headerText = useRef();
-  const { copied, setCopied } = useState(false);
+  const [copied, setCopied] = useState(false);
+  const reviews = [
+    {
+      person: "Bryan",
+      role: "Product Designer {Binance}",
+      qoute: `Benjamin's prowess as a developer is unparalleled. His ability to
+            translate abstract ideas into exceptional digital solutions is
+            remarkable. Over the years, I've seen him craft everything from
+            intricate web applications to seamless user experiences with finesse
+            and professionalism.`,
+    },
+    {
+      person: "ZARA",
+      role: "Product Designer {}",
+      qoute: `Working with Benjamin feels effortless. He anticipates every design nuance,
+            delivers polished interfaces ahead of schedule, and keeps collaboration
+            focused with clear, thoughtful communication.`,
+    },
+    {
+      person: "Prince Kingsley",
+      role: "Product Designer {Innoson}",
+      qoute: `Benjamin combines strategic thinking with clean execution. He balances
+            performance, accessibility, and visual craft so our products launch
+            stronger with each iteration.`,
+    },
+  ];
+  const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentReviewIndex((prev) =>  (prev + 1) % reviews.length);
+    }, 3000);
+
+    return () => clearInterval(intervalId);
+  }, [reviews.length]);
   gsap.registerPlugin(SplitText);
   const copyEmail = () => {
     navigator.clipboard.writeText("anoruokachi2@gmail.com");
@@ -66,7 +100,10 @@ export default function Homepage() {
         <Navbar />
         <div className="flex flex-col">
           <div className="overflow-hidden w-fit h-fit">
-            <h1 className="text-center text-[16vw] h-fit text-nowrap font-Gestura" ref={headerText}>
+            <h1
+              className="text-center text-[16vw] h-fit text-nowrap font-Gestura"
+              ref={headerText}
+            >
               Fullstack Dev
             </h1>
           </div>
@@ -142,7 +179,6 @@ export default function Homepage() {
           </AnimatedCopy>
         </div>
       </section>
-
       <section className="w-full lg:px-10 px-[17px] pt-20 pb-4">
         <div className="flex w-full justify-between" id="projects">
           <div>
@@ -185,7 +221,12 @@ export default function Homepage() {
         <Projects />
       </section>
       <section className="lg:px-10 lg:pt-10 w-full px-4 relative pt-10 lg:h-fit lg:pb-56 ">
-        <AnimatedCopy className="text-center text-5xl font-semibold font-Gestura" tag="h1">My Tech Stack</AnimatedCopy>
+        <AnimatedCopy
+          className="text-center text-5xl font-semibold font-Gestura"
+          tag="h1"
+        >
+          My Tech Stack
+        </AnimatedCopy>
         <div className="flex justify-center items-center gap-2 lg:pt-36">
           <div className="overflow-hidden">
             <div className="flex justify-between w-full gap-12 lg:flex-row flex-col">
@@ -365,21 +406,15 @@ export default function Homepage() {
         <h2 className="lg:mb-20 lg:h-16 lg:not-italic lg:font-normal lg:text-6xl  pt-2 w-32 not-italic font-normal text-2xl mb-10">
           Testimonials
         </h2>
-        <div className="flex lg:flex-row flex-col">
-          <AnimatedCopy className="mb-7 not-italic font-normal lg:text-5xl text-sm leading-6 lg:w-[70%]  ">
-            “Benjamin's prowess as a developer is unparalleled. His ability to
-            translate abstract ideas into exceptional digital solutions is
-            remarkable. Over the years, I've seen him craft everything from
-            intricate web applications to seamless user experiences with finesse
-            and professionalism.”
-          </AnimatedCopy>
-          <AnimatedCopy className="lg:self-end  not-italic font-normal lg:text-xl text-sm">
-            Bryan
-            <br />
-            <span className="block pt-2">Product Designer</span>
-          </AnimatedCopy>
+        <div className="overflow-hidden w-full pl-32">
+          <div className="flex w-full justify-start items-center gap-10 ">
+            <Review
+              person={reviews[currentReviewIndex].person}
+              qoute={reviews[currentReviewIndex].qoute}
+              role={reviews[currentReviewIndex].role}
+            />
+          </div>
         </div>
-
         {/* footer */}
       </section>
       <Footer mode={mode} />
