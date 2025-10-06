@@ -10,7 +10,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 // Card subcomponent
 const Card = ({ video,onClick }) => (
-  <div className={styles.card} onClick={onClick}>
+  <div className={styles.card + ' 2xl:h-[800px] h-[400px]'} onClick={onClick}>
     <div className={styles["card-info"]}>
       <div className={styles["card-item"]}>
         <p className="font-Gestura">{video.date}</p>
@@ -25,16 +25,14 @@ const Card = ({ video,onClick }) => (
     <div className={styles["video-player"]}>
       <video
         src={`${video.path}`}
-        width="100%"
-        height="100%"
         frameBorder="0"
-        allow="autoplay; fullscreen"
-        allowFullScreen
+        allow="autoplay"
         title={video.title}
         playsInline
         autoPlay
         loop
         muted
+        className="h-full w-full object-contain"
       />
  
     </div>
