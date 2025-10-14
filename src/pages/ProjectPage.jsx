@@ -47,12 +47,12 @@ export default function ProjectPage({ details }) {
             alt=""
             className="lg:w-[50%] w-full self-center"
           />
-          <h1
+          {/* <h1
             className="text-center absolute text-[2.75rem] lg:text-[188.6px] uppercase leading-none"
             ref={headerText}
           >
             {details.companyName}
-          </h1>
+          </h1> */}
         </div>
         <div className="flex lg:w-[50%] m-auto justify-between items-start">
           <h3>{details.role}</h3>

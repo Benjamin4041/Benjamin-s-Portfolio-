@@ -176,7 +176,7 @@ export default function Contact() {
               ></textarea>
             </div>
             <button
-              className="w-fit rounded mt-5 flex justify-center items-center bg-white text-black font-medium text-xl p-3"
+              className="w-fit rounded mt-5 flex justify-center items-center bg-white text-black font-medium text-xl p-3 hover:border-2 border-black"
               onClick={sendEmail}
             >
               Send

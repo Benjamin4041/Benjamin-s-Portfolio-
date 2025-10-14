@@ -28,6 +28,7 @@ import Projects from "../components/LandingpageProjects/Projects";
 import ScrollToTop from "../hooks/scrolltotop";
 import AnimatedCopy from "../components/AnimatedCopy/AnimatedCopy";
 import Review from "../components/Review";
+import WorksSection from "../components/WorksSection/WorksSection";
 
 export default function Homepage() {
   //   const [mode, setMode] = useState("light");
@@ -62,7 +63,7 @@ export default function Homepage() {
   const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setCurrentReviewIndex((prev) =>  (prev + 1) % reviews.length);
+      setCurrentReviewIndex((prev) => (prev + 1) % reviews.length);
     }, 3000);
 
     return () => clearInterval(intervalId);
@@ -107,14 +108,16 @@ export default function Homepage() {
               Fullstack Dev
             </h1>
           </div>
-          <div
+          <a
             className={
               mode == "light"
                 ? "flex justify-center items-center gap-4 bg-[#F9F9F9] hover:bg-[#141414] hover:text-[#F9F9F9] w-fit p-4 rounded-full self-end mr-5 cursor-pointer"
                 : "flex justify-center items-center gap-4  bg-[#141414] w-fit p-4 rounded-full self-end mr-5 cursor-pointer hover:bg-[#F9F9F9] hover:text-[#141414] "
             }
+            href="public/assets/pdf/fullstack_cv.pdf"
+            download
           >
-            <AnimatedCopy>Download Cv</AnimatedCopy>
+            <AnimatedCopy>Download CV</AnimatedCopy>
             <span
               className={
                 mode === "light"
@@ -150,12 +153,12 @@ export default function Homepage() {
                 </defs>
               </svg>
             </span>
-          </div>
+          </a>
         </div>
-        <div className="lg:px-5 px-2 flex justify-between w-full lg:mt-12 mt-5">
+        <div className="lg:px-5 px-2 flex  justify-between w-full lg:mt-12 mt-5">
           <AnimatedCopy className="hidden lg:inline-block ">
             Let’s Talk
-            <br />
+            {/* <br /> */}
             {/* <div
               className={
                 copied == true ? "flex justify-center items-center" : "hidden"
@@ -163,7 +166,7 @@ export default function Homepage() {
             >
               <p className="font-Gestura">copied!!</p>
             </div> */}
-            <p
+            <span
               onClick={() => {
                 copyEmail();
                 // return setCopied((prev) => (prev = true));
@@ -171,7 +174,7 @@ export default function Homepage() {
               className="cursor-pointer font-Gestura"
             >
               anoruokachi2@gmail.com
-            </p>
+            </span>
           </AnimatedCopy>
           <AnimatedCopy className="lg:w-[30%] 2xl:w-[10%] font-Gestura" tag="p">
             Hi there, I am Benjamin, a seasoned Fullstack developer crafting
@@ -179,7 +182,7 @@ export default function Homepage() {
           </AnimatedCopy>
         </div>
       </section>
-      <section className="w-full lg:px-10 px-[17px] pt-20 pb-4">
+      <section className="w-full lg:px-10 px-[17px] pt-20 ">
         <div className="flex w-full justify-between" id="projects">
           <div>
             <h3 className="w-fit text-[3rem]">Projects</h3>
@@ -218,7 +221,8 @@ export default function Homepage() {
             </AnimatedCopy>
           </Link>
         </div>
-        <Projects />
+        {/* <Projects /> */}
+        <WorksSection />
       </section>
       <section className="lg:px-10 lg:pt-10 w-full px-4 relative pt-10 lg:h-fit lg:pb-56 ">
         <AnimatedCopy
