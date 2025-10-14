@@ -33,6 +33,10 @@ export default function App() {
                   path="/project/:projectName"
                   element={<ProjectPageWrapper />}
                 />
+                <Route
+                  path="/test"
+                  element={<WorksSection />}
+                />
               </Routes>
             </>
           </Router>
@@ -44,6 +48,7 @@ export default function App() {
 
 // Wrapper to fetch details by param
 import { useParams } from "react-router-dom";
+import WorksSection from "./components/WorksSection/WorksSection";
 
 function ProjectPageWrapper() {
   const { projectName } = useParams();
