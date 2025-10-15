@@ -25,15 +25,18 @@ export default function About() {
         </h2>
       </section> */}
       <section className="lg:px-36 px-16 mb-5 lg:my-9">
-        <div className="flex flex-col-rev 2xl:gap-10 gap-5 lg:flex-row justify-center items-end w-full">
-          <AnimatedCopy className="lg:w-[40.6em] w-full lg:-translate-y-48 ">
-            Hi, I am a full-stack developer, I offer expert website management
-            and building services. From front-end design to back-end
-            development, I create customized websites and web apps to suit your
-            needs. With my comprehensive approach, your site will be optimized
-            for performance and seamlessly maintained. Trust me to handle the
-            technical aspects while you focus on growing your business. Let's
-            create an engaging online presence that drives success together.
+        <div className="flex flex-col-reverse 2xl:gap-10 gap-5 lg:flex-row justify-center items-end w-full">
+          <AnimatedCopy className="lg:w-[40.6em] w-[100%]   lg:-translate-y-48 ">
+            <span className="hidden lg:block">
+              Hi, I am a full-stack developer, I offer expert website
+              management and building services. From front-end design to
+              back-end development, I create customized websites and web apps to
+              suit your needs. With my comprehensive approach, your site will be
+              optimized for performance and seamlessly maintained. Trust me to
+              handle the technical aspects while you focus on growing your
+              business. Let's create an engaging online presence that drives
+              success together.
+            </span>
           </AnimatedCopy>
           <div className=" lg:my-9 mb-9 flex flex-col">
             <div className="w-full lg:h-[80vh] overflow-hidden aspect-[4/5] m-auto rounded-3xl">
