@@ -49,7 +49,7 @@ const projectDetails = {
         'imageUrl': "https://res.cloudinary.com/ba-foods/image/upload/v1708872646/Screenshot_2024-02-24_at_5.31.23_pm_swr1uh.png", // main cover image
         "role": "Full-Stack Developer",
         "period": "2021 – Present",
-        "copy": `At Spencerzeal Studio, I led impactful development initiatives that streamlined workflows, improved deployment efficiency, and enhanced the user experience across multiple products. My contributions directly reduced operational bottlenecks and enabled teams to ship features faster while maintaining high code quality.`,
+        "copy": `At Spencerzill Studio, I led impactful development initiatives that streamlined workflows, improved deployment efficiency, and enhanced the user experience across multiple products. My contributions directly reduced operational bottlenecks and enabled teams to ship features faster while maintaining high code quality.`,
         "projectGoals": [
             "Workflow optimization & productivity improvements",
             "Cross-browser compatible frontend development",
