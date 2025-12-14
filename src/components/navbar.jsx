@@ -36,10 +36,10 @@ export default function Navbar({style}) {
           toggleMenu
             ? mode === "light"
               ? `w-screen  lg:w-fit lg:m-auto lg:gap-9 lg:absolute lg:px-9 lg:top-7 lg:rounded-full lg:mt-5 lg:h-fit mt-0 h-Dscreen float-right flex text-white bg-black lg:justify-center justify-start items-center py-5 px-36 lg:flex-row flex-col top-0 fixed z-20`
-              : `w-screen lg:w-fit lg:h-fit mt-0 h-Dscreen float-right flex text-black bg-white justify-start items-center  py-5 px-36 lg:flex-row flex-col lg:absolute top-0 fixed z-20`
+              : `w-screen  lg:w-fit lg:m-auto lg:gap-9 lg:absolute lg:px-9 lg:top-7 lg:rounded-full lg:mt-5 lg:h-fit mt-0 h-Dscreen float-right flex text-black bg-white lg:justify-center justify-start items-center py-5 px-36 lg:flex-row flex-col top-0 fixed z-20`
             : mode === "light"
-            ? `lg:m-auto lg:w-fit lg:relative lg:top-7 w-fit rounded-full flex bg-black lg:mt-5 text-white justify-between py-5 gap-9 lg:px-9 px-5`
-            : `lg:m-auto lg:w-fit lg:relative lg:top-7 w-fit rounded-full flex bg-white lg:mt-5 text-black justify-between py-5 gap-9 lg:px-9`
+            ? `lg:m-auto lg:w-[50%] lg:relative lg:top-7 w-fit rounded-full flex bg-black lg:mt-5 text-white justify-between py-5 gap-9 lg:px-9 px-5`
+            : `lg:m-auto lg:w-[50%] lg:relative lg:top-7 w-fit rounded-full flex bg-white lg:mt-5 text-black justify-between py-5 gap-9 lg:px-9 px-5`
         }
       >
         <RxHamburgerMenu

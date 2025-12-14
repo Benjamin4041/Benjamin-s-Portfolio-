@@ -6,7 +6,7 @@ export default function Review({ qoute, person, role }) {
     <div className="flex lg:flex-row flex-col w-full lg:items-end gap-6">
       <AnimatedCopy
         key={qoute}
-        className="mb-7 not-italic font-normal lg:text-5xl text-sm leading-6 h-[57vh] lg:flex-1 lg:max-w-[60ch]"
+        className="mb-7 not-italic font-normal lg:text-5xl text-sm leading-6 lg:flex-1 lg:max-w-[60ch]"
       >
         {qoute}
       </AnimatedCopy>
