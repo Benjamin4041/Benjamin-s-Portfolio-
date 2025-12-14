@@ -2,8 +2,6 @@ import { React, useContext, useEffect, useRef, useState } from "react";
 import Navbar from "../components/navbar";
 import Project from "../components/project";
 import {
-  IoIosArrowBack,
-  IoIosArrowForward,
   IoLogoJavascript,
 } from "react-icons/io";
 import { Link } from "react-router-dom";
@@ -24,50 +22,28 @@ import {
 } from "react-icons/fa";
 import { SiJquery, SiNextdotjs } from "react-icons/si";
 import { TbBrandThreejs } from "react-icons/tb";
-import Projects from "../components/LandingpageProjects/Projects";
 import ScrollToTop from "../hooks/scrolltotop";
 import AnimatedCopy from "../components/AnimatedCopy/AnimatedCopy";
 import Review from "../components/Review";
 import WorksSection from "../components/WorksSection/WorksSection";
+import Resume from "/assets/pdf/Fullstack_cv.pdf?url." 
+import Reviews from "../utiliis/reviews";
+
 
 export default function Homepage() {
   //   const [mode, setMode] = useState("light");
   const { mode } = useContext(ModeProvider);
   const headerText = useRef();
   const [copied, setCopied] = useState(false);
-  const reviews = [
-    {
-      person: "Bryan",
-      role: "Product Designer {Binance}",
-      qoute: `Benjamin's prowess as a developer is unparalleled. His ability to
-            translate abstract ideas into exceptional digital solutions is
-            remarkable. Over the years, I've seen him craft everything from
-            intricate web applications to seamless user experiences with finesse
-            and professionalism.`,
-    },
-    {
-      person: "ZARA",
-      role: "Product Designer {}",
-      qoute: `Working with Benjamin feels effortless. He anticipates every design nuance,
-            delivers polished interfaces ahead of schedule, and keeps collaboration
-            focused with clear, thoughtful communication.`,
-    },
-    {
-      person: "Prince Kingsley",
-      role: "Product Designer {Innoson}",
-      qoute: `Benjamin combines strategic thinking with clean execution. He balances
-            performance, accessibility, and visual craft so our products launch
-            stronger with each iteration.`,
-    },
-  ];
+ 
   const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setCurrentReviewIndex((prev) => (prev + 1) % reviews.length);
+      setCurrentReviewIndex((prev) => (prev + 1) % Reviews.length);
     }, 3000);
 
     return () => clearInterval(intervalId);
-  }, [reviews.length]);
+  }, [Reviews.length]);
   gsap.registerPlugin(SplitText);
   const copyEmail = () => {
     navigator.clipboard.writeText("anoruokachi2@gmail.com");
@@ -114,7 +90,7 @@ export default function Homepage() {
                 ? "flex justify-center items-center gap-4 bg-[#F9F9F9] hover:bg-[#141414] hover:text-[#F9F9F9] w-fit p-4 rounded-full self-end mr-5 cursor-pointer"
                 : "flex justify-center items-center gap-4  bg-[#141414] w-fit p-4 rounded-full self-end mr-5 cursor-pointer hover:bg-[#F9F9F9] hover:text-[#141414] "
             }
-            href="public/assets/pdf/fullstack_cv.pdf"
+            href={Resume}
             download
           >
             <AnimatedCopy>Download CV</AnimatedCopy>
@@ -413,9 +389,9 @@ export default function Homepage() {
         <div className="overflow-hidden w-full pl-32">
           <div className="flex w-full justify-start items-center gap-10 ">
             <Review
-              person={reviews[currentReviewIndex].person}
-              qoute={reviews[currentReviewIndex].qoute}
-              role={reviews[currentReviewIndex].role}
+              person={Reviews[currentReviewIndex].person}
+              qoute={Reviews[currentReviewIndex].qoute}
+              role={Reviews[currentReviewIndex].role}
             />
           </div>
         </div>

@@ -1,9 +1,13 @@
 .animated-copy [class^="line-"] {
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   display: block;
   overflow: hidden;
   margin: 0;
   padding: 0;
+  margin-top: -0.25em;
+  margin-bottom: -0.25em;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  line-height: inherit; /* keep full line height so descenders aren't clipped */
 }
 
 .animated-copy [class^="line-inner-"] {
