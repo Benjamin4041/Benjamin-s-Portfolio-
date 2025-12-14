@@ -1,9 +1,7 @@
 import { React, useContext, useEffect, useRef, useState } from "react";
 import Navbar from "../components/navbar";
 import Project from "../components/project";
-import {
-  IoLogoJavascript,
-} from "react-icons/io";
+import { IoLogoJavascript } from "react-icons/io";
 import { Link } from "react-router-dom";
 import Footer from "../components/footer";
 import ModeProvider from "../context/mode";
@@ -26,16 +24,15 @@ import ScrollToTop from "../hooks/scrolltotop";
 import AnimatedCopy from "../components/AnimatedCopy/AnimatedCopy";
 import Review from "../components/Review";
 import WorksSection from "../components/WorksSection/WorksSection";
-import Resume from "/assets/pdf/Fullstack_cv.pdf?url." 
+import Resume from "/assets/pdf/Fullstack_cv.pdf";
 import Reviews from "../utiliis/reviews";
-
 
 export default function Homepage() {
   //   const [mode, setMode] = useState("light");
   const { mode } = useContext(ModeProvider);
   const headerText = useRef();
   const [copied, setCopied] = useState(false);
- 
+
   const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -87,8 +84,8 @@ export default function Homepage() {
           <a
             className={
               mode == "light"
-                ? "flex justify-center items-center gap-4 bg-[#F9F9F9] hover:bg-[#141414] hover:text-[#F9F9F9] w-fit p-4 rounded-full self-end mr-5 cursor-pointer"
-                : "flex justify-center items-center gap-4  bg-[#141414] w-fit p-4 rounded-full self-end mr-5 cursor-pointer hover:bg-[#F9F9F9] hover:text-[#141414] "
+                ? "flex justify-center items-center gap-4 group bg-[#F9F9F9] hover:bg-[#141414] hover:text-[#F9F9F9] w-fit p-4 rounded-full self-end mr-5 cursor-pointer"
+                : "flex justify-center items-center gap-4 group bg-[#141414] w-fit p-4 rounded-full self-end mr-5 cursor-pointer hover:bg-[#F9F9F9] hover:text-[#141414] "
             }
             href={Resume}
             download
@@ -97,8 +94,8 @@ export default function Homepage() {
             <span
               className={
                 mode === "light"
-                  ? "fill-black stroke-black hover:fill-white"
-                  : "fill-white stroke-white hover:fill-black"
+                  ? "fill-black stroke-black group-hover:fill-white group-hover:stroke-white "
+                  : "fill-white stroke-white group-hover:fill-black group-hover:stroke-black "
               }
             >
               <svg
@@ -107,6 +104,7 @@ export default function Homepage() {
                 viewBox="0 0 13 16"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
+             
               >
                 <g clip-path="url(#clip0_37_21106)">
                   <path

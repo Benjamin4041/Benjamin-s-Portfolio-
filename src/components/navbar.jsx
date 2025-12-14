@@ -68,25 +68,6 @@ export default function Navbar({style}) {
             onClick={toggoleMode}
           />
         )}
-        {/* {mode === "light" ? (
-          <FaMoon
-            className={
-              toggleMenu
-                ? "self-center cursor-pointer lg:hidden inline-block"
-                : "self-center cursor-pointer hidden "
-            }
-            onClick={toggoleMode}
-          />
-        ) : (
-          <MdOutlineWbSunny
-            className={
-              toggleMenu
-                ? "self-center cursor-pointer lg:hidden inline-block"
-                : "self-center cursor-pointer hidden "
-            }
-            onClick={toggoleMode}
-          />
-        )} */}
       </nav>
     </div>
   );
