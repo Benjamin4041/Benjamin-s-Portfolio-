@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import ModeProvider from "../context/mode";
+import ModeContext from "../context/mode";
 
 export default function Btn({ func, children, cusStyle }) {
  
-  const { mode } = useContext(ModeProvider);
+  const { mode } = useContext(ModeContext);
   return (
     <button className={""} onClick={() => func}>
       {children}

@@ -1,73 +1,55 @@
-import React, { useContext, useState } from "react";
-import { RxHamburgerMenu } from "react-icons/rx";
-import { MdOutlineWbSunny } from "react-icons/md";
+import { useContext } from "react";
 import { FaMoon } from "react-icons/fa";
-import { Link, useLocation } from "react-router-dom";
-import ModeProvider from "../context/mode";
+import { MdOutlineWbSunny } from "react-icons/md";
+import { RxHamburgerMenu } from "react-icons/rx";
+import MobileNavToggoleContext from "../context/MobileNavToggole";
+import ModeContext from "../context/mode";
 import NavbarOptions from "./NavbarOptions";
-import MobileNavToggoleContext, { MobileNavToggole } from "../context/MobileNavToggole";
 
-export default function Navbar({style}) {
+export default function Navbar({ style }) {
+  const { mode, setMode } = useContext(ModeContext);
   const { toggleMenu, setToggleMenu } = useContext(MobileNavToggoleContext);
-  const { mode, setMode } = useContext(ModeProvider);
-  const location = useLocation();
-
-  // Helper to map path to menu
-  const getSelectedMenu = () => {
-    if (location.pathname === "/") return "home";
-    if (location.pathname === "/work") return "projects";
-    if (location.pathname === "/about") return "about";
-    if (location.pathname === "/contact") return "contact";
-    return "";
+  const changeMode = () => {
+    setMode((curr) => (curr == "light" ? "dark" : "light"));
   };
-  const selectedMenu = getSelectedMenu();
-
-  const menu = () => {
-    setToggleMenu((prev) => !prev);
-  };
-
-  const toggoleMode = () => {
-    setMode((prev) => (prev === "light" ? "dark" : "light"));
-  };
+  const mobileMenuRevile=()=>{
+    setToggleMenu((curr)=>!curr)
+  }
   return (
-    <div className={`flex justify-end pt-3 lg:pt-0 ${style}`}>
+    <div className="lg:h-fit h-full">
       <nav
         className={
-          toggleMenu
-            ? mode === "light"
-              ? `w-screen  lg:w-fit lg:m-auto lg:gap-9 lg:absolute lg:px-9 lg:top-7 lg:rounded-full lg:mt-5 lg:h-fit mt-0 h-Dscreen float-right flex text-white bg-black lg:justify-center justify-start items-center py-5 px-36 lg:flex-row flex-col top-0 fixed z-20`
-              : `w-screen  lg:w-fit lg:m-auto lg:gap-9 lg:absolute lg:px-9 lg:top-7 lg:rounded-full lg:mt-5 lg:h-fit mt-0 h-Dscreen float-right flex text-black bg-white lg:justify-center justify-start items-center py-5 px-36 lg:flex-row flex-col top-0 fixed z-20`
-            : mode === "light"
-            ? `lg:m-auto lg:w-[50%] lg:relative lg:top-7 w-fit rounded-full flex bg-black lg:mt-5 text-white justify-between py-5 gap-9 lg:px-9 px-5`
-            : `lg:m-auto lg:w-[50%] lg:relative lg:top-7 w-fit rounded-full flex bg-white lg:mt-5 text-black justify-between py-5 gap-9 lg:px-9 px-5`
+          mode == "light"
+            ? "lg:flex justify-between items-center w-[40%]  bg-black text-white absolute p-4 top-4 right-0 -translate-x-[80%]  z-30 rounded-full hidden"
+            : "lg:flex justify-between items-center w-[40%]  bg-white text-black absolute p-4 top-4 right-0 -translate-x-[80%]  z-30 rounded-full hidden"
         }
       >
-        <RxHamburgerMenu
-          className={
-            toggleMenu
-              ? "lg:hidden md:hidden self-start lg:mb-0 mb-48"
-              : "lg:hidden md:hidden self-start"
-          }
-          onClick={menu}
-          size={25}
-        />
-
         <NavbarOptions content={"Home"} to={"/"} />
-        <NavbarOptions content={"Works"} to={"/works"} />
         <NavbarOptions content={"About"} to={"/about"} />
+        <NavbarOptions content={"Works"} to={"/works"} />
         <NavbarOptions content={"Contact"} to={"/contact"} />
-
-        {mode === "light" ? (
-          <FaMoon
-            className="self-center cursor-pointer lg:inline-block hidden"
-            onClick={toggoleMode}
+        {mode == "light" ? (
+          <MdOutlineWbSunny
+            size={24}
+            onClick={changeMode}
+            className="cursor-pointer"
           />
         ) : (
-          <MdOutlineWbSunny
-            className="self-center cursor-pointer lg:inline-block hidden"
-            onClick={toggoleMode}
-          />
+          <FaMoon size={24} onClick={changeMode} className="cursor-pointer" />
         )}
+      </nav>
+      <nav
+        className={
+          toggleMenu ? (mode == "light" ? "bg-black text-white p-5 h-full absolute z-30 w-full" : " bg-white text-black") : "float-right pt-6 pr-4 lg:hidden"
+        }
+      >
+        <RxHamburgerMenu size={24} onClick={mobileMenuRevile}/>
+        <div className="text-white flex flex-col justify-center items-center w-full">
+          <NavbarOptions content={"Home"} to={"/"} onClick={mobileMenuRevile}/>
+          <NavbarOptions content={"About"} to={"/about"} onClick={mobileMenuRevile}/>
+          <NavbarOptions content={"Works"} to={"/works"} onClick={mobileMenuRevile}/>
+          <NavbarOptions content={"Contact"} to={"/contact"} onClick={mobileMenuRevile}/>
+        </div>
       </nav>
     </div>
   );

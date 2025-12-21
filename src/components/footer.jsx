@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
-import ModeProvider from "../context/mode";
+import ModeContext from "../context/mode";
 import { Link, useNavigate } from "react-router-dom";
 import AnimatedCopy from "./AnimatedCopy/AnimatedCopy";
 
 export default function Footer() {
-  const { mode } = useContext(ModeProvider);
+  const { mode } = useContext(ModeContext);
   let navigate = useNavigate();
   let openEmail = () => {
     window.location.href =
