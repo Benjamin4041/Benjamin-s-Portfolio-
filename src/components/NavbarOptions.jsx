@@ -1,11 +1,11 @@
 import React, { useContext, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import ModeProvider from "../context/mode";
+import ModeContext from "../context/mode";
 import MobileNavToggoleContext from "../context/MobileNavToggole";
 
-export default function NavbarOptions({ to, content }) {
+export default function NavbarOptions({ to, content, onClick }) {
   const { toggleMenu } = useContext(MobileNavToggoleContext);
-  const { mode, setMode } = useContext(ModeProvider);
+  const { mode, setMode } = useContext(ModeContext);
   const location = useLocation();
 
   // Helper to map path to menu
@@ -21,6 +21,7 @@ export default function NavbarOptions({ to, content }) {
   return (
     <Link
       to={to}
+      onClick={onClick}
       className={
         toggleMenu ? "inline-block self-center" : "lg:inline-block hidden"
       }

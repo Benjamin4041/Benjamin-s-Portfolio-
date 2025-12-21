@@ -1,30 +1,22 @@
 import React, { useContext } from "react";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
-import ModeProvider from "../context/mode";
+import ModeContext from "../context/mode";
 import Mypicture from "../components/myPicture/Mypicture";
 import ScrollToTop from "../hooks/scrolltotop";
 import AnimatedCopy from "../components/AnimatedCopy/AnimatedCopy";
+import Layout from "../components/layout";
 
 export default function About() {
-  const { mode } = useContext(ModeProvider);
-  return (
-    <div
+  const { mode } = useContext(ModeContext);
+  return <Layout navStyle={'absolute top-6 w-full'}>
+        <div
       className={
         mode === "light" ? " bg-white text-black " : " bg-black text-white"
       }
     >
-      <ScrollToTop />
-      <Navbar />
-      {/* <section className="lg:px-36 px-16 lg:my-9 mb-9 flex flex-col">
-        <div className="w-full lg:w-[min(680px,90vw)] lg:h-[80vh] overflow-hidden aspect-[4/5] m-auto rounded-3xl">
-          <Mypicture />
-        </div>
-        <h2 className="lg:text-9xl lg:-translate-y-20  -translate-y-5 text-4xl self-end h-fit w-fit capitalize">
-          BENJAMIN
-        </h2>
-      </section> */}
-      <section className="lg:px-36 px-16 mb-5 lg:my-9">
+  
+      <section className="lg:px-36 px-16 mb-5 pt-32">
         <div className="flex flex-col-reverse 2xl:gap-10 gap-5 lg:flex-row justify-center items-end w-full">
           <AnimatedCopy className="lg:w-[40.6em] w-[100%]   lg:-translate-y-48 ">
             <span className="hidden lg:block">
@@ -361,7 +353,7 @@ export default function About() {
           </AnimatedCopy>
         </div>
       </section>
-      <Footer />
+   
     </div>
-  );
+  </Layout>;
 }

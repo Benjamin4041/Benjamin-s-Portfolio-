@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Homepage from "./pages/homepage";
 import About from "./pages/about";
 import Works from "./pages/works";
-import { ModeContext } from "./context/mode";
+import { ModeProvider } from "./context/mode";
 import Contact from "./pages/contact";
 import NavbarOptions from "./components/NavbarOptions";
 import { MobileNavToggole } from "./context/MobileNavToggole";
@@ -19,7 +19,7 @@ export default function App() {
   return (
     <ReactLenis root>
       <MobileNavToggole>
-        <ModeContext>
+        <ModeProvider>
           <Router>
             <>
               <ScrollToTop />
@@ -40,7 +40,7 @@ export default function App() {
               </Routes>
             </>
           </Router>
-        </ModeContext>
+        </ModeProvider>
       </MobileNavToggole>
     </ReactLenis>
   );
