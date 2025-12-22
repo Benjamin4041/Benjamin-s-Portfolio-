@@ -11,10 +11,10 @@ export default function SelectedWorks() {
     <Layout navStyle={"absolute top-6 w-full z-30"}>
       <div
         className={
-          mode === "light" ? " bg-white text-black" : " bg-black text-white"
+          mode === "light" ? " bg-white text-black mb-[100vh]" : " bg-black text-white mb-[100vh]"
         }
       >
-        <section className="relative min-h-[200vh] overflow-hidden mb-[100vh] pt-16 ">
+        <section className="relative lg:min-h-[200vh]  overflow-hidden  pt-16 ">
           <SliderTestVersion />
         </section>
       </div>

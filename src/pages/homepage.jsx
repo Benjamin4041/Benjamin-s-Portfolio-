@@ -68,7 +68,7 @@ export default function Homepage() {
     <Layout navStyle={'absolute w-full top-6 z-10'}>
       <div
         className={
-          mode === "light" ? " bg-white text-black h-full pt-16" : " bg-black text-white pt-16"
+          mode === "light" ? " bg-white text-black h-full pt-16 mb-[100vh]" : " bg-black text-white pt-16 mb-[100vh]"
         }
       >
         <section className="w-full lg:pb-0 pb-5 z-10 overflow-x-hidden">
@@ -382,7 +382,7 @@ export default function Homepage() {
             </div>
           </div>
         </section>
-        <section className="lg:pt-10 pt-10 lg:px-10 px-5 mb-[100vh] lg:pb-56 pb-20 ">
+        <section className="lg:pt-10 pt-10 lg:px-10 px-5  lg:pb-56 pb-20 ">
           <h2 className="lg:mb-20 lg:h-16 lg:not-italic lg:font-normal lg:text-6xl  pt-2 w-32 not-italic font-normal text-2xl mb-10">
             Testimonials
           </h2>
@@ -397,7 +397,7 @@ export default function Homepage() {
           </div>
           {/* footer */}
         </section>
-   
+  
       </div>
     </Layout>
   );

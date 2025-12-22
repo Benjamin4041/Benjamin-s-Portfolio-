@@ -41,11 +41,11 @@ export default function Contact() {
       <div
         className={
           mode === "light"
-            ? " bg-white text-black h-fit pt-20 "
-            : " bg-black text-white h-fit pt-20"
+            ? " bg-white text-black h-fit pt-20 mb-[100vh]"
+            : " bg-black text-white h-fit pt-20 mb-[100vh]"
         }
       >
-        <div className="flex lg:justify-center pt- lg:items-center relative h-screen lg:px-28 lg:gap-20 lg:flex-row flex-col lg:pt-5 pt-9  mb-[100vh] ">
+        <div className="flex lg:justify-center pt- lg:items-center relative h-screen lg:px-28 lg:gap-20 lg:flex-row flex-col lg:pt-5 pt-9   ">
           <div className="lg:w-[50%] w-full lg:flex-col flex lg:gap-2 lg:justify-start lg:items-start justify-between items-center gap-9 lg:h-[80%]">
             <a
               href="https://github.com/Benjamin4041"

@@ -9,7 +9,7 @@ export default function Layout({ children }) {
   const { mode } = useContext(ModeContext);
   const { toggleMenu } = useContext(MobileNavToggoleContext);
   return (
-    <div className={toggleMenu ? "!overflow-hidden h-screen" : ""}>
+    <div className={toggleMenu ? "!overflow-hidden lg:h-fit h-screen" : ""}>
       <ScrollToTop />
       <Navbar />
       {children}
