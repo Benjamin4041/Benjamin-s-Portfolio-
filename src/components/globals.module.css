@@ -1,0 +1,137 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: "PP Neue Montreal" !important;
+  background-color: #000;
+}
+
+p {
+  font-size: 12px;
+  font-weight: 500;
+  color: #6a6a6a;
+}
+
+p span {
+  font-weight: bolder;
+  color: #fff;
+} */
+
+.cta {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.container {
+  position: relative;
+  width: 100vw;
+  min-height:150vh;
+  overflow: hidden;
+
+}
+
+.slider {
+  position: absolute;
+  top: 0px;
+  width: 100vw;
+  height: 100%;
+  perspective: 275px;
+  perspective-origin: 50% 100%;
+  overflow: hidden;
+
+}
+
+.card {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0px);
+  width: 65%;
+
+  background: #000;
+  border-right: 1px solid #303030;
+  border-radius: 7px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1000px;
+  border: 1px solid #303030;
+  border-radius: 8px;
+  z-index: 2;
+}
+
+.card-info {
+  width: 100%;
+  padding: 0.5em 0.75em;
+  display: flex;
+  align-items: center;
+  background-color: #000;
+  z-index: 2;
+}
+
+.card-item {
+  flex: 1;
+}
+
+.card-item p {
+  font-size: 7px;
+  color: #6a6a6a;
+}
+
+.card-item:nth-child(2) {
+  text-align: center;
+}
+
+.card-item:nth-child(2) p {
+  font-size: 8px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.card-item:nth-child(3) {
+  text-align: right;
+}
+
+.video-player {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-player video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* .video-player > div {
+  position: relative;
+  transform: scale(1.5);
+} */
+
+@media (max-width: 900px) {
+  .nav-links {
+    display: none;
+  }
+
+  .video-player > div {
+    transform: scale(1);
+  }
+}

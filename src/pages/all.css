@@ -1,0 +1,25 @@
+@keyframes moveText {
+  0% {
+    transform: translateX(90vw);
+  }
+  100% {
+    transform: translateX(-180vw);
+  }
+}
+
+.moving-text {
+  animation: moveText 60s ease-in-out infinite ; /* Adjust the duration as needed */
+}
+
+.inversion-lens {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+.inversion-lens img {
+  display: none;
+}
+
