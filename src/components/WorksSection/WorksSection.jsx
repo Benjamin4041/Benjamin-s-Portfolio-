@@ -30,28 +30,14 @@ const buildProjects = () =>
     };
   });
 
-const assignVariants = (projects, columns = 2) => {
+// Cycle the folder colours in order, so neighbouring folders never share a
+// colour, whether they sit side by side (desktop) or stacked (mobile).
+const assignVariants = (projects) => {
   const variantOrder = ["variant-1", "variant-2", "variant-3"];
-  const columnState = Array.from({ length: columns }, (_, columnIndex) => ({
-    nextIndex: columnIndex % variantOrder.length,
-    previous: null,
+  return projects.map((project, index) => ({
+    ...project,
+    variant: variantOrder[index % variantOrder.length],
   }));
-
-  return projects.map((project, index) => {
-    const columnIndex = index % columns;
-    const state = columnState[columnIndex];
-    let variantIndex = state.nextIndex;
-
-    if (variantOrder[variantIndex] === state.previous) {
-      variantIndex = (variantIndex + 1) % variantOrder.length;
-    }
-
-    const variant = variantOrder[variantIndex];
-    state.nextIndex = (variantIndex + 1) % variantOrder.length;
-    state.previous = variant;
-
-    return { ...project, variant };
-  });
 };
 
 const chunkProjects = (items, size) => {
@@ -65,7 +51,7 @@ const chunkProjects = (items, size) => {
 export default function WorksSection() {
   const projects = useMemo(buildProjects, []);
   const projectsWithVariants = useMemo(
-    () => assignVariants(projects, 2),
+    () => assignVariants(projects),
     [projects]
   );
   const projectCount = projectsWithVariants.length;
@@ -237,7 +223,10 @@ export default function WorksSection() {
               return (
                 <div
                   key={project.id}
-                  className={`folder ${project.variant}`}
+                  // A folder alone in its row spans the full width
+                  className={`folder ${project.variant}${
+                    row.length === 1 ? " solo" : ""
+                  }`}
                   ref={(el) => {
                     folderRefs.current[globalIndex] = el;
                   }}
@@ -284,9 +273,6 @@ export default function WorksSection() {
                 </div>
               );
             })}
-            {row.length === 1 && (
-              <div className="folder spacer" aria-hidden="true" />
-            )}
           </div>
         ))}
       </div>
