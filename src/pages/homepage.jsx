@@ -12,22 +12,82 @@ import "./all.css";
 import { SplitText } from "gsap/SplitText";
 import { useGSAP } from "@gsap/react";
 import {
+  FaAws,
   FaBootstrap,
   FaChartLine,
   FaCss3,
   FaHtml5,
+  FaKey,
   FaNodeJs,
   FaPython,
   FaReact,
+  FaServer,
+  FaShieldAlt,
+  FaUserLock,
 } from "react-icons/fa";
-import { SiJquery, SiNextdotjs } from "react-icons/si";
+import {
+  SiExpress,
+  SiFirebase,
+  SiJquery,
+  SiMongodb,
+  SiMui,
+  SiNextdotjs,
+  SiRedux,
+} from "react-icons/si";
 import { TbBrandThreejs } from "react-icons/tb";
 import ScrollToTop from "../hooks/scrolltotop";
 import AnimatedCopy from "../components/AnimatedCopy/AnimatedCopy";
 import Review from "../components/Review";
 import WorksSection from "../components/WorksSection/WorksSection";
-import Resume from "/assets/pdf/Fullstack_cv.pdf?url." 
 import Reviews from "../utiliis/reviews";
+import Seo from "../components/Seo";
+
+const RESUME_URL = "/assets/pdf/Fullstack_cv.pdf";
+
+// Mirrors the Frontend / Backend / Cloud lists on the About page.
+// TODO(benjamin): should jQuery and Bootstrap stay? Should TypeScript be added?
+const GSAP_ICON = "gsap";
+const TECH_STACK = [
+  {
+    heading: "FRONTEND",
+    items: [
+      { label: "HTML", Icon: FaHtml5 },
+      { label: "CSS", Icon: FaCss3 },
+      { label: "Javascript", Icon: IoLogoJavascript },
+      { label: "React.JS", Icon: FaReact },
+      { label: "Next.JS", Icon: SiNextdotjs },
+      { label: "React Native", Icon: FaReact },
+      { label: "Redux", Icon: SiRedux },
+      { label: "Material UI", Icon: SiMui },
+      { label: "R3F", Icon: TbBrandThreejs },
+      { label: "GSAP", Icon: GSAP_ICON },
+      { label: "D3JS", Icon: FaChartLine },
+      { label: "Jquery", Icon: SiJquery },
+      { label: "Bootstrap", Icon: FaBootstrap },
+    ],
+  },
+  {
+    heading: "BACKEND",
+    items: [
+      { label: "Node.js", Icon: FaNodeJs },
+      { label: "Express.js", Icon: SiExpress },
+      { label: "MongoDB", Icon: SiMongodb },
+      { label: "Python", Icon: FaPython },
+      { label: "REST APIs", Icon: FaServer },
+      { label: "JWT", Icon: FaKey },
+      { label: "OAuth", Icon: FaUserLock },
+    ],
+  },
+  {
+    heading: "CLOUD & TOOLS",
+    items: [
+      { label: "AWS (EC2, S3, Lambda, Rekognition)", Icon: FaAws },
+      { label: "Firebase", Icon: SiFirebase },
+      { label: "IAM", Icon: FaShieldAlt },
+      { label: "PAM", Icon: FaShieldAlt },
+    ],
+  },
+];
 
 
 export default function Homepage() {
@@ -72,13 +132,14 @@ export default function Homepage() {
         mode === "light" ? " bg-white text-black" : " bg-black text-white"
       }
     >
+      <Seo />
       <ScrollToTop />
       <section className="w-full lg:h- lg:pb-0 pb-5 z-10 overflow-x-hidden">
         <Navbar />
         <div className="flex flex-col">
-          <div className="overflow-hidden w-fit h-fit">
+          <div className="overflow-hidden w-fit h-fit px-4 lg:px-0">
             <h1
-              className="text-center text-[16vw] h-fit text-nowrap font-Gestura"
+              className="text-center text-[15vw] lg:text-[16vw] h-fit text-nowrap font-Gestura"
               ref={headerText}
             >
               Fullstack Dev
@@ -90,7 +151,7 @@ export default function Homepage() {
                 ? "flex justify-center items-center gap-4 bg-[#F9F9F9] hover:bg-[#141414] hover:text-[#F9F9F9] w-fit p-4 rounded-full self-end mr-5 cursor-pointer"
                 : "flex justify-center items-center gap-4  bg-[#141414] w-fit p-4 rounded-full self-end mr-5 cursor-pointer hover:bg-[#F9F9F9] hover:text-[#141414] "
             }
-            href={Resume}
+            href={RESUME_URL}
             download
           >
             <AnimatedCopy>Download CV</AnimatedCopy>
@@ -133,7 +194,7 @@ export default function Homepage() {
         </div>
         <div className="lg:px-5 px-2 flex  justify-between w-full lg:mt-12 mt-5">
           <AnimatedCopy className="hidden lg:inline-block ">
-            Let’s Talk
+            Let’s Talk{" "}
             {/* <br /> */}
             {/* <div
               className={
@@ -142,15 +203,12 @@ export default function Homepage() {
             >
               <p className="font-Gestura">copied!!</p>
             </div> */}
-            <span
-              onClick={() => {
-                copyEmail();
-                // return setCopied((prev) => (prev = true));
-              }}
+            <a
+              href="mailto:anoruokachi2@gmail.com"
               className="cursor-pointer font-Gestura"
             >
               anoruokachi2@gmail.com
-            </span>
+            </a>
           </AnimatedCopy>
           <AnimatedCopy className="lg:w-[30%] 2xl:w-[10%] font-Gestura" tag="p">
             Hi there, I am Benjamin, a seasoned Fullstack developer crafting
@@ -210,174 +268,33 @@ export default function Homepage() {
         <div className="flex justify-center items-center gap-2 lg:pt-36">
           <div className="overflow-hidden">
             <div className="flex justify-between w-full gap-12 lg:flex-row flex-col">
-              <ul className="lg:w-[50%] w-full">
-                <li className="border-solid border-x-4 px-4 text-xl mb-4 border-black ">
-                  LANGUAGES
-                </li>
-                <li
-                  className={
-                    mode === "light"
-                      ? "border-solid border-b-2 pb-2 text-xl mb-4 border-black flex gap-3"
-                      : "border-solid border-b-2 pb-2 text-xl mb-4 border-white flex gap-3"
-                  }
-                >
-                  <FaHtml5
-                    size={45}
-                    color={mode === "light" ? "black" : "white"}
-                  />
-                  HTML
-                </li>
-                <li
-                  className={
-                    mode === "light"
-                      ? "border-solid border-b-2 pb-2 text-xl mb-4 border-black flex gap-3"
-                      : "border-solid border-b-2 pb-2 text-xl mb-4 border-white flex gap-3"
-                  }
-                >
-                  <FaCss3
-                    size={45}
-                    color={mode === "light" ? "black" : "white"}
-                  />
-                  CSS
-                </li>
-                <li
-                  className={
-                    mode === "light"
-                      ? "border-solid border-b-2 pb-2 text-xl mb-4 border-black flex gap-3"
-                      : "border-solid border-b-2 pb-2 text-xl mb-4 border-white flex gap-3"
-                  }
-                >
-                  <IoLogoJavascript
-                    size={45}
-                    color={mode === "light" ? "black" : "white"}
-                  />
-                  Javascript
-                </li>
-                <li
-                  className={
-                    mode === "light"
-                      ? "border-solid border-b-2 pb-2 text-xl mb-4 border-black flex gap-3"
-                      : "border-solid border-b-2 pb-2 text-xl mb-4 border-white flex gap-3"
-                  }
-                >
-                  <FaPython
-                    size={45}
-                    color={mode === "light" ? "black" : "white"}
-                  />
-                  Python
-                </li>
-              </ul>
-              <ul className="lg:w-[50%] w-full">
-                <li className="border-solid border-x-4 px-4 text-xl mb-4 border-black flex gap-3">
-                  LIBRARIES
-                </li>
-                <li
-                  className={
-                    mode === "light"
-                      ? "border-solid border-b-2 pb-2 text-xl mb-4 border-black flex gap-3"
-                      : "border-solid border-b-2 pb-2 text-xl mb-4 border-white flex gap-3"
-                  }
-                >
-                  <FaNodeJs
-                    size={45}
-                    color={mode === "light" ? "black" : "white"}
-                  />
-                  NodeJS
-                </li>
-                <li
-                  className={
-                    mode === "light"
-                      ? "border-solid border-b-2 pb-2 text-xl mb-4 border-black flex gap-3"
-                      : "border-solid border-b-2 pb-2 text-xl mb-4 border-white flex gap-3"
-                  }
-                >
-                  <SiJquery
-                    size={45}
-                    color={mode === "light" ? "black" : "white"}
-                  />
-                  Jquery
-                </li>
-                <li
-                  className={
-                    mode === "light"
-                      ? "border-solid border-b-2 pb-2 text-xl mb-4 border-black flex gap-3"
-                      : "border-solid border-b-2 pb-2 text-xl mb-4 border-white flex gap-3"
-                  }
-                >
-                  <TbBrandThreejs
-                    size={45}
-                    color={mode === "light" ? "black" : "white"}
-                  />
-                  R3F
-                </li>
-                <li
-                  className={
-                    mode === "light"
-                      ? "border-solid border-b-2 pb-2 text-xl mb-4 border-black flex gap-3"
-                      : "border-solid border-b-2 pb-2 text-xl mb-4 border-white flex gap-3"
-                  }
-                >
-                  <img src="./assets/gsap.svg" className="w-[10%]" alt="" />
-                  GSAP
-                </li>
-                <li
-                  className={
-                    mode === "light"
-                      ? "border-solid border-b-2 pb-2 text-xl mb-4 border-black flex gap-3"
-                      : "border-solid border-b-2 pb-2 text-xl mb-4 border-white flex gap-3"
-                  }
-                >
-                  <FaChartLine
-                    size={45}
-                    color={mode === "light" ? "black" : "white"}
-                  />
-                  D3JS
-                </li>
-              </ul>
-              <ul className="lg:w-[50%] w-full">
-                <li className="border-solid border-x-4 px-4 text-xl mb-4 border-black ">
-                  FRAMEWORK
-                </li>
-                <li
-                  className={
-                    mode === "light"
-                      ? "border-solid border-b-2 pb-2 text-xl mb-4 border-black flex gap-3"
-                      : "border-solid border-b-2 pb-2 text-xl mb-4 border-white flex gap-3"
-                  }
-                >
-                  <FaBootstrap
-                    size={45}
-                    color={mode === "light" ? "black" : "white"}
-                  />
-                  Bootstrap
-                </li>
-                <li
-                  className={
-                    mode === "light"
-                      ? "border-solid border-b-2 pb-2 text-xl mb-4 border-black flex gap-3"
-                      : "border-solid border-b-2 pb-2 text-xl mb-4 border-white flex gap-3"
-                  }
-                >
-                  <FaReact
-                    size={45}
-                    color={mode === "light" ? "black" : "white"}
-                  />
-                  React.JS
-                </li>
-                <li
-                  className={
-                    mode === "light"
-                      ? "border-solid border-b-2 pb-2 text-xl mb-4 border-black flex gap-3"
-                      : "border-solid border-b-2 pb-2 text-xl mb-4 border-white flex gap-3"
-                  }
-                >
-                  <SiNextdotjs
-                    size={45}
-                    color={mode === "light" ? "black" : "white"}
-                  />
-                  Next.JS
-                </li>
-              </ul>
+              {TECH_STACK.map(({ heading, items }) => (
+                <ul className="lg:w-[50%] w-full" key={heading}>
+                  <li className="border-solid border-x-4 px-4 text-xl mb-4 border-black ">
+                    {heading}
+                  </li>
+                  {items.map(({ label, Icon }) => (
+                    <li
+                      key={label}
+                      className={
+                        mode === "light"
+                          ? "border-solid border-b-2 pb-2 text-xl mb-4 border-black flex gap-3"
+                          : "border-solid border-b-2 pb-2 text-xl mb-4 border-white flex gap-3"
+                      }
+                    >
+                      {Icon === GSAP_ICON ? (
+                        <img src="/assets/gsap.svg" className="w-[10%]" alt="" />
+                      ) : (
+                        <Icon
+                          size={45}
+                          color={mode === "light" ? "black" : "white"}
+                        />
+                      )}
+                      {label}
+                    </li>
+                  ))}
+                </ul>
+              ))}
             </div>
           </div>
         </div>

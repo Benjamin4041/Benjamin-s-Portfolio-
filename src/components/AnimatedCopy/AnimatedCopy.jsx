@@ -7,6 +7,11 @@ import SplitType from "split-type";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
+// With reduced motion the text is never split or hidden, so it simply shows.
+const prefersReducedMotion = () =>
+  typeof window !== "undefined" &&
+  window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+
 const AnimatedCopy = ({
   children,
   className = "",
@@ -29,7 +34,7 @@ const AnimatedCopy = ({
   }, []);
 
   useEffect(() => {
-    if (!copyId || !copyRef.current) return;
+    if (!copyId || !copyRef.current || prefersReducedMotion()) return;
 
     const lineClass = `line-${copyId}`;
 
@@ -75,7 +80,9 @@ const AnimatedCopy = ({
           ? {
               scrollTrigger: {
                 trigger: copyRef.current,
-                start: "top 80%",
+                // Start as soon as the text enters the viewport, so it isn't
+                // left hidden or half-revealed on screen.
+                start: "top bottom",
                 toggleActions: "play none none none",
               },
             }

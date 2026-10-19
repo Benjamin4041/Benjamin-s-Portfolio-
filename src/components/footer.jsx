@@ -73,12 +73,6 @@ export default function Footer() {
               </a>
             </div>
             <div className="group mb-5">
-              <a href="" target='_blank'>
-                <li className=" lg:text-[15px] text-[13px]">Facebook</li>
-                <hr className="border-1 w-0 transition-all ease-in-out duration-1000  group-hover:w-full rounded-3xl" />
-              </a>
-            </div>
-            <div className="group mb-5">
               <a href="https://x.com/AnoruoBenjamin" target='_blank'>
                 <li className=" lg:text-[15px] text-[13px]">X</li>
                 <hr className="border-1 w-0 transition-all ease-in-out duration-1000  group-hover:w-full rounded-3xl" />
@@ -92,7 +86,7 @@ export default function Footer() {
         <div className="flex w-full justify-between mt-9">
           <span className="flex gap-10 lg:text-[12px] text-[10px]">
             {" "}
-            <AnimatedCopy>© 2025</AnimatedCopy>
+            <AnimatedCopy>© {new Date().getFullYear()}</AnimatedCopy>
             <AnimatedCopy>T&C's</AnimatedCopy>
             <AnimatedCopy>Privacy</AnimatedCopy>
           </span>

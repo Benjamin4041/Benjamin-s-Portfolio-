@@ -5,6 +5,7 @@ import ModeProvider from "../context/mode";
 import Mypicture from "../components/myPicture/Mypicture";
 import ScrollToTop from "../hooks/scrolltotop";
 import AnimatedCopy from "../components/AnimatedCopy/AnimatedCopy";
+import Seo, { SITE_NAME } from "../components/Seo";
 
 export default function About() {
   const { mode } = useContext(ModeProvider);
@@ -14,6 +15,7 @@ export default function About() {
         mode === "light" ? " bg-white text-black " : " bg-black text-white"
       }
     >
+      <Seo title={`About | ${SITE_NAME}`} />
       <ScrollToTop />
       <Navbar />
       {/* <section className="lg:px-36 px-16 lg:my-9 mb-9 flex flex-col">
