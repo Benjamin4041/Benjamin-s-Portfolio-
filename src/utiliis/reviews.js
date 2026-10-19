@@ -10,7 +10,7 @@ const Reviews = [
   },
   {
     person: "ZARA",
-    role: "Product Designer {}",
+    role: "Product Designer",
     qoute: `Working with Benjamin feels effortless. He anticipates every design nuance,
             delivers polished interfaces ahead of schedule, and keeps collaboration
             focused with clear, thoughtful communication.`,

@@ -64,7 +64,7 @@ export default function About() {
             development Motion design Graphic design Branding Video editing UI
             engineering
           </AnimatedCopy>
-          <ul className="self-end translate-x-16 flex gap-4 lg:mb-0 mb-32 ">
+          <ul className="lg:self-end lg:translate-x-16 flex flex-wrap gap-4 lg:mb-0 mb-32 ">
             <div>
               <li className="font-bold text-2xl">Frontend</li>
               <li className="flex gap-4 items-center">
