@@ -1,4 +1,10 @@
-import React, { useRef, forwardRef, useImperativeHandle } from "react";
+import React, {
+  useEffect,
+  useRef,
+  useState,
+  forwardRef,
+  useImperativeHandle,
+} from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styles from "./globals.module.css";
@@ -7,6 +13,65 @@ import { videos } from './videos';
 import { useNavigate } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
+
+// Loads the video only once its card comes into view, and plays it only while
+// it stays in view. The poster shows until then, and stays if loading fails.
+const LazyVideo = ({ video }) => {
+  const videoRef = useRef(null);
+  const [inView, setInView] = useState(false);
+  const [activated, setActivated] = useState(false);
+  const [failed, setFailed] = useState(false);
+
+  useEffect(() => {
+    const el = videoRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setInView(entry.isIntersecting);
+        if (entry.isIntersecting) setActivated(true);
+      },
+      { rootMargin: "200px 0px" }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [failed]);
+
+  useEffect(() => {
+    const el = videoRef.current;
+    if (!el || !activated || failed) return;
+    if (inView) {
+      el.play().catch(() => {});
+    } else {
+      el.pause();
+    }
+  }, [inView, activated, failed]);
+
+  if (failed) {
+    return (
+      <img
+        src={video.poster}
+        alt={`${video.title} project preview`}
+        className="h-full w-full object-contain"
+      />
+    );
+  }
+
+  return (
+    <video
+      ref={videoRef}
+      src={activated ? video.path : undefined}
+      poster={video.poster}
+      preload={activated ? "auto" : "none"}
+      title={video.title}
+      playsInline
+      autoPlay={activated}
+      loop
+      muted
+      onError={() => setFailed(true)}
+      className="h-full w-full object-contain"
+    />
+  );
+};
 
 // Card subcomponent
 const Card = ({ video,onClick }) => (
@@ -23,18 +88,7 @@ const Card = ({ video,onClick }) => (
       </div>
     </div>
     <div className={styles["video-player"]}>
-      <video
-        src={`${video.path}`}
-        frameBorder="0"
-        allow="autoplay"
-        title={video.title}
-        playsInline
-        autoPlay
-        loop
-        muted
-        className="h-full w-full object-contain"
-      />
- 
+      <LazyVideo video={video} />
     </div>
   </div>
 );
@@ -190,12 +244,8 @@ const SliderTestVersion = forwardRef(({ interactive = false }, ref) => {
     });
   };
 
-  const handleClick = (location) => {
-    if(location.includes(' ')){
-      location = location.split(' ').join('')
-       navigate(`/project/:${location}`)
-    }
-    navigate(`/project/:${location}`)
+  const handleClick = (slug) => {
+    navigate(`/project/${slug}`);
   };
 
   useImperativeHandle(ref, () => ({
@@ -265,7 +315,7 @@ const SliderTestVersion = forwardRef(({ interactive = false }, ref) => {
     <div className={styles.container + ' mb-10'} ref={containerRef}>
       <div className={styles.slider} ref={sliderRef}>
         {videos.map((video, index) => (
-          <Card video={video} key={video.id ?? `${video.title}-${index}`} onClick={()=>handleClick(video.title)}/>
+          <Card video={video} key={video.id ?? `${video.title}-${index}`} onClick={()=>handleClick(video.slug)}/>
         ))}
       </div>
     </div>

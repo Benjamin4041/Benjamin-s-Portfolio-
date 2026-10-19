@@ -1,33 +1,32 @@
 import React, { useEffect, useMemo, useRef } from "react";
 import { gsap } from "gsap";
 import "./WorkSection.css";
-import projectDetails from "../../utiliis/projectDetails";
+import projectDetails, { cldImage } from "../../utiliis/projectDetails";
 import { useNavigate } from "react-router-dom";
 
 const DEFAULT_PREVIEW_IMAGE =
   "https://images.pexels.com/photos/34098232/pexels-photo-34098232.jpeg";
 
+// Preview images come from each project's `previewImages` in projectDetails.
+// Only distinct images are shown (up to 3), so a project never fans out the
+// same screenshot several times.
 const buildProjects = () =>
   Object.entries(projectDetails).map(([projectId, details], index) => {
-    const rawImages = Array.isArray(details.imageUrls)
-      ? details.imageUrls.filter(Boolean)
-      : [];
-    const fallback = details.imageUrl || DEFAULT_PREVIEW_IMAGE;
-    const previewImages = [...rawImages];
+    const previewImages = [
+      ...new Set((details.previewImages || []).filter(Boolean)),
+    ].slice(0, 3);
 
     if (!previewImages.length) {
-      previewImages.push(fallback);
-    }
-
-    while (previewImages.length < 3) {
-      previewImages.push(previewImages[previewImages.length - 1] || fallback);
+      previewImages.push(details.imageUrl || DEFAULT_PREVIEW_IMAGE);
     }
 
     return {
       id: projectId,
       name: details.companyName || projectId,
       index: String(index + 1).padStart(2, "0"),
-      previewImages: previewImages.slice(0, 3),
+      previewImages: previewImages.map((src) =>
+        cldImage(src, "f_auto,q_auto,w_400")
+      ),
     };
   });
 
@@ -175,6 +174,9 @@ export default function WorksSection() {
 
       folder.addEventListener("mouseenter", handleMouseEnter);
       folder.addEventListener("mouseleave", handleMouseLeave);
+      // Keyboard focus shows the same state as hover
+      folder.addEventListener("focus", handleMouseEnter);
+      folder.addEventListener("blur", handleMouseLeave);
 
       listeners.push({
         folder,
@@ -209,6 +211,8 @@ export default function WorksSection() {
       listeners.forEach(({ folder, handleMouseEnter, handleMouseLeave }) => {
         folder.removeEventListener("mouseenter", handleMouseEnter);
         folder.removeEventListener("mouseleave", handleMouseLeave);
+        folder.removeEventListener("focus", handleMouseEnter);
+        folder.removeEventListener("blur", handleMouseLeave);
         folder.classList.remove("disabled");
       });
 
@@ -221,12 +225,7 @@ export default function WorksSection() {
     [projectsWithVariants]
   );
   const navigate = useNavigate();
-  const Redirect = (loc) => {
-    if (loc.includes(" ")) {
-      return navigate(loc.split(" ").join(""));
-    }
-    return navigate(loc);
-  };
+  const openProject = (slug) => navigate(`/project/${slug}`);
 
   return (
     <div className="works-section pt-48 ">
@@ -242,7 +241,13 @@ export default function WorksSection() {
                   ref={(el) => {
                     folderRefs.current[globalIndex] = el;
                   }}
-                  onClick={() => Redirect("/project/:" + project.name)}
+                  role="link"
+                  tabIndex={0}
+                  aria-label={`${project.name} case study`}
+                  onClick={() => openProject(project.id)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") openProject(project.id);
+                  }}
                 >
                   <div className="folder-preview">
                     {project.previewImages.map((imgSrc, imgIndex) => (

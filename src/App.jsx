@@ -30,7 +30,7 @@ export default function App() {
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/testing" element={<SelectedWorks />} />
                 <Route
-                  path="/project/:projectName"
+                  path="/project/:slug"
                   element={<ProjectPageWrapper />}
                 />
                 <Route
@@ -47,12 +47,16 @@ export default function App() {
 }
 
 // Wrapper to fetch details by param
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import WorksSection from "./components/WorksSection/WorksSection";
+import { legacySlugs } from "./utiliis/projectDetails";
 
 function ProjectPageWrapper() {
-  const { projectName } = useParams();
-  const details = projectDetails[projectName.split(":")[1]];
-  console.log(details);
-  return <ProjectPage details={details} />;
+  const { slug } = useParams();
+  // Old links looked like /project/:RavenBank — send them to /project/raven-bank
+  const legacySlug = legacySlugs[slug.replace(/^:/, "")];
+  if (!projectDetails[slug] && legacySlug) {
+    return <Navigate to={`/project/${legacySlug}`} replace />;
+  }
+  return <ProjectPage details={projectDetails[slug]} />;
 }

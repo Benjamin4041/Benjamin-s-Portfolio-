@@ -85,6 +85,29 @@
   cursor: pointer;
 }
 
+/* Rows overlap, so a folder's empty box (the transparent area beside its tab
+   and the gap above its shifted wrapper) used to sit over the folder behind
+   it and steal its hover/click. Only the visible coloured shapes take the
+   pointer now, so each card responds where it can actually be seen. */
+.works-section .folder {
+  pointer-events: none;
+}
+
+.works-section .folder-index,
+.works-section .folder-name {
+  pointer-events: auto;
+}
+
+.works-section .folder:focus {
+  outline: none;
+}
+
+.works-section .folder:focus-visible .folder-index,
+.works-section .folder:focus-visible .folder-name {
+  outline: 2px solid var(--fg);
+  outline-offset: -2px;
+}
+
 .works-section .folder.spacer {
   flex: 1;
   visibility: hidden;
