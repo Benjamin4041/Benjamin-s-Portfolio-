@@ -85,8 +85,8 @@ export default function ProjectPage({ details }) {
             </ul>
           </div>
         </div>
-        <div >
-          <div className="  lg:w-[20%] float-end  pb-6 mt-7 ">
+        <div className="flex lg:justify-end">
+          <div className="  lg:w-[20%]  pb-6 mt-7 ">
             <AnimatedCopy className="self-start mb-6">TECHNOLOGIES</AnimatedCopy>
             <ul>
               {details.technologies.map((item) => (

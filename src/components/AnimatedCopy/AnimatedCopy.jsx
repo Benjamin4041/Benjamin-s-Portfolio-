@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import './AnimatedCopy.css'
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -25,13 +25,10 @@ const AnimatedCopy = ({
   tag = "p",
 }) => {
   const copyRef = useRef(null);
-  const [copyId, setCopyId] = useState(null);
+  // useId is unique per instance; random ids could collide and hide another block's text
+  const copyId = `copy-${useId().replace(/[^a-zA-Z0-9_-]/g, "")}`;
   const [isInitialized, setIsInitialized] = useState(false);
   const textSplitRef = useRef(null);
-
-  useEffect(() => {
-    setCopyId(`copy-${Math.floor(Math.random() * 10000)}`);
-  }, []);
 
   useEffect(() => {
     if (!copyId || !copyRef.current || prefersReducedMotion()) return;

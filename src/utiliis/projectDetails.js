@@ -42,8 +42,8 @@ const projectDetails = {
     role: "Frontend Developer",
     period: "2022 – 2023",
     copy: `At RavenBank, I developed scalable frontend architecture and accessibility-focused components to support a modern banking platform. I implemented multilingual support, robust authentication, and optimized client-side systems, ensuring the application was secure, user-friendly, and resilient in production environments.`,
-    overview: "TODO(benjamin): write a real overview for Raven Bank",
-    outcome: "TODO(benjamin): add the outcome for Raven Bank (optional, remove if not needed)",
+    overview: `Raven Bank is a digital banking platform for individuals and businesses, letting people send, receive and save money on the web and on mobile. I worked on the web frontend: a reusable component library, multilingual and localized experiences, and secure authentication and navigation flows, all built with accessibility and production reliability in mind.`,
+    outcome: `A secure, accessible banking web app with multilingual support, built on a component library the team can keep extending.`,
     projectGoals: [
       "Create a scalable, maintainable frontend component library",
       "Enable multilingual and localized user experiences",
@@ -68,16 +68,15 @@ const projectDetails = {
         src: "/assets/images/Screenshot 2025-08-20 at 1.28.33 pm.png",
         alt: "Raven Bank homepage hero with account balances and a mobile banking app preview",
       },
-      // TODO(benjamin): this repeats the first image; replace with a different screenshot or remove.
       {
-        src: "/assets/images/161945144665791.62924c011add7.jpg",
-        alt: "Raven Bank landing page shown on desktop and laptop mockups",
+        src: "/assets/images/projects/raven_features.jpg",
+        alt: "Raven Bank web app features section: transfers, savings, loans, debit cards and investments",
       },
     ],
-    // TODO(benjamin): supply three distinct preview screenshots for the homepage folder card.
     previewImages: [
       "/assets/images/161945144665791.62924c011add7.jpg",
       "/assets/images/Screenshot 2025-08-20 at 1.28.33 pm.png",
+      "/assets/images/projects/raven_features.jpg",
     ],
     siteUrl: "https://getravenbank.com/",
   },
@@ -94,8 +93,8 @@ const projectDetails = {
     role: "Frontend Developer",
     period: "2023 – 2024",
     copy: `At Roqqu, I rebuilt and modernized the company’s marketing site while delivering polished, accessible, and performance-focused frontend applications for multiple clients. My work emphasized speed, design quality, and consistent delivery standards, improving both the product experience and development workflow.`,
-    overview: "TODO(benjamin): write a real overview for Roqqu",
-    outcome: "TODO(benjamin): add the outcome for Roqqu (optional, remove if not needed)",
+    overview: `Roqqu is a crypto and payments app for trading crypto and sending and receiving money across borders. I rebuilt and modernized its marketing website with React and Gatsby, focusing on speed, accessibility and visual polish, and delivered frontend work for multiple clients to the same standard.`,
+    outcome: `A faster, more polished and accessible marketing site, delivered alongside a more consistent, standardized frontend workflow.`,
     projectGoals: [
       "Modernize and optimize marketing website architecture",
       "Improve accessibility and visual polish in all delivered products",
@@ -148,8 +147,8 @@ const projectDetails = {
     role: "Full-Stack Developer",
     period: "2021 – Present",
     copy: `At Spencerzill Studio, I led impactful development initiatives that streamlined workflows, improved deployment efficiency, and enhanced the user experience across multiple products. My contributions directly reduced operational bottlenecks and enabled teams to ship features faster while maintaining high code quality.`,
-    overview: "TODO(benjamin): write a real overview for SpencerZill",
-    outcome: "TODO(benjamin): add the outcome for SpencerZill (optional, remove if not needed)",
+    overview: `SpencerZill is a creative studio producing animation, branding, motion and VFX work for brands and agencies. As a full-stack developer there, I lead development initiatives across multiple products, working with the UX team on product design decisions and building cross-browser compatible frontends.`,
+    outcome: `Streamlined workflows and more efficient deployments, so the team ships features faster while keeping code quality high.`,
     projectGoals: [
       "Workflow optimization & productivity improvements",
       "Cross-browser compatible frontend development",
@@ -164,11 +163,24 @@ const projectDetails = {
     ],
     techTodo:
       "TODO(benjamin): confirm the real SpencerZill stack (React/Next.js?) and update the list",
-    // TODO(benjamin): add case study screenshots for SpencerZill.
-    images: [],
-    // TODO(benjamin): supply three distinct preview screenshots for the homepage folder card.
+    images: [
+      {
+        src: "/assets/images/projects/spencerzill_1.jpg",
+        alt: "SpencerZill 'Making impossible things exist' intro with portfolio filters for animation, branding, motion and VFX",
+      },
+      {
+        src: "/assets/images/projects/spencerzill_2.jpg",
+        alt: "SpencerZill portfolio grid of 3D, motion and VFX projects",
+      },
+      {
+        src: "/assets/images/projects/spencerzill_4.jpg",
+        alt: "SpencerZill 'Upcoming Works' section with project previews",
+      },
+    ],
     previewImages: [
       "https://res.cloudinary.com/ba-foods/image/upload/v1708872646/Screenshot_2024-02-24_at_5.31.23_pm_swr1uh.png",
+      "/assets/images/projects/spencerzill_2.jpg",
+      "/assets/images/projects/spencerzill_4.jpg",
     ],
     siteUrl: "https://spencerzill.com/",
   },
@@ -186,9 +198,9 @@ const projectDetails = {
     role: "Full-Stack Developer",
     period: "2024",
     copy: `Bridge is a MERN-stack trade copier application that enables seamless trade mirroring across multiple accounts. It allows traders to execute trades on a master account and instantly replicate them to linked accounts, ensuring accuracy, speed, and consistency in trading strategies.`,
-    overview: "TODO(benjamin): write a real overview for Bridge",
-    outcome: "TODO(benjamin): add the outcome for Bridge (optional, remove if not needed)",
-    github: "TODO(benjamin): add the GitHub URL for Bridge",
+    overview: `Bridge is a copy-trading platform: a trader places trades on a master account and Bridge mirrors them to linked accounts in real time. I worked across the full MERN stack, using WebSockets for low-latency trade replication and encrypted communication between master and linked accounts, with exchange connections such as Binance and Bybit and WhatsApp and Telegram integrations.`,
+    outcome: `A live testnet deployment with subscription plans, from a free demo tier up to Premium, and automated trade mirroring across multiple accounts.`,
+    // github: add the repo URL here to show a "View code" button
     projectGoals: [
       "Build a robust MERN-stack trade copier application",
       "Enable instant trade replication across multiple accounts",
@@ -203,11 +215,20 @@ const projectDetails = {
       "WebSockets",
       "Encryption Protocols",
     ],
-    // TODO(benjamin): add case study screenshots for Bridge.
-    images: [],
-    // TODO(benjamin): supply three distinct preview screenshots for the homepage folder card.
+    images: [
+      {
+        src: "/assets/images/projects/bridge_2.jpg",
+        alt: "Bridge integrations section with exchange and messaging connections, above the pricing plans",
+      },
+      {
+        src: "/assets/images/projects/bridge_3.jpg",
+        alt: "Bridge subscription plans: Duo and Premium tiers with automated trading signals",
+      },
+    ],
     previewImages: [
       "https://res.cloudinary.com/ba-foods/image/upload/v1750273699/gjrduondyy4bnohl1v2c.png",
+      "/assets/images/projects/bridge_2.jpg",
+      "/assets/images/projects/bridge_3.jpg",
     ],
     siteUrl: "https://bridge-testnet.netlify.app/",
   },

@@ -6,8 +6,8 @@ export const SITE_NAME = "Benjamin Anoruo";
 export const DEFAULT_TITLE = "Benjamin Anoruo — Fullstack React Developer";
 export const DEFAULT_DESCRIPTION =
   "Benjamin Anoruo is a fullstack developer crafting robust web apps, intuitive UIs, and scalable solutions with React, Node.js and the cloud.";
-// TODO(benjamin): add a 1200x630 social preview image (e.g. /assets/og-image.png) and set it here.
-export const DEFAULT_OG_IMAGE = "";
+// 1200x630 social preview (screenshot of the homepage hero)
+export const DEFAULT_OG_IMAGE = `${SITE_URL}/assets/og-image.jpg`;
 
 // Per-route <title>, description, Open Graph and Twitter tags.
 export default function Seo({

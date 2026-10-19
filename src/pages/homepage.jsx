@@ -303,7 +303,7 @@ export default function Homepage() {
         <h2 className="lg:mb-20 lg:h-16 lg:not-italic lg:font-normal lg:text-6xl  pt-2 w-32 not-italic font-normal text-2xl mb-10">
           Testimonials
         </h2>
-        <div className="overflow-hidden w-full pl-32">
+        <div className="overflow-hidden w-full lg:pl-32">
           <div className="flex w-full justify-start items-center gap-10 ">
             <Review
               person={Reviews[currentReviewIndex].person}
