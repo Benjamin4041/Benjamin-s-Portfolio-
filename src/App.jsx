@@ -58,5 +58,9 @@ function ProjectPageWrapper() {
   if (!projectDetails[slug] && legacySlug) {
     return <Navigate to={`/project/${legacySlug}`} replace />;
   }
+  // Bridge was removed from the portfolio; send old links to the Works page
+  if (/^:?bridge$/i.test(slug)) {
+    return <Navigate to="/works" replace />;
+  }
   return <ProjectPage details={projectDetails[slug]} />;
 }

@@ -26,8 +26,8 @@ export const cldPoster = (publicId) =>
   `${CLOUDINARY}/video/upload/so_0,w_1280,q_auto/${publicId}.jpg`;
 
 // TODO(benjamin): confirm the `period` dates below. They come from the case
-// study pages; the old Works page said Raven Bank June 2022, Roqqu July 2022,
-// SpencerZill Aug 2022 and Bridge May 2022.
+// study pages; the old Works page said Raven Bank June 2022, Roqqu July 2022
+// and SpencerZill Aug 2022.
 const projectDetails = {
   "raven-bank": {
     slug: "raven-bank",
@@ -183,54 +183,6 @@ const projectDetails = {
       "/assets/images/projects/spencerzill_4.jpg",
     ],
     siteUrl: "https://spencerzill.com/",
-  },
-  bridge: {
-    slug: "bridge",
-    legacyKey: "Bridge",
-    companyName: "Bridge",
-    category: "Fullstack",
-    imageUrl:
-      "https://res.cloudinary.com/ba-foods/image/upload/v1750273699/gjrduondyy4bnohl1v2c.png", // main cover image
-    imageAlt:
-      "Bridge website homepage with the 'Automate Your Trading Success' hero and exchange integrations",
-    // TODO(benjamin): this video is named "Raven 3d Patterns intro" but was shown on the Bridge card. Confirm it's the right video.
-    videoPublicId: "v1756424876/Raven_3d_Patterns_intro_twwnyv",
-    role: "Full-Stack Developer",
-    period: "2024",
-    copy: `Bridge is a MERN-stack trade copier application that enables seamless trade mirroring across multiple accounts. It allows traders to execute trades on a master account and instantly replicate them to linked accounts, ensuring accuracy, speed, and consistency in trading strategies.`,
-    overview: `Bridge is a copy-trading platform: a trader places trades on a master account and Bridge mirrors them to linked accounts in real time. I worked across the full MERN stack, using WebSockets for low-latency trade replication and encrypted communication between master and linked accounts, with exchange connections such as Binance and Bybit and WhatsApp and Telegram integrations.`,
-    outcome: `A live testnet deployment with subscription plans, from a free demo tier up to Premium, and automated trade mirroring across multiple accounts.`,
-    // github: add the repo URL here to show a "View code" button
-    projectGoals: [
-      "Build a robust MERN-stack trade copier application",
-      "Enable instant trade replication across multiple accounts",
-      "Ensure secure, encrypted communication between master and slave accounts",
-      "Optimize real-time data handling for low latency execution",
-    ],
-    technologies: [
-      "MongoDB",
-      "Express.js",
-      "React",
-      "Node.js",
-      "WebSockets",
-      "Encryption Protocols",
-    ],
-    images: [
-      {
-        src: "/assets/images/projects/bridge_2.jpg",
-        alt: "Bridge integrations section with exchange and messaging connections, above the pricing plans",
-      },
-      {
-        src: "/assets/images/projects/bridge_3.jpg",
-        alt: "Bridge subscription plans: Duo and Premium tiers with automated trading signals",
-      },
-    ],
-    previewImages: [
-      "https://res.cloudinary.com/ba-foods/image/upload/v1750273699/gjrduondyy4bnohl1v2c.png",
-      "/assets/images/projects/bridge_2.jpg",
-      "/assets/images/projects/bridge_3.jpg",
-    ],
-    siteUrl: "https://bridge-testnet.netlify.app/",
   },
 };
 

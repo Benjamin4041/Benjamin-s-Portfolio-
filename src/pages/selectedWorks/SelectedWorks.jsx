@@ -15,7 +15,7 @@ export default function SelectedWorks() {
     >
       <Seo
         title={`Works | ${SITE_NAME}`}
-        description="Selected projects by Benjamin Anoruo: Raven Bank, Roqqu, SpencerZill and Bridge."
+        description="Selected projects by Benjamin Anoruo: Raven Bank, Roqqu and SpencerZill."
       />
       <section className="relative min-h-[200vh] overflow-hidden mb-[100vh] ">
         <Navbar style={"z-30 -translate-y-[2em]"} />

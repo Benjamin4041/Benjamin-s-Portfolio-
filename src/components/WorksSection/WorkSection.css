@@ -108,9 +108,9 @@
   outline-offset: -2px;
 }
 
-.works-section .folder.spacer {
-  flex: 1;
-  visibility: hidden;
+/* Keep a full-width folder's tab the same size as the half-width ones */
+.works-section .folder.solo .folder-index {
+  width: 20%;
 }
 
 .works-section .row:nth-child(2) .folder:nth-child(2) {
@@ -257,6 +257,10 @@
 
   .works-section .folder-preview {
     display: none;
+  }
+
+  .works-section .folder.solo .folder-index {
+    width: 40%;
   }
 
   .works-section .folder-name {
