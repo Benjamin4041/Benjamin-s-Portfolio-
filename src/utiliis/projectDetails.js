@@ -154,15 +154,20 @@ const projectDetails = {
       "Cross-browser compatible frontend development",
       "Collaboration with UX to guide product design decisions",
     ],
+    // Stack confirmed from the live spencerzill.com build (React app with
+    // Bootstrap 4, ReactPlayer for Vimeo/YouTube, Cloudinary media, on Vercel)
     technologies: [
+      "React",
       "JavaScript",
       "HTML5",
       "CSS3 / Sass",
+      "Bootstrap",
+      "ReactPlayer (Vimeo & YouTube)",
+      "Cloudinary",
+      "Vercel",
       "UX Collaboration",
       "Deployment Automation",
     ],
-    techTodo:
-      "TODO(benjamin): confirm the real SpencerZill stack (React/Next.js?) and update the list",
     images: [
       {
         src: "/assets/images/projects/spencerzill_1.jpg",
