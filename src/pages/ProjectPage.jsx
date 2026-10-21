@@ -106,7 +106,7 @@ export default function ProjectPage({ details }) {
             src={cldImage(image.src)}
             alt={image.alt}
             loading="lazy"
-            className="mb-12 lg:mb-24 w-[50%] m-auto"
+            className="mb-12 lg:mb-24 w-full lg:w-[50%] m-auto"
           />
         ))}
         <div className="flex flex-wrap gap-4">
