@@ -1,0 +1,8 @@
+{
+  "name": "portfolio",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "build": "echo \"dist/ is prebuilt, nothing to build\""
+  }
+}
