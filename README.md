@@ -1,8 +1,9 @@
-# React + Vite
+# Benjamin Anoruo: Portfolio (globe redesign)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Static build of the portfolio with an interactive 3D globe in the hero. Deploy the `dist/` folder as it is; there is no build step.
 
-Currently, two official plugins are available:
+Preview locally:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+    python3 build-tools/serve_benjamin.py dist 4173
+
+`build-tools/` holds the scripts that produced `dist/assets/index-benjamin.js`. `build_benjamin.py` patches a downloaded template bundle (not included in this repo) with this portfolio's content, and `ben_globe.js` is the globe component it injects.
