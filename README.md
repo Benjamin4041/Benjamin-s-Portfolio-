@@ -1,9 +1,17 @@
-# Benjamin Anoruo: Portfolio (globe redesign)
+# Benjamin Anoruo: Portfolio
 
-Static build of the portfolio with an interactive 3D globe in the hero. Deploy the `dist/` folder as it is; there is no build step.
+Portfolio site built with React, Vite and Tailwind CSS.
 
-Preview locally:
+    npm install
+    npm run dev      # local development
+    npm run build    # production build in dist/
+    npm run preview  # preview the production build
 
-    python3 build-tools/serve_benjamin.py dist 4173
+## Editing
 
-`build-tools/` holds the scripts that produced `dist/assets/index-benjamin.js`. `build_benjamin.py` patches a downloaded template bundle (not included in this repo) with this portfolio's content, and `ben_globe.js` is the globe component it injects.
+- Text, projects, experience, skills and links: `src/data/content.json`
+- Globe tooltips and cards: `src/data/globeTech.js`
+- Page sections: `src/components/`
+- Routes: `src/App.jsx`
+
+The globe's land points in `src/data/globePoints.json` come from `scripts/gen_globe_points.py`, which reads the `land-110m.json` file from the `world-atlas` npm package (Natural Earth data).

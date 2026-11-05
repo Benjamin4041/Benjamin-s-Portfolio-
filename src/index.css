@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: Amiamie;
+  src: url(/fonts/amiamie/otf/Amiamie-Regular.otf) format("opentype");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: Amiamie;
+  src: url(/fonts/amiamie/otf/Amiamie-Italic.otf) format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: Amiamie;
+  src: url(/fonts/amiamie/otf/Amiamie-Light.otf) format("opentype");
+  font-weight: 300;
+  font-display: swap;
+}
+@font-face {
+  font-family: Amiamie;
+  src: url(/fonts/amiamie/otf/Amiamie-Black.otf) format("opentype");
+  font-weight: 900;
+  font-display: swap;
+}
+
+:root {
+  --bg: #0a0a0a;
+  --fg: #f5f5f4;
+  --muted: #a1a1aa;
+  --soft: #63636b;
+  --line: rgba(255, 255, 255, 0.1);
+  --stripe: rgba(255, 255, 255, 0.055);
+  --hover: rgba(255, 255, 255, 0.05);
+  --card: #101010;
+  --chip: #161616;
+  --neon-color: #ffffff;
+  --neon-glow: rgba(255, 255, 255, 0.75);
+  --font-serif: "Instrument Serif", Georgia, serif;
+  --font-sans: "Amiamie", "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+.light {
+  --bg: #fcfcfb;
+  --fg: #18181b;
+  --muted: #52525b;
+  --soft: #a1a1aa;
+  --line: rgba(0, 0, 0, 0.1);
+  --stripe: rgba(0, 0, 0, 0.055);
+  --hover: rgba(0, 0, 0, 0.04);
+  --card: #ffffff;
+  --chip: #f4f4f5;
+  --neon-color: #2563eb;
+  --neon-glow: rgba(37, 99, 235, 0.75);
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.bg-stripes {
+  background-image: repeating-linear-gradient(315deg, var(--stripe) 0, var(--stripe) 1px, transparent 1px, transparent 7px);
+}
+
+.text-glitch {
+  text-shadow: -1.5px 0 0 rgba(0, 200, 255, 0.6), 1.5px 0 0 rgba(255, 80, 0, 0.6);
+}
+
+.animate-scanline {
+  animation: scanline 8s linear infinite;
+}
+
+.neon-sign {
+  color: var(--neon-color);
+  text-shadow: 0 0 6px var(--neon-glow), 0 0 22px var(--neon-glow);
+  animation: neon-flicker 6s linear infinite;
+}
+
+@keyframes scanline {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(100%); }
+}
+
+@keyframes neon-flicker {
+  0%, 18%, 22%, 62%, 66%, 100% { opacity: 1; }
+  20%, 64% { opacity: 0.45; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-scanline, .neon-sign { animation: none; }
+}

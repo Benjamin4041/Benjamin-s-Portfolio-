@@ -1,0 +1,92 @@
+import content from "./content.json";
+
+const GITHUB = content.socials.github;
+
+export const ORBITS = [
+  { radius: 1.3, tiltX: 0.98, tiltZ: 0.3, speed: 0.26, color: "79,140,255" },
+  { radius: 1.5, tiltX: 0.42, tiltZ: -0.38, speed: -0.19, color: "168,85,247" },
+  { radius: 1.7, tiltX: 0.24, tiltZ: 0.14, speed: 0.14, color: "99,102,241" },
+];
+
+export const TECH = [
+  {
+    name: "React",
+    icon: "logos:react",
+    orbit: 0,
+    tip: "Used at Roqqu and SpencerZill",
+    label: "Frontend expertise",
+    text: "I rebuilt Roqqu's marketing site with React and Gatsby, and I build SpencerZill's products with React, focusing on speed, accessibility and visual polish.",
+    cta: "See projects built with React",
+    to: "/projects?q=React",
+  },
+  {
+    name: "TypeScript",
+    icon: "logos:typescript-icon",
+    orbit: 0,
+    tip: "Typed JavaScript for maintainable code",
+    label: "Languages",
+    text: "Static types on top of JavaScript, for frontends that stay maintainable as they grow.",
+    cta: "See my code on GitHub",
+    href: GITHUB,
+  },
+  {
+    name: "JavaScript",
+    icon: "logos:javascript",
+    orbit: 0,
+    tip: "Core language in all my projects",
+    label: "Languages",
+    text: "The core language behind my work at Raven Bank, Roqqu and SpencerZill.",
+    cta: "See projects built with JavaScript",
+    to: "/projects?q=JavaScript",
+  },
+  {
+    name: "Node.js",
+    icon: "logos:nodejs-icon",
+    orbit: 1,
+    tip: "My backend runtime, with Express",
+    label: "Backend",
+    text: "My backend stack: Node.js and Express, with REST APIs and JWT and OAuth authentication.",
+    cta: "See my code on GitHub",
+    href: GITHUB,
+  },
+  {
+    name: "MongoDB",
+    icon: "logos:mongodb-icon",
+    orbit: 1,
+    tip: "Part of my data stack, with Firebase",
+    label: "Databases",
+    text: "Part of my data stack alongside Firebase.",
+    cta: "See my code on GitHub",
+    href: GITHUB,
+  },
+  {
+    name: "AWS",
+    icon: "logos:aws",
+    orbit: 1,
+    tip: "EC2, S3, Lambda, Rekognition and IAM",
+    label: "Cloud",
+    text: "The AWS services in my toolkit: EC2, S3, Lambda, Rekognition and IAM.",
+    cta: "See my code on GitHub",
+    href: GITHUB,
+  },
+  {
+    name: "Docker",
+    icon: "logos:docker-icon",
+    orbit: 2,
+    tip: "Containers for consistent deployments",
+    label: "DevOps",
+    text: "Containers that keep builds and deployments consistent between environments.",
+    cta: "See my code on GitHub",
+    href: GITHUB,
+  },
+  {
+    name: "GitHub",
+    icon: "logos:github-icon",
+    orbit: 2,
+    tip: "Where my code and activity live",
+    label: "Tools",
+    text: "Where my code and contribution activity live.",
+    cta: "Visit my GitHub",
+    href: GITHUB,
+  },
+];
