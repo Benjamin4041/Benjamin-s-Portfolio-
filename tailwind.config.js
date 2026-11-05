@@ -1,13 +1,13 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: ["./src/**/*.{html,js,jsx}"],
+export default {
+  content: ["./index.html", "./src/**/*.{js,jsx}"],
+  darkMode: "class",
   theme: {
     extend: {
-      height: {
-        'Dscreen': '100dvh'
-      }, fontFamily: {
-        relieve: ["MyFont", "sans-serif"],
-        Gestura: ['Gestura Display TRIAL', "sans-serif"]
+      fontFamily: {
+        serif: ["var(--font-serif)"],
+        sans: ["var(--font-sans)"],
+        mono: ["var(--font-mono)"],
       },
     },
   },
