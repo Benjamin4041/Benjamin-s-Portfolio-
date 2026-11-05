@@ -1,16 +1,11 @@
 {
   "name": "Benjamin Anoruo",
   "firstName": "Benjamin",
-  "profileImages": [
-    "/profile.webp"
-  ],
+  "profileImages": ["/profile.webp"],
   "role": "Fullstack React Developer",
   "email": "anoruokachi2@gmail.com",
   "about": [
-    "Hi there, I am Benjamin, a seasoned Fullstack developer crafting robust web apps, intuitive UIs, and scalable solutions.",
-    "I'm dedicated to building contemporary, user-friendly web designs and cutting-edge digital solutions. Let me help you construct the brand of your dreams by creating dynamic and engaging online experiences.",
-    "I offer expert website management and building services. From front-end design to back-end development, I create customized websites and web apps to suit your needs. With my comprehensive approach, your site will be optimized for performance and seamlessly maintained. Trust me to handle the technical aspects while you focus on growing your business. Let's create an engaging online presence that drives success together.",
-    "I'm driven by the challenge of adapting my skills, processes, and thinking to meet the evolving needs of the world. I excel in collaborative, ambitious teams that create inclusive environments where everyone feels they belong. My skills and interests cut across product and visual design, interaction design, Webflow development, motion design, graphic design, branding, video editing and UI engineering."
+    "Hi, I'm Benjamin, a Full-Stack Developer specialising in React, JavaScript, and modern web technologies.I build scalable web applications, intuitive interfaces, and seamless digital experiences with a focus on performance, usability, and clean architecture.I'm passionate about solving complex problems, creating impactful products, and collaborating with ambitious teams to turn ideas into reliable, user-centred solutions."
   ],
   "tldr": [
     "Fullstack web apps.",
@@ -67,9 +62,7 @@
       },
       "featured": true,
       "image": "https://res.cloudinary.com/ba-foods/image/upload/v1753693942/screenshot-20250728100552_cueeuo.png",
-      "categories": [
-        "Frontend"
-      ]
+      "categories": ["Frontend"]
     },
     {
       "title": "Roqqu",
@@ -89,9 +82,7 @@
       },
       "featured": true,
       "image": "https://res.cloudinary.com/ba-foods/image/upload/v1753694123/screenshot-20250728100526_dk1e6w.png",
-      "categories": [
-        "Frontend"
-      ]
+      "categories": ["Frontend"]
     },
     {
       "title": "SpencerZill",
@@ -115,9 +106,7 @@
       },
       "featured": true,
       "image": "https://res.cloudinary.com/ba-foods/image/upload/v1708872646/Screenshot_2024-02-24_at_5.31.23_pm_swr1uh.png",
-      "categories": [
-        "Fullstack"
-      ]
+      "categories": ["Fullstack"]
     }
   ],
   "skills": [
@@ -218,12 +207,7 @@
     "PAM": "lucide:lock"
   },
   "skillCategories": {
-    "Languages": [
-      "HTML",
-      "CSS",
-      "Javascript",
-      "Python"
-    ],
+    "Languages": ["HTML", "CSS", "Javascript", "Python"],
     "Frontend": [
       "React.JS",
       "Next.JS",
@@ -236,17 +220,8 @@
       "Jquery",
       "Bootstrap"
     ],
-    "Backend": [
-      "Node.js",
-      "Express.js",
-      "REST APIs",
-      "JWT",
-      "OAuth"
-    ],
-    "Databases": [
-      "MongoDB",
-      "Firebase"
-    ],
+    "Backend": ["Node.js", "Express.js", "REST APIs", "JWT", "OAuth"],
+    "Databases": ["MongoDB", "Firebase"],
     "DevOps & Cloud": [
       "AWS (EC2, S3, Lambda, Rekognition)",
       "Firebase",

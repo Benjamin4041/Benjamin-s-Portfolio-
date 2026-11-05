@@ -5,6 +5,7 @@ import CommandPalette from "./components/CommandPalette.jsx";
 import CustomCursor from "./components/CustomCursor.jsx";
 import Footer from "./components/Footer.jsx";
 import Navbar from "./components/Navbar.jsx";
+import Preloader from "./components/Preloader.jsx";
 import SectionDock from "./components/SectionDock.jsx";
 import ContactPage from "./pages/ContactPage.jsx";
 import ExperiencePage from "./pages/ExperiencePage.jsx";
@@ -29,6 +30,7 @@ function ScrollToTop() {
 
 export default function App() {
   const [paletteOpen, setPaletteOpen] = useState(false);
+  const [loading, setLoading] = useState(true);
   useSmoothScroll();
 
   useEffect(() => {
@@ -46,6 +48,7 @@ export default function App() {
 
   return (
     <div className="relative min-h-screen font-sans antialiased">
+      {loading && <Preloader onDone={() => setLoading(false)} />}
       <ScrollToTop />
       <CustomCursor />
       <Navbar onOpenPalette={openPalette} />
