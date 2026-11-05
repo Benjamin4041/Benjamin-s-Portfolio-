@@ -3,8 +3,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Eye, Search } from "lucide-react";
 import content from "../data/content.json";
 import { useViewCount } from "../lib/useViewCount.js";
-import Globe from "./Globe.jsx";
 import { Frame } from "./Layout.jsx";
+import ParticleHero from "./ParticleHero.jsx";
 
 export default function Hero({ onOpenPalette }) {
   const [roleIndex, setRoleIndex] = useState(0);
@@ -24,7 +24,9 @@ export default function Hero({ onOpenPalette }) {
         HIRE ME
       </div>
       <Frame>
-        <Globe />
+        <div className="relative w-full aspect-[758/460] overflow-hidden">
+          <ParticleHero />
+        </div>
       </Frame>
       <Frame className="px-6 py-6 sm:px-8">
         <motion.div
