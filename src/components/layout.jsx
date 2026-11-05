@@ -1,19 +1,46 @@
-import React, { useContext } from "react";
-import Navbar from "./navbar";
-import Footer from "./footer";
-import ScrollToTop from "../hooks/scrolltotop";
-import { ModeContext } from "../context/mode";
-import MobileNavToggoleContext from "../context/MobileNavToggole";
-
-export default function Layout({ children }) {
-  const { mode } = useContext(ModeContext);
-  const { toggleMenu } = useContext(MobileNavToggoleContext);
+export function Frame({ children, className = "" }) {
   return (
-    <div className={toggleMenu ? "!overflow-hidden lg:h-fit h-screen" : ""}>
-      <ScrollToTop />
-      <Navbar />
+    <div className={`relative mx-auto w-full max-w-[760px] border-x border-dashed border-[var(--line)] ${className}`}>
       {children}
-      <Footer mode={mode} />
     </div>
+  );
+}
+
+const CORNERS = [
+  "left-0 top-0 -translate-x-1/2 -translate-y-1/2",
+  "right-0 top-0 translate-x-1/2 -translate-y-1/2",
+  "bottom-0 left-0 -translate-x-1/2 translate-y-1/2",
+  "bottom-0 right-0 translate-x-1/2 translate-y-1/2",
+];
+
+export function SectionHeader({ title, aside, id }) {
+  return (
+    <div id={id} className="bg-stripes relative w-full border-y border-[var(--line)]">
+      <Frame className="bg-[var(--bg)]">
+        {CORNERS.map((corner) => (
+          <span key={corner} className={`absolute z-20 h-[3px] w-[3px] bg-[var(--fg)] opacity-40 ${corner}`} />
+        ))}
+        <div className="flex w-full items-center justify-between gap-4 px-6 py-3 sm:px-8">
+          <h2 className="font-serif text-2xl tracking-wide text-[var(--fg)]">{title}</h2>
+          {aside}
+        </div>
+      </Frame>
+    </div>
+  );
+}
+
+export function GithubIcon({ className }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.39 1.24-3.23-.13-.3-.54-1.53.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.66 1.65.25 2.88.12 3.18.77.84 1.23 1.91 1.23 3.23 0 4.63-2.8 5.65-5.48 5.95.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12.01 12.01 0 0 0 24 12.5C24 5.87 18.63.5 12 .5z" />
+    </svg>
+  );
+}
+
+export function LinkedinIcon({ className }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z" />
+    </svg>
   );
 }

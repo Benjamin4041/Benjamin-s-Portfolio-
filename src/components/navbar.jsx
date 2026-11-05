@@ -1,93 +1,100 @@
-import React, { useContext, useState } from "react";
-import { RxHamburgerMenu } from "react-icons/rx";
-import { MdOutlineWbSunny } from "react-icons/md";
-import { FaMoon } from "react-icons/fa";
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import ModeProvider from "../context/mode";
-import NavbarOptions from "./NavbarOptions";
-import MobileNavToggoleContext, { MobileNavToggole } from "../context/MobileNavToggole";
+import { Menu, Moon, Search, Sun, X } from "lucide-react";
+import content from "../data/content.json";
+import { useTheme } from "../lib/theme.jsx";
+import { Frame } from "./Layout.jsx";
 
-export default function Navbar({style}) {
-  const { toggleMenu, setToggleMenu } = useContext(MobileNavToggoleContext);
-  const { mode, setMode } = useContext(ModeProvider);
-  const location = useLocation();
+export const NAV_LINKS = [
+  { label: "Home", path: "/" },
+  { label: "Projects", path: "/projects" },
+  { label: "Experience", path: "/experience" },
+  { label: "Contact", path: "/contact" },
+];
 
-  // Helper to map path to menu
-  const getSelectedMenu = () => {
-    if (location.pathname === "/") return "home";
-    if (location.pathname === "/work") return "projects";
-    if (location.pathname === "/about") return "about";
-    if (location.pathname === "/contact") return "contact";
-    return "";
-  };
-  const selectedMenu = getSelectedMenu();
+const ICON_BUTTON =
+  "grid size-[28px] cursor-pointer place-items-center rounded-full border border-[var(--line)] text-[var(--muted)] transition-colors hover:text-[var(--fg)]";
 
-  const menu = () => {
-    setToggleMenu((prev) => !prev);
-  };
+export default function Navbar({ onOpenPalette }) {
+  const { theme, toggleTheme } = useTheme();
+  const { pathname } = useLocation();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  const toggoleMode = () => {
-    setMode((prev) => (prev === "light" ? "dark" : "light"));
-  };
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 10);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => setMenuOpen(false), [pathname]);
+
   return (
-    <div className={`flex justify-end pt-3 lg:pt-0 ${style}`}>
-      <nav
-        className={
-          toggleMenu
-            ? mode === "light"
-              ? `w-screen  lg:w-fit lg:m-auto lg:gap-9 lg:absolute lg:px-9 lg:top-7 lg:rounded-full lg:mt-5 lg:h-fit mt-0 h-Dscreen float-right flex text-white bg-black lg:justify-center justify-start items-center py-5 px-36 lg:flex-row flex-col top-0 fixed z-20`
-              : `w-screen  lg:w-fit lg:m-auto lg:gap-9 lg:absolute lg:px-9 lg:top-7 lg:rounded-full lg:mt-5 lg:h-fit mt-0 h-Dscreen float-right flex text-black bg-white lg:justify-center justify-start items-center py-5 px-36 lg:flex-row flex-col top-0 fixed z-20`
-            : mode === "light"
-            ? `lg:m-auto lg:w-fit lg:relative lg:top-7 w-fit rounded-full flex bg-black lg:mt-5 text-white justify-between py-5 gap-9 lg:px-9 px-5`
-            : `lg:m-auto lg:w-fit lg:relative lg:top-7 w-fit rounded-full flex bg-white lg:mt-5 text-black justify-between py-5 gap-9 lg:px-9 px-5`
-        }
-      >
-        <RxHamburgerMenu
-          className={
-            toggleMenu
-              ? "lg:hidden md:hidden self-start lg:mb-0 mb-48"
-              : "lg:hidden md:hidden self-start"
-          }
-          onClick={menu}
-          size={25}
-        />
-
-        <NavbarOptions content={"Home"} to={"/"} />
-        <NavbarOptions content={"Works"} to={"/works"} />
-        <NavbarOptions content={"About"} to={"/about"} />
-        <NavbarOptions content={"Contact"} to={"/contact"} />
-
-        {mode === "light" ? (
-          <FaMoon
-            className="self-center cursor-pointer lg:inline-block hidden"
-            onClick={toggoleMode}
-          />
-        ) : (
-          <MdOutlineWbSunny
-            className="self-center cursor-pointer lg:inline-block hidden"
-            onClick={toggoleMode}
-          />
-        )}
-        {/* {mode === "light" ? (
-          <FaMoon
-            className={
-              toggleMenu
-                ? "self-center cursor-pointer lg:hidden inline-block"
-                : "self-center cursor-pointer hidden "
-            }
-            onClick={toggoleMode}
-          />
-        ) : (
-          <MdOutlineWbSunny
-            className={
-              toggleMenu
-                ? "self-center cursor-pointer lg:hidden inline-block"
-                : "self-center cursor-pointer hidden "
-            }
-            onClick={toggoleMode}
-          />
-        )} */}
-      </nav>
-    </div>
+    <header
+      className={`fixed left-0 right-0 top-0 z-50 mx-auto bg-[var(--bg)]/90 backdrop-blur-md transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+        scrolled
+          ? "mt-2 w-[763px] max-w-[calc(100%-24px)] border border-[var(--line)] shadow-2xl"
+          : "w-full border-b border-[var(--line)]"
+      }`}
+    >
+      <Frame className="flex items-center justify-between px-6 py-4 sm:px-8">
+        <Link to="/" className="font-serif text-xl tracking-wide text-[var(--fg)] transition-opacity hover:opacity-80">
+          {content.firstName}
+        </Link>
+        <div className="flex items-center gap-5">
+          <nav className="hidden items-center gap-5 text-[13px] text-[var(--muted)] sm:flex">
+            {NAV_LINKS.map(({ label, path }) => {
+              const current = pathname === path;
+              return (
+                <Link
+                  key={path}
+                  to={path}
+                  aria-current={current ? "page" : undefined}
+                  className={`group relative transition-colors hover:text-[var(--fg)] ${current ? "font-semibold text-[var(--fg)]" : ""}`}
+                >
+                  {label}
+                  <span
+                    className={`absolute -bottom-0.5 left-0 h-px w-full bg-current transition-transform duration-300 group-hover:scale-x-100 ${
+                      current ? "scale-x-100" : "scale-x-0"
+                    }`}
+                  />
+                </Link>
+              );
+            })}
+          </nav>
+          <div className="flex items-center gap-2.5">
+            <button type="button" onClick={onOpenPalette} aria-label="Open command palette" className={ICON_BUTTON}>
+              <Search size={14} />
+            </button>
+            <button type="button" onClick={toggleTheme} aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`} className={ICON_BUTTON}>
+              {theme === "dark" ? <Sun size={14} /> : <Moon size={14} />}
+            </button>
+            <button
+              type="button"
+              onClick={() => setMenuOpen((open) => !open)}
+              aria-label="Toggle menu"
+              aria-expanded={menuOpen}
+              className={`${ICON_BUTTON} sm:hidden`}
+            >
+              {menuOpen ? <X size={14} /> : <Menu size={14} />}
+            </button>
+          </div>
+        </div>
+      </Frame>
+      {menuOpen && (
+        <nav className="border-t border-[var(--line)] px-6 py-3 sm:hidden">
+          {NAV_LINKS.map(({ label, path }) => (
+            <Link
+              key={path}
+              to={path}
+              className={`block py-2 text-sm ${pathname === path ? "font-semibold text-[var(--fg)]" : "text-[var(--muted)]"}`}
+            >
+              {label}
+            </Link>
+          ))}
+        </nav>
+      )}
+    </header>
   );
 }

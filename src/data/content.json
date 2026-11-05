@@ -1,0 +1,232 @@
+{
+  "name": "Benjamin Anoruo",
+  "firstName": "Benjamin",
+  "profileImages": ["/profile.webp"],
+  "role": "Fullstack React Developer",
+  "email": "anoruokachi2@gmail.com",
+  "about": [
+"Hi, I'm Benjamin, a Full-Stack Developer specialising in React, JavaScript, and modern web technologies. I build scalable web applications, intuitive interfaces, and seamless digital experiences with a focus on performance, usability, and clean architecture. I'm passionate about solving complex problems, creating impactful products, and collaborating with ambitious teams to turn ideas into reliable, user-centred solutions."
+  ],
+  "tldr": [
+    "Fullstack web apps.",
+    "Intuitive, accessible UIs.",
+    "Scalable backend systems.",
+    "Motion and interaction."
+  ],
+  "socials": {
+    "github": "https://github.com/Benjamin4041",
+    "twitter": "https://x.com/AnoruoBenjamin",
+    "linkedin": "https://www.linkedin.com/in/benjamin-anoruo-aa9b36245/",
+    "instagram": "https://www.instagram.com/benjamin_fx_2/",
+    "email": "mailto:anoruokachi2@gmail.com",
+    "resume": "/assets/pdf/Fullstack_cv.pdf"
+  },
+  "experience": [
+    {
+      "company": "SpencerZill",
+      "role": "Full-Stack Developer",
+      "period": "2024 – Present",
+      "blurb": "At Spencerzill Studio, I led impactful development initiatives that streamlined workflows, improved deployment efficiency, and enhanced the user experience across multiple products. My contributions directly reduced operational bottlenecks and enabled teams to ship features faster while maintaining high code quality.",
+      "url": "https://spencerzill.com/"
+    },
+    {
+      "company": "Raven Bank",
+      "role": "Frontend Developer",
+      "period": "2023 – 2024",
+      "blurb": "At RavenBank, I developed scalable frontend architecture and accessibility-focused components to support a modern banking platform. I implemented multilingual support, robust authentication, and optimized client-side systems, ensuring the application was secure, user-friendly, and resilient in production environments.",
+      "url": "https://getravenbank.com/"
+    },
+    {
+      "company": "Roqqu",
+      "role": "Frontend Developer",
+      "period": "2021 – 2023",
+      "blurb": "At Roqqu, I rebuilt and modernized the company’s marketing site while delivering polished, accessible, and performance-focused frontend applications for multiple clients. My work emphasized speed, design quality, and consistent delivery standards, improving both the product experience and development workflow.",
+      "url": "https://roqqu.com/"
+    }
+  ],
+  "projects": [
+    {
+      "title": "Raven Bank",
+      "blurb": "A digital banking platform for individuals and businesses to send, receive and save money on the web and on mobile.",
+      "story": "Raven Bank is a digital banking platform for individuals and businesses, letting people send, receive and save money on the web and on mobile. I worked on the web frontend: a reusable component library, multilingual and localized experiences, and secure authentication and navigation flows, all built with accessibility and production reliability in mind.\n\nProject goals: create a scalable, maintainable frontend component library; enable multilingual and localized user experiences; build secure authentication and navigation flows; ensure production reliability through utility optimization.\n\nOutcome: a secure, accessible banking web app with multilingual support, built on a component library the team can keep extending.",
+      "stack": [
+        "JavaScript",
+        "HTML5",
+        "CSS3 / Sass",
+        "Localization & Routing Systems",
+        "Accessibility Best Practices"
+      ],
+      "year": "2023 – 2024",
+      "links": {
+        "live": "https://getravenbank.com/"
+      },
+      "featured": true,
+      "image": "https://res.cloudinary.com/ba-foods/image/upload/v1753693942/screenshot-20250728100552_cueeuo.png",
+      "categories": ["Frontend"]
+    },
+    {
+      "title": "Roqqu",
+      "blurb": "A crypto and payments app for trading crypto and sending and receiving money across borders. I rebuilt its marketing website.",
+      "story": "Roqqu is a crypto and payments app for trading crypto and sending and receiving money across borders. I rebuilt and modernized its marketing website with React and Gatsby, focusing on speed, accessibility and visual polish, and delivered frontend work for multiple clients to the same standard.\n\nProject goals: modernize and optimize marketing website architecture; improve accessibility and visual polish in all delivered products; maintain high-quality, standardized frontend codebases; ensure timely, client-focused delivery.\n\nOutcome: a faster, more polished and accessible marketing site, delivered alongside a more consistent, standardized frontend workflow.",
+      "stack": [
+        "React",
+        "Gatsby",
+        "JavaScript",
+        "HTML5",
+        "CSS3 / Sass",
+        "Accessibility Best Practices"
+      ],
+      "year": "2021 – 2023",
+      "links": {
+        "live": "https://roqqu.com/"
+      },
+      "featured": true,
+      "image": "https://res.cloudinary.com/ba-foods/image/upload/v1753694123/screenshot-20250728100526_dk1e6w.png",
+      "categories": ["Frontend"]
+    },
+    {
+      "title": "SpencerZill",
+      "blurb": "A creative studio producing animation, branding, motion and VFX work for brands and agencies.",
+      "story": "SpencerZill is a creative studio producing animation, branding, motion and VFX work for brands and agencies. As a full-stack developer there, I lead development initiatives across multiple products, working with the UX team on product design decisions and building cross-browser compatible frontends.\n\nProject goals: workflow optimization and productivity improvements; cross-browser compatible frontend development; collaboration with UX to guide product design decisions.\n\nOutcome: streamlined workflows and more efficient deployments, so the team ships features faster while keeping code quality high.",
+      "stack": [
+        "React",
+        "JavaScript",
+        "HTML5",
+        "CSS3 / Sass",
+        "Bootstrap",
+        "ReactPlayer (Vimeo & YouTube)",
+        "Cloudinary",
+        "Vercel",
+        "UX Collaboration",
+        "Deployment Automation"
+      ],
+      "year": "2024 – Present",
+      "links": {
+        "live": "https://spencerzill.com/"
+      },
+      "featured": true,
+      "image": "https://res.cloudinary.com/ba-foods/image/upload/v1708872646/Screenshot_2024-02-24_at_5.31.23_pm_swr1uh.png",
+      "categories": ["Fullstack"]
+    }
+  ],
+  "skills": [
+    "HTML",
+    "CSS",
+    "Javascript",
+    "Python",
+    "React.JS",
+    "Next.JS",
+    "React Native",
+    "Redux",
+    "Material UI",
+    "R3F",
+    "GSAP",
+    "D3JS",
+    "Jquery",
+    "Bootstrap",
+    "Node.js",
+    "Express.js",
+    "REST APIs",
+    "JWT",
+    "OAuth",
+    "MongoDB",
+    "AWS (EC2, S3, Lambda, Rekognition)",
+    "Firebase",
+    "IAM",
+    "PAM"
+  ],
+  "github": {
+    "username": "Benjamin4041"
+  },
+  "footerNote": "Built by Benjamin Anoruo",
+  "roles": [
+    "Fullstack React Developer",
+    "Frontend Developer",
+    "UI Engineer",
+    "Fullstack Developer"
+  ],
+  "why": [
+    {
+      "title": "Comprehensive Skill Set",
+      "text": "As a full stack developer, I bring expertise across both frontend and backend technologies, ensuring seamless integration and holistic development solutions."
+    },
+    {
+      "title": "Problem-Solving Mindset",
+      "text": "I excel at analyzing complex requirements and translating them into efficient, scalable systems. I proactively identify challenges and craft robust solutions."
+    },
+    {
+      "title": "Focus on User Experience",
+      "text": "Beyond writing clean code, I prioritize intuitive interfaces and smooth interactions, delivering products that users love to engage with."
+    },
+    {
+      "title": "Commitment to Quality & Collaboration",
+      "text": "I value clear communication and thrive in team environments. I’m dedicated to writing maintainable code, following best practices, and always pushing for the highest standards."
+    }
+  ],
+  "testimonials": [
+    {
+      "name": "Bryan",
+      "role": "Product Designer {Binance}",
+      "quote": "Benjamin's prowess as a developer is unparalleled. His ability to translate abstract ideas into exceptional digital solutions is remarkable. Over the years, I've seen him craft everything from intricate web applications to seamless user experiences with finesse and professionalism."
+    },
+    {
+      "name": "ZARA",
+      "role": "Product Designer",
+      "quote": "Working with Benjamin feels effortless. He anticipates every design nuance, delivers polished interfaces ahead of schedule, and keeps collaboration focused with clear, thoughtful communication."
+    },
+    {
+      "name": "Prince Kingsley",
+      "role": "Product Designer {Innoson}",
+      "quote": "Benjamin combines strategic thinking with clean execution. He balances performance, accessibility, and visual craft so our products launch stronger with each iteration."
+    }
+  ],
+  "skillIcons": {
+    "HTML": "logos:html-5",
+    "CSS": "logos:css-3",
+    "Javascript": "logos:javascript",
+    "Python": "logos:python",
+    "React.JS": "logos:react",
+    "Next.JS": "logos:nextjs-icon",
+    "React Native": "logos:react",
+    "Redux": "logos:redux",
+    "Material UI": "logos:material-ui",
+    "R3F": "simple-icons:threedotjs",
+    "GSAP": "simple-icons:greensock",
+    "D3JS": "logos:d3",
+    "Jquery": "logos:jquery",
+    "Bootstrap": "logos:bootstrap",
+    "Node.js": "logos:nodejs-icon",
+    "Express.js": "logos:express",
+    "REST APIs": "lucide:braces",
+    "JWT": "logos:jwt-icon",
+    "OAuth": "lucide:key-round",
+    "MongoDB": "logos:mongodb-icon",
+    "AWS (EC2, S3, Lambda, Rekognition)": "logos:aws",
+    "Firebase": "logos:firebase",
+    "IAM": "lucide:shield",
+    "PAM": "lucide:lock"
+  },
+  "skillCategories": {
+    "Languages": ["HTML", "CSS", "Javascript", "Python"],
+    "Frontend": [
+      "React.JS",
+      "Next.JS",
+      "React Native",
+      "Redux",
+      "Material UI",
+      "R3F",
+      "GSAP",
+      "D3JS",
+      "Jquery",
+      "Bootstrap"
+    ],
+    "Backend": ["Node.js", "Express.js", "REST APIs", "JWT", "OAuth"],
+    "Databases": ["MongoDB", "Firebase"],
+    "DevOps & Cloud": [
+      "AWS (EC2, S3, Lambda, Rekognition)",
+      "Firebase",
+      "IAM",
+      "PAM"
+    ]
+  }
+}
