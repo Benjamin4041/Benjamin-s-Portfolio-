@@ -1,21 +1,21 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { Activity, Briefcase, FolderOpen, Heart, Mail, MessageSquareQuote, User, Wrench } from "lucide-react";
+import { Briefcase, FolderOpen, Heart, Mail, MessageSquareQuote, User, Wrench } from "lucide-react";
 
 const SECTIONS = [
+  { id: "projects", label: "Projects", Icon: FolderOpen },
   { id: "about", label: "About", Icon: User },
   { id: "contact", label: "Contact", Icon: Mail },
-  { id: "projects", label: "Projects", Icon: FolderOpen },
   { id: "experience", label: "Experience", Icon: Briefcase },
   { id: "skills", label: "Tech Stack", Icon: Wrench },
   { id: "why", label: "Why work with me", Icon: Heart },
   { id: "testimonials", label: "Testimonials", Icon: MessageSquareQuote },
-  { id: "github", label: "GitHub Activity", Icon: Activity },
 ];
 
 export default function SectionDock() {
   const { pathname } = useLocation();
   const [current, setCurrent] = useState("");
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     if (pathname !== "/") return undefined;
@@ -26,6 +26,8 @@ export default function SectionDock() {
         return el && line >= el.offsetTop && line < el.offsetTop + el.offsetHeight;
       });
       setCurrent(section ? section.id : "");
+      const projects = document.getElementById("projects");
+      setVisible(Boolean(projects) && line >= projects.offsetTop);
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -35,7 +37,9 @@ export default function SectionDock() {
   if (pathname !== "/") return null;
 
   return (
-    <aside className="group fixed left-[calc(50%+400px)] top-[24vh] z-30 hidden w-10 transition-[width] duration-300 ease-out hover:w-[170px] xl:block">
+    <aside className={`group fixed left-[calc(50%+400px)] top-[24vh] z-30 hidden w-10 transition-[width,opacity] duration-300 ease-out hover:w-[170px] xl:block ${
+        visible ? "opacity-100" : "pointer-events-none opacity-0"
+      }`}>
       <div className="mb-2 h-6 overflow-hidden whitespace-nowrap px-2">
         <span className="font-mono text-[10px] font-medium uppercase tracking-[0.12em] text-[var(--soft)] opacity-0 transition-opacity duration-200 group-hover:opacity-100">
           On this page

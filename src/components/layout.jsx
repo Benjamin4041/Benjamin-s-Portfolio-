@@ -1,6 +1,6 @@
 export function Frame({ children, className = "" }) {
   return (
-    <div className={`relative mx-auto w-full max-w-[760px] border-x border-dashed border-[var(--line)] ${className}`}>
+    <div className={`relative mx-auto w-full max-w-[760px] border-x border-dashed border-[var(--frame-line)] ${className}`}>
       {children}
     </div>
   );

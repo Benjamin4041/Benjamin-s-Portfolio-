@@ -34,6 +34,7 @@
   --muted: #a1a1aa;
   --soft: #63636b;
   --line: rgba(255, 255, 255, 0.1);
+  --frame-line: rgba(255, 255, 255, 0.24);
   --stripe: rgba(255, 255, 255, 0.055);
   --hover: rgba(255, 255, 255, 0.05);
   --card: #101010;
@@ -51,6 +52,7 @@
   --muted: #52525b;
   --soft: #a1a1aa;
   --line: rgba(0, 0, 0, 0.1);
+  --frame-line: rgba(0, 0, 0, 0.22);
   --stripe: rgba(0, 0, 0, 0.055);
   --hover: rgba(0, 0, 0, 0.04);
   --card: #ffffff;

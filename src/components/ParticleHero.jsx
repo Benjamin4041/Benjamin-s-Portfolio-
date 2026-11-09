@@ -6,7 +6,7 @@ export default function ParticleHero({
   accent,                     // a few warm dots; defaults per theme, pass null for none
   font = '"Instrument Serif", Georgia, serif',
   topLeft = "<Benjamin />",
-  bottomRight = "push the letters apart",
+  bottomRight = "",
 }) {
   const frameRef = useRef(null);
   const canvasRef = useRef(null);

@@ -7,6 +7,20 @@ import content from "../data/content.json";
 import { Frame, SectionHeader } from "./Layout.jsx";
 
 const CATEGORIES = ["All", "Frontend", "Backend", "Fullstack"];
+const CARD_STACK_LIMIT = 8;
+
+// Highlights figures like "600,000+" or "80%" inside a project headline.
+function Headline({ text }) {
+  return text.split(/(\d[\d,.]*[+%]?)/).map((part, i) =>
+    i % 2 ? (
+      <span key={i} className="text-emerald-500">
+        {part}
+      </span>
+    ) : (
+      part
+    )
+  );
+}
 
 function ProjectCard({ project, onOpen }) {
   const [imageFailed, setImageFailed] = useState(false);
@@ -24,6 +38,7 @@ function ProjectCard({ project, onOpen }) {
         <div className="relative mb-4 flex h-48 w-full flex-col justify-between overflow-hidden rounded-lg border border-[var(--line)] bg-gradient-to-br from-[var(--chip)] via-[var(--card)] to-[var(--bg)] p-3">
           <div className="bg-stripes pointer-events-none absolute inset-0 opacity-20" />
           <div className="relative z-20 flex items-center justify-between gap-2">
+            {project.links.live ? (
             <span className="flex items-center gap-1 rounded border border-emerald-500/40 bg-emerald-500/20 px-2 py-0.5 font-mono text-[9px] font-semibold uppercase tracking-wider text-emerald-300 backdrop-blur-md">
               <span className="relative flex size-1.5">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
@@ -31,6 +46,9 @@ function ProjectCard({ project, onOpen }) {
               </span>
               Live
             </span>
+            ) : (
+              <span />
+            )}
             {project.featured && (
               <span className="rounded border border-amber-500/30 bg-amber-400/10 px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-wider text-amber-500">
                 Featured
@@ -51,19 +69,25 @@ function ProjectCard({ project, onOpen }) {
             <div className="self-end font-serif text-2xl text-[var(--fg)] opacity-90">{project.title}</div>
           )}
         </div>
-        <div className="flex items-start justify-between gap-2">
-          <h3 className="text-[16px] font-semibold tracking-wide text-[var(--fg)]">{project.title}</h3>
-          <span className="font-mono text-xs text-[var(--soft)]">{project.year}</span>
+        <div className="flex items-center justify-between gap-2">
+          <span className="font-mono text-[10.5px] uppercase tracking-wider text-[var(--soft)]">{project.title}</span>
+          {project.engagement && <span className="font-mono text-[10.5px] uppercase tracking-wider text-[var(--soft)]">{project.engagement}</span>}
         </div>
+        <h3 className="mt-1.5 text-[14px] font-medium leading-snug text-[var(--fg)]"><Headline text={project.headline ?? project.title} /></h3>
         <p className="mt-2 line-clamp-4 text-[13px] leading-relaxed text-[var(--muted)]">{project.blurb}</p>
       </div>
       <div className="mt-4 flex items-center justify-between gap-3 border-t border-[var(--line)] pt-3">
         <div className="flex flex-wrap gap-1.5">
-          {project.stack.map((tech) => (
+          {project.stack.slice(0, CARD_STACK_LIMIT).map((tech) => (
             <span key={tech} className="rounded border border-[var(--line)] bg-[var(--chip)] px-2 py-0.5 font-mono text-[10.5px] text-[var(--muted)]">
               {tech}
             </span>
           ))}
+          {project.stack.length > CARD_STACK_LIMIT && (
+            <span className="rounded border border-dashed border-[var(--line)] px-2 py-0.5 font-mono text-[10.5px] text-[var(--soft)]">
+              +{project.stack.length - CARD_STACK_LIMIT} more
+            </span>
+          )}
         </div>
         {project.links.live && (
           <a
@@ -116,7 +140,7 @@ function ProjectModal({ project, onClose }) {
         className="relative z-[10000] flex max-h-[90vh] w-full max-w-4xl flex-col overflow-hidden rounded-xl border border-[var(--line)] bg-[var(--bg)] shadow-2xl"
       >
         <div className="flex shrink-0 items-center justify-between border-b border-[var(--line)] px-5 py-4 sm:px-7">
-          <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--muted)]">Project / {project.year}</span>
+          <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--muted)]">Project{project.engagement ? ` / ${project.engagement}` : ""}</span>
           <button
             type="button"
             onClick={onClose}
@@ -140,8 +164,9 @@ function ProjectModal({ project, onClose }) {
                 </span>
               ))}
             </div>
-            <h2 id="project-modal-title" className="text-3xl font-medium tracking-[-0.035em] text-[var(--fg)] sm:text-4xl">
-              {project.title}
+            <span className="font-mono text-[11px] uppercase tracking-wider text-[var(--soft)]">{project.title}</span>
+            <h2 id="project-modal-title" className="mt-2 text-xl font-medium leading-snug tracking-[-0.02em] text-[var(--fg)] sm:text-2xl">
+              <Headline text={project.headline ?? project.title} />
             </h2>
             <div className="mt-5 space-y-4 text-[14.5px] leading-relaxed text-[var(--muted)]">
               {project.story.split("\n\n").map((paragraph) => (
@@ -187,6 +212,7 @@ export default function Projects({ searchable = false, limit }) {
       if (!searchable || !term) return true;
       return (
         project.title.toLowerCase().includes(term) ||
+        project.headline?.toLowerCase().includes(term) ||
         project.blurb.toLowerCase().includes(term) ||
         project.stack.some((tech) => tech.toLowerCase().includes(term))
       );

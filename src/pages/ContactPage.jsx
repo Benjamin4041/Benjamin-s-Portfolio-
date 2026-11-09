@@ -11,10 +11,7 @@ const EMAILJS = {
 };
 
 const SOCIALS = [
-  { label: "GitHub", href: content.socials.github, icon: "mdi:github" },
   { label: "LinkedIn", href: content.socials.linkedin, icon: "mdi:linkedin" },
-  { label: "X", href: content.socials.twitter, icon: "ri:twitter-x-fill" },
-  { label: "Instagram", href: content.socials.instagram, icon: "mdi:instagram" },
 ];
 
 const LABEL = "font-mono text-[10px] uppercase tracking-wider text-[var(--soft)]";
@@ -131,7 +128,7 @@ export default function ContactPage() {
             </div>
             <div className="mt-8">
               <h4 className={`mb-3 ${LABEL}`}>Find Me Online</h4>
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-1 gap-2 sm:w-1/2">
                 {SOCIALS.map(({ label, href, icon }) => (
                   <a
                     key={label}

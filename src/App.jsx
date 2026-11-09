@@ -55,7 +55,7 @@ export default function App() {
       <SectionDock />
       <main className="relative z-10 pt-[61px]">
         <Routes>
-          <Route path="/" element={<HomePage onOpenPalette={openPalette} />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/experience" element={<ExperiencePage />} />
           <Route path="/contact" element={<ContactPage />} />
